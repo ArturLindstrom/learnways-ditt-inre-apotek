@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#app{
+    font-family: 'Apercu';
+    width: 100%;
+    min-height: 200vh;
+
+
+
+}
+
+h1{
+    font-size: 120px;
+    font-weight: 300;
+    color: #000;
+}
+
+h2{
+    font-size: 60px;
+    font-weight: 'light';
+    color: #000;
+}
+
+h3{
+    font-size: 32px;
+    font-weight: 'regular';
+    color: #000;
+}
+
+h4{
+    font-size: 32px;
+    font-weight: 'bold';
+    color: #000;
+}
+
+@font-face{
+    font-family: 'Apercu';
+    src: local('Apercu'), url(/assets/fonts/Apercu_Regular.otf);
+    font-weight: 'regular';
+}
+
+@font-face{
+    font-family: 'Apercu';
+    src: local('Apercu'), url(/assets/fonts/Apercu_medium.otf);
+    font-weight: 'medium';
+}
+
+@font-face{
+    font-family: 'Apercu';
+    src: local('Apercu'), url(/assets/fonts/Apercu_Bold.otf);
+    font-weight: 'Bold';
+}
+
+@font-face{
+    font-family: 'Apercu';
+    src: local('Apercu'), url(/assets/fonts/Apercu_Light.otf);
+    font-weight: 'Light';
+}
+
