@@ -1,7 +1,6 @@
 <template>
 <section>
     <InformationButton @openInfo="showInfo = !showInfo"/>
-    <DialogButton></DialogButton>
     <div class="text-container">
         <h1>Ditt inre apotek</h1>
         <h4>
