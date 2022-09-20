@@ -1,14 +1,13 @@
 <template>
 <div class="dialog-wrapper">
   <button @click="showDialog = !showDialog">
-  
   </button>
   <transition name="scale">
     <div class="dialog-content" v-if="showDialog">
       <img src="/assets/img/info-line.svg" alt="">
       <transition name="text">
-        <span >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugit doloribus molestias cum tempora impedit commodi, rerum incidunt
+        <span>
+          {{props.text}}
         </span>
       </transition>
     </div>
@@ -20,6 +19,13 @@
 import { ref } from 'vue';
 
 const showDialog = ref(false)
+
+const props = defineProps({
+  text: {
+    type: String,
+    required: true
+  }
+})
 </script>
 
 <style scoped lang='scss'>
@@ -42,7 +48,7 @@ const showDialog = ref(false)
     cursor: pointer;
     transition: transform 0.2s;
     &:hover{
-      transform: rotate(45deg);
+      filter: brightness(0.8);
     }
   }
 
@@ -52,6 +58,9 @@ const showDialog = ref(false)
     display: flex;
    
   }
+  img{
+    width: 30%;
+  }
   span{
     display: block;
     width: 200px;
@@ -59,6 +68,7 @@ const showDialog = ref(false)
     background-color: white;
     padding: 10px;
     transform: translate(-20px);
+    font-size: 18px;
   }
 
   .scale-enter-active,
