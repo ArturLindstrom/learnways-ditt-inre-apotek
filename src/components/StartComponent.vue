@@ -1,11 +1,14 @@
 <template>
 <section>
     <InformationButton @openInfo="showInfo = !showInfo"/>
+    <DialogButton></DialogButton>
     <div class="text-container">
         <h1>Ditt inre apotek</h1>
-        <p>I och på din kropp finns det flera trillioner mikrober, den så kallade mikrobiotan. Bakterier, virus, svamp och uråldriga livsformer, varav de flesta är goda och viktiga för din hälsa.</p>
+        <h4>
+            I och på din kropp finns det flera trillioner mikrober, den så kallade mikrobiotan. Bakterier, virus, svamp och uråldriga livsformer, varav de flesta är goda och viktiga för din hälsa.
+        </h4>
+        <ButtonComponent type="scroll">Börja skrolla</ButtonComponent>
     </div>
-    <ButtonComponent type="scroll">Börja skrolla</ButtonComponent>
     <transition>
         <InformationComponent v-if="showInfo"/>
     </transition>
@@ -17,6 +20,8 @@
 import ButtonComponent from './ButtonComponent.vue';
 import InformationComponent from './InformationComponent.vue';
 import InformationButton from './InformationButton.vue';
+import DialogButton from './DialogButton.vue';
+
 
 const showInfo = ref(false)
 
@@ -30,22 +35,23 @@ section{
     flex-direction: column;
     justify-content: center; 
     align-items: flex-start; 
-    padding: 0 140px;
+
 }
 
 .text-container{
-    max-width: 70%;
+    max-width: 850px;
+    margin-left: 140px
 }
 
 h1{
     margin-bottom: 40px;
 }
 
-p{
-    font-size: 32px;
-    font-weight: bold;
+h4{
     margin-bottom: 40px;
 }
+
+
 
 .v-enter-active,
 .v-leave-active {
