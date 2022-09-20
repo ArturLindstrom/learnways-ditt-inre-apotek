@@ -17,6 +17,7 @@ export default createStore({
     },
     modalClose(state) {
       state.modalShown = false;
+      state.showNav = true;
      
       // enables scrolling when modal is closed
       document.body.style.overflow = 'auto';
@@ -24,6 +25,7 @@ export default createStore({
     modalOpen(state, content) {
       state.modalShown = true;
       state.modalContent = content;
+      state.showNav = false; 
       //removes scrollbar on background when modal is open
       document.body.style.overflow = 'hidden';
     },

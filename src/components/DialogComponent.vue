@@ -19,7 +19,7 @@
 
     <div class="dialog-wrapper" >
 
-      <img src="/assets/img/apotek-kvinna.png" alt="">
+      <!-- <img src="/assets/img/old/apotek-kvinna.png" alt=""> -->
       <DialogButton 
       v-for="(button, i) in 4" :key="button"
       :text="data[`dia_hot_0${i+1}`]"
@@ -53,9 +53,11 @@ import ModalComponent from './ModalComponent.vue';
 <style scoped lang='scss'>
 .wrapper{
   background-color: #CFE0DF;
+  background: url('/assets/img/old/apotek-kvinna.png') no-repeat #CFE0DF right -40% top 30%;
+  background-size: 90%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   place-items: center; 
 }
 
@@ -70,7 +72,7 @@ h2{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   height: 100%;
   /* img{
     width: 100%;
@@ -108,22 +110,50 @@ h2{
 }
 
 .dialog-button1{
-  top: -12%;
-  left: 1%;
+  top: -5%;
+  left: -12%;
 }
 
 .dialog-button2{
-  top: -4%;
-  right: 8%;
+  top: 10%;
+  left: -28%;
 }
 
 .dialog-button3{
-  top: 6%;
-  left: -2%;
+  top: 30%;
+  left: -18%;
 }
 
 .dialog-button4{
-  top: 13%;
-  right: 5%;
+  top: 40%;
+  left: -19%;
+}
+
+@media screen and (max-width: 1600px) {
+  .wrapper{
+    background-position: right 0 top 30%;
+    background-size: 70%;
+  }
+
+
+.dialog-button1{
+  top: -6%;
+  left: 4%;
+}
+
+.dialog-button2{
+  top: 8%;
+  left: -10%;
+}
+
+.dialog-button3{
+  top: 25%;
+  left: 0;
+}
+
+.dialog-button4{
+  top: 35%;
+  left: -3%;
+}
 }
 </style>

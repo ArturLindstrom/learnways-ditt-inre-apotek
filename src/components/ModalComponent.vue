@@ -8,7 +8,11 @@
               <img class="close-icon" src="assets/img/icon-close.svg" alt="Stäng" @click="closeModal" tabindex="3" @keyup.enter="closeModal"/>
             </div>
             <div class="modal-content-inner">
-              <h4 class="modal heading">{{store.state.modalContent.heading}}</h4>
+              <h4 class="modal-heading">
+                {{store.state.modalContent.heading}}
+              </h4>
+              <p class="modal-body" v-html="store.state.modalContent.body">
+              </p>
             </div>
 
         </div>
@@ -63,6 +67,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center center;
   }
 
   .modal-content {
@@ -70,8 +76,9 @@
     border-radius: 10px;
     margin: auto;
     border: 1px solid #888;
-    height: 100vh;
-    max-width: 1200px;
+    height: 70%;
+    min-width: 500px;
+    max-width: 800px;
     position: relative;
     overflow-y: auto;
     z-index: 3;
@@ -85,7 +92,7 @@
     position: fixed;
     display: grid;
     margin-top: 1rem;
-    grid-template-columns: 24.5fr 1fr 1fr;
+    grid-template-columns: 15.5fr 1fr 1fr;
     grid-template-areas: ".. close-text close-icon";
     place-items: center;
     z-index: 9999;
@@ -111,6 +118,19 @@
       cursor: pointer;
       transition: all 0.25s ease-in-out;
     }
+  }
+
+  .modal-content-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    padding: 2rem 0 ;
+  }
+
+  .modal-body{
+    margin-top: 30px;
   }
 
 
@@ -143,7 +163,7 @@
 
   @media screen and (max-width: 768px) {
     .modal {
-      padding: 0;
+      padding: 1rem;
     }
     .modal-content {
       width: 100%;
@@ -160,13 +180,14 @@
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     .modal {
       padding: 0;
     }
     .close-container {
       top: 2%;
       right: 2%;
+      width: 38px;
     }
-  }
+  } */
 </style>
