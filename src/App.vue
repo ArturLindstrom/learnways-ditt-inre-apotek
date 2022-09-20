@@ -9,7 +9,11 @@ import NavComponent from './components/NavComponent.vue';
 </script>
 
 
-<style scoped lang="scss">
+<style lang="scss">
+  #app{
+    background: cornflowerblue;
+  }
 
+  
 </style>
 

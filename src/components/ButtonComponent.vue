@@ -19,7 +19,10 @@ const props = defineProps({
 
 const onClick = () => {
     if(props.type == 'scroll'){
-        //scroll logic here
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        })
     }
 
     if(props.type == 'quiz'){

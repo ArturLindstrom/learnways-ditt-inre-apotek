@@ -1,24 +1,24 @@
 <template>
 <section class="info">
 <h2>
-    Om ditt inre apotek
+    {{data.info_dia_h2}}
 </h2>
 <div class="text-wrapper">
     <div class="text-container">
       <h3>
-          Om hemsidan
+          {{data.info_dia_h3_1}}
       </h3>
       <p>
-            Ditt inre apotek finns för att ge en vetenskaplig evidensbaserad utgångpunkt för vad vår mikrobiota är och vad som kan påverka den. Allt du läser här är information publicerad i vetenskapliga artiklar och vi strävar efter att uppdatera hemsidan så snart det kommer ny forskning.
+        {{data.info_dia_p_1}}
       </p>
       <a href="mailto:hej@dittinreapotek.se">hej@dittinreapotek.se</a>
     </div>
     <div class="text-container">
       <h3>
-          Kontakt
+          {{data.info_dia_h3_2}}
       </h3>
       <p>
-          Vi som skapat webbutbildningen är läkare och sjuksköterskor på Strama Stockholm. Vårt uppdrag är att verka för en klok antibiotikaanvändning. Vi har inga ekonomiska intressen eller andra typer av jäv i förhållande till denna webbutbildning.  
+        {{data.info_dia_p_2}}
       </p>
       <div class="img-container">
         <img src="public/assets/img/strama-logo-new.svg" alt="" width="187">
@@ -30,6 +30,9 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+const store = useStore();
+const data = store.state.data;
 
 </script>
 
@@ -45,6 +48,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 .text-wrapper{

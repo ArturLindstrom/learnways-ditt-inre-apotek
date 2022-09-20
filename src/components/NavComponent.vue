@@ -29,6 +29,7 @@
 
   const routes = ['Start', 'Historia', 'Arter', 'Funktioner', 'Dysbios', 'Antibiotika', 'Probiotika', 'Påverkan', 'Avslutning']
 
+
   const showNav = computed(() => store.state.showNav)
 
   const navToggle = ref(false)
