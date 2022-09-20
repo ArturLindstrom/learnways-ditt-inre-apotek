@@ -40,6 +40,7 @@ section{
     flex-direction: column;
     justify-content: center; 
     align-items: flex-start; 
+    
     /* padding-left: 140px; */
 
 }
