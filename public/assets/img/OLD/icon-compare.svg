@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78" height="78" viewBox="0 0 78 78">
+  <defs>
+    <filter id="Rectangle_1133" x="0" y="0" width="78" height="78" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.149"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Component_215_1" data-name="Component 215 – 1" transform="translate(8 5)">
+    <g transform="matrix(1, 0, 0, 1, -8, -5)" filter="url(#Rectangle_1133)">
+      <g id="Rectangle_1133-2" data-name="Rectangle 1133" transform="translate(8 5)" fill="#eeeae6" stroke="#2f2517" stroke-width="2">
+        <rect width="60" height="60" rx="5" stroke="none"/>
+        <rect x="1" y="1" width="58" height="58" rx="4" fill="none"/>
+      </g>
+    </g>
+    <path id="Union_40" data-name="Union 40" d="M0,11.232,10.8,0l1.964,2.042L5.332,9.773H40L32.566,2.042,34.53,0l10.8,11.232L34.53,22.463l-1.964-2.042L40,12.691H5.332l7.435,7.731L10.8,22.464Z" transform="translate(6.836 18.353)" fill="#362917" stroke="#eeeae6" stroke-width="1"/>
+  </g>
+</svg>
