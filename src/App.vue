@@ -10,8 +10,6 @@ import NavComponent from './components/NavComponent.vue';
 
 
 <style scoped lang="scss">
-  .app{
-    /* background: tomato; */
-  }
+
 </style>
 

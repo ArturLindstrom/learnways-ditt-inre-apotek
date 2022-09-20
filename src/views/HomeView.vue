@@ -1,8 +1,9 @@
 <template>
-
+<StartComponent/>
 </template>
 
 <script setup>
+import StartComponent from '../components/StartComponent.vue';
 
 </script>
 
