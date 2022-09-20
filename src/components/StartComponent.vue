@@ -46,7 +46,6 @@ section{
 
 .text-container{
     max-width: 70%;
-    /* margin-left: 140px */
 }
 
 h1{
