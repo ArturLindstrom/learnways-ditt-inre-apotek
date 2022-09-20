@@ -40,12 +40,13 @@ section{
     flex-direction: column;
     justify-content: center; 
     align-items: flex-start; 
+    /* padding-left: 140px; */
 
 }
 
 .text-container{
     max-width: 70%;
-    margin-left: 140px
+    /* margin-left: 140px */
 }
 
 h1{
@@ -65,6 +66,6 @@ h5{
 
 .v-enter-from,
 .v-leave-to {
-  transform: translateX(110%);
+  transform: translateX(100%);
 }
 </style>
