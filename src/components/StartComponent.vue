@@ -2,11 +2,11 @@
 <section>
     <InformationButton @openInfo="showInfo = !showInfo"/>
     <div class="text-container">
-        <h1>Ditt inre apotek</h1>
-        <h4>
-            I och på din kropp finns det flera trillioner mikrober, den så kallade mikrobiotan. Bakterier, virus, svamp och uråldriga livsformer, varav de flesta är goda och viktiga för din hälsa.
-        </h4>
-        <ButtonComponent type="scroll">Börja skrolla</ButtonComponent>
+        <h1>{{data.dia_p1_h1}}</h1>
+        <h5>
+            {{data.dia_p1_ingress}}
+        </h5>
+        <ButtonComponent type="scroll">{{data.scroll}}</ButtonComponent>
     </div>
     <transition>
         <InformationComponent v-if="showInfo"/>
@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
 import ButtonComponent from './ButtonComponent.vue';
 import InformationComponent from './InformationComponent.vue';
 import InformationButton from './InformationButton.vue';
@@ -23,6 +24,11 @@ import DialogButton from './DialogButton.vue';
 
 
 const showInfo = ref(false)
+
+const store = useStore();
+
+const data = store.state.data;
+
 
 </script>
 
@@ -38,7 +44,7 @@ section{
 }
 
 .text-container{
-    max-width: 850px;
+    max-width: 70%;
     margin-left: 140px
 }
 
@@ -46,7 +52,7 @@ h1{
     margin-bottom: 40px;
 }
 
-h4{
+h5{
     margin-bottom: 40px;
 }
 
