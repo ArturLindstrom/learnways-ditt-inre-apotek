@@ -29,7 +29,13 @@ id="Funktioner"
   modal: {heading:data.dia_popup_h_p04_03, body:data.dia_popup_p_p04_03}},
   ]"
 />
-<JuxtaPositionComponent id="Dysbios"/>
+<JuxtaPositionComponent 
+id="Dysbios"
+:title="data.dia_i_06"
+:heading="data.dia_06_h2"
+:body="data.dia_06_p1"
+:instruction="data.dia_instruction"
+/>
 </template>
 
 <script setup>

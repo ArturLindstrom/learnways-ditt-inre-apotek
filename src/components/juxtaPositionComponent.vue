@@ -1,37 +1,60 @@
 <template>
 <section>
-    <ImgComparisonSlider class="slider">
-        <!-- eslint-disable -->
-        <!-- <img
-          class="first-image"
-          slot="first"
-          style="width: 100%"
-          src="assets/img/juxtaposition1-01-1.png"
-        /> -->
-        <div class="img-test"
-        slot="first">
-
+    <ImgComparisonSlider class="slider" >
+      <div class="red-square"></div>
+      <div class="img" slot="first">
+        <div class="text-container">
+          <p class="page-title">
+            {{props.title}}
+          </p>
+          <h2>
+            {{props.heading}}
+          </h2>
+          <p>
+            {{props.body}}
+          </p>
+          <p class="instruction">
+            {{props.instruction}}
+          </p>
         </div>
-        <!-- <div class="img-test2"
-        slot="second">
-
-        </div> -->
-        <!-- <img
-          class="second-image"
-          slot="second"
-          style="width: 100%"
-          src="assets/img/juxtaposition1-01-2.png"
-        /> -->
-        <!-- eslint-enable -->
-      </ImgComparisonSlider>
+      </div>
+    </ImgComparisonSlider>
 </section>
 </template>
 
 <script setup>
 import { ImgComparisonSlider } from '@img-comparison-slider/vue'
+import { ref } from 'vue';
+
+const show = ref(true);
+
+const props = defineProps({
+    title: {
+        type: String,
+    },
+  heading: {
+    type: String,
+    default: ''
+  },
+  body: {
+    type: String,
+    default: ''
+  },
+  instruction: {
+    type: String,
+    default: ''
+  },
+
+})
 </script>
 
 <style scoped lang='scss'>
+  .red-square{
+    width:200px;
+    height: 200px;
+    background-color: red;
+    z-index: 4;
+  }
 section{
     padding: 0;
     display: flex;
@@ -48,6 +71,9 @@ section{
     --divider-width: 3px;
     --default-handle-color: #000;
     --default-handle-width: 80px;
+    &:focus{
+        outline: none;
+    }
 }
 
 .first-image{
@@ -55,23 +81,27 @@ section{
     /* height: 100%; */
 }
 
-.second-image{
-    background-color: #F0EDE9;
-    height: 100%;
-    width: 100%;
-}
 
-.img-test{
+.img{
     background: url(assets/img/juxtaposition1-01-1.png) #F4E9D7 center center no-repeat; 
     background-size: 100%;
     height: 100%;
     width: 100;
 }
-.img-test2{
-    background-color: #F4E9D7;
-    background-image: url(assets/img/juxtaposition1-01-2.png);
-    height: 100%;
-    width: 100%;
-    outline: red 1px solid;
+
+.text-container{
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 140px;
+
 }
+
+.instruction{
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 </style>
