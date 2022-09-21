@@ -10,8 +10,8 @@
         <ul >
           <div class="line"></div>
           <li v-for="route in routes" :key="route">
-            {{ route }}
-            <a href="">
+            <a :href="'#' + route">
+              {{ route }}
               <div class="ball"></div>
             </a>
           </li>
@@ -88,8 +88,8 @@
     transition: background 1s;
   }
   
-  li{
-
+  a{
+    color: black;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -97,17 +97,21 @@
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
+    text-decoration: none;
     &:hover{
       cursor: pointer;
       text-decoration: underline;
     }
-    &:hover a .ball{
+    &:hover .ball{
       background-color: #707070;
+    }
+    &:visited {
+      color: black;
     }
   }
 
-  a{
-    text-decoration: none;
+  li{
+    list-style: none;
   }
 
   .ball
