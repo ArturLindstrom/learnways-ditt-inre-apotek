@@ -1,11 +1,15 @@
 <template>
-<button @click="onClick" class="button">
+<button @click="onClick" 
+class="button"
+>
+
   <slot></slot>
    <button v-if="props.type == 'scroll'" class="scroll" />
 </button>
 </template>
 
 <script setup>
+  import { ref } from 'vue';
 const props = defineProps({
     type: {
         type: String,
@@ -14,8 +18,14 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
+    },
+    correct: {
+        type: Boolean,
+        default: false
     }
 })
+
+const onAnswer = ref()
 
 const onClick = () => {
     if(props.type == 'scroll'){
@@ -26,13 +36,21 @@ const onClick = () => {
     }
 
     if(props.type == 'quiz'){
-        //quiz logic here
+      if(props.correct){
+        onAnswer.value = 'correct'
+      } else {
+        onAnswer.value = 'incorrect'
+      }
+
     }
 }
+
 </script>
 
 <style scoped lang='scss'>
     .button{
+      position: relative;
+      min-width: 200px;
       border: 2px solid black;
       border-radius: 4px;
       padding: 10px 15px;
@@ -59,4 +77,6 @@ const onClick = () => {
         background: url(assets/scrollButtonArrow.svg) no-repeat center;
         cursor: pointer;
     }
+
+    
 </style>
