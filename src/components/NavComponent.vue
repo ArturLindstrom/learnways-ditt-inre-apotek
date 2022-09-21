@@ -36,10 +36,10 @@
 </script>
 
 <style scoped lang='scss'>
- 
+  
 
   nav{
-   
+    z-index: 3;
     position: fixed;
     top: 0;
     right: 0;

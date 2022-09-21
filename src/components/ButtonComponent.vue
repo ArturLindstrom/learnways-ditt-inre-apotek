@@ -2,6 +2,7 @@
 <button @click="onClick" 
 class="button"
 >
+
   <slot></slot>
    <button v-if="props.type == 'scroll'" class="scroll" />
 </button>
@@ -48,6 +49,8 @@ const onClick = () => {
 
 <style scoped lang='scss'>
     .button{
+      position: relative;
+      min-width: 200px;
       border: 2px solid black;
       border-radius: 4px;
       padding: 10px 15px;
@@ -74,4 +77,6 @@ const onClick = () => {
         background: url(assets/scrollButtonArrow.svg) no-repeat center;
         cursor: pointer;
     }
+
+    
 </style>

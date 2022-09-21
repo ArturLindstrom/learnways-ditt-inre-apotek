@@ -74,11 +74,7 @@ h2{
   flex-direction: column;
   width: 90%;
   height: 100%;
-  /* img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  } */
+
 }
 
 .read-more{

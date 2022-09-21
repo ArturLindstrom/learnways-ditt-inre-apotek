@@ -11,7 +11,7 @@ html{
 #app{
     font-family: 'Apercu';
     width: 100%;
-    min-height: 200vh;
+    min-height: 400vh;
 
 
 
@@ -20,15 +20,18 @@ html{
 section{
     height: 100vh;
     padding: 0 140px;
+    position: relative;
 }
 
 .page-title{
     font-size: 18px;
     font-weight: 400;
     color: #362917;
-    margin-bottom: 126px;
+    margin: 0;
     line-height: 24px;
     text-transform: uppercase;
+    position: absolute;
+    top: 50px;
 }
 
 h1{
