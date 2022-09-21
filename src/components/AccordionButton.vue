@@ -28,11 +28,7 @@ const props = defineProps({
 const isOpen = ref(false);
 
 
-// const toggleAccordion = () => {
-//     isOpen.value = !isOpen.value;
-//     gsap.to('.accordion', {duration: 0.5, height: isOpen.value ? 'auto' : '50px'})
-//     console.log(props)
-// }
+
 </script>
 
 <style scoped lang='scss'>
