@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper">
+  <section class="wrapper" id="dialog">
     <div class="text-container">
       <p class="page-title">{{data.dia_i_02}}</p>
       <h2>
