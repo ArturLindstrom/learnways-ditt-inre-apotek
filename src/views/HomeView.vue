@@ -28,9 +28,14 @@ id="Funktioner"
   readMore: data.q_feedback_4_1_1,
   modal: {heading:data.dia_popup_h_p04_03, body:data.dia_popup_p_p04_03}},
   ]"
->
-
-</AccordionComponent>
+/>
+<JuxtaPositionComponent 
+id="Dysbios"
+:title="data.dia_i_06"
+:heading="data.dia_06_h2"
+:body="data.dia_06_p1"
+:instruction="data.dia_instruction"
+/>
 </template>
 
 <script setup>
@@ -40,6 +45,7 @@ import QuizComponent from '../components/QuizComponent.vue';
 import TextComponent from '../components/TextComponent.vue';
 import { useStore } from 'vuex';
 import AccordionComponent from '../components/AccordionComponent.vue';
+import JuxtaPositionComponent from '../components/juxtaPositionComponent.vue';
 
 const store = useStore();
 const data = store.state.data;
