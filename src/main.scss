@@ -21,6 +21,10 @@ section{
     height: 100vh;
     padding: 0 140px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .page-title{
@@ -34,6 +38,25 @@ section{
     top: 50px;
 }
 
+.read-more{
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 50%;
+    &::after
+    {
+      content: "";
+      height: 0.5em;
+      width: 1em;
+      margin-left: 0.5em;
+      display: inline-block;
+      background-image: url(assets/img/arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      
+    }
+  }
+
 h1{
     font-size: 120px;
     font-weight: 300;
@@ -44,6 +67,8 @@ h2{
     font-size: 60px;
     font-weight: 500;
     color: #000;
+    margin-bottom: 46px;
+    line-height: 74px;
 }
 
 h3{

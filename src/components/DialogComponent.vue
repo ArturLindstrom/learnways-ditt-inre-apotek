@@ -77,7 +77,7 @@ h2{
 
 }
 
-.read-more{
+/* .read-more{
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
@@ -94,7 +94,7 @@ h2{
     background-repeat: no-repeat;
     
   }
-}
+} */
 
 .open{
   font-weight: bold;
