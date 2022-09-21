@@ -1,17 +1,21 @@
 <template>
 <section>
   <p class="page-title">
-    {{data.dia_i_03}}
+    {{props.title}}
   </p>
   <h2>
-    {{data.dia_03_h2}}
+    {{props.heading}}
   </h2>
   <div class="text-wrapper">
     <h4>
-      {{data.dia_03_p1}}
+      {{props.question}}
     </h4>
     <div class="button-wrapper" >
-      <ButtonComponent type="quiz"
+      <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" @click="checkAnswer(answer)">
+        {{answer.answer}}
+        <img :src="path" alt="">
+      </ButtonComponent>
+      <!-- <ButtonComponent type="quiz"
       @click="answer = 'incorrect'"
       >
       <img src="assets/img/wrong.svg" alt="" v-if="answer == 'incorrect'">
@@ -20,7 +24,7 @@
       <ButtonComponent type="quiz" @click="answer = 'correct'">
         <img src="assets/img/right.svg" alt="" v-if="answer == 'correct'">
         {{data.dia_03_q_2}}
-      </ButtonComponent>
+      </ButtonComponent> -->
     </div>
     <p v-if="answer == 'correct'">
       {{data.q_feedback_1_2}}
@@ -38,6 +42,37 @@ import { ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
 const store = useStore();
 const data = store.state.data;
+const path = ref('')
+const checkAnswer = (answer) =>{
+  if(answer.correct){
+    path.value = 'assets/img/right.svg'
+  } else {
+    path.value = 'assets/img/wrong.svg'
+  }
+}
+
+const props = defineProps({
+  title: {
+    type: String,
+  },
+  heading: {
+    type: String,
+    default: ''
+  },
+  question: {
+    type: String,
+    default: ''
+  },
+  answers: {
+    type: Array,
+    default: ''
+  },
+  feedback: {
+    type: Array,
+    default: []
+  },
+  
+})
 
 const answer = ref('')
 
