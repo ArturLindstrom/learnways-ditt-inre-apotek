@@ -93,7 +93,7 @@ const props = defineProps({
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: #F0EDE9;
+    /* background-color: #F0EDE9; */
   }
 .button-wrapper{
   display: flex;

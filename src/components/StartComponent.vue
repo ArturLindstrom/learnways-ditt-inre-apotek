@@ -34,7 +34,7 @@ const data = store.state.data;
 
 <style scoped lang='scss'>
 section{
-    background-color: #F4E9D7;
+    /* background-color: #F4E9D7; */
     height: 100vh;
     display: flex;
     flex-direction: column;

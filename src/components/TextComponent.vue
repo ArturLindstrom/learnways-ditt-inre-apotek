@@ -61,7 +61,7 @@ section{
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    background-color: #F0EDE9;
+    /* background-color: #F0EDE9; */
 }
 .text-wrapper{
     max-width: 50%;

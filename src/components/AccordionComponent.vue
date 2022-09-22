@@ -13,7 +13,7 @@
            
         </div>
         <div class="accordion-container">
-            <div class="accordion" v-for="(button,i) in props.buttons"
+            <div class="accordion" v-for="(button,i) in props.buttons" :key="i"
             :class="{
                 'selected': isSelected === i + 1,
                 'not-selected': isSelected && isSelected !== i + 1,
@@ -80,7 +80,7 @@ const props = defineProps({
 
 <style scoped lang='scss'>
   section{
-    background-color: #DEB881;
+    /* background-color: #DEB881; */
   }
   .button-wrapper{
     display: flex;
@@ -119,11 +119,11 @@ const props = defineProps({
   }
 
   .green{
-    background-color: #BBC19B;
+    /* background-color: #BBC19B; */
   }
 
   .blue{
-    background-color: #AEA2B2;
+    /* background-color: #AEA2B2; */
   }
 
   .v-enter-active{
