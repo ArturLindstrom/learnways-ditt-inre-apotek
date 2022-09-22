@@ -23,9 +23,9 @@ section{
     padding: 0 140px;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column;
 }
 
 .page-title{
