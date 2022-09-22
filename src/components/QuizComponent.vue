@@ -14,6 +14,7 @@
       <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" 
       @click="checkAnswer(answer)"
       >
+      
         {{answer.answer}}
         <img :src="path" alt="">
       </ButtonComponent>
@@ -29,10 +30,10 @@
       </ButtonComponent> -->
     </div>
     <p v-if="answer == 'correct'">
-      {{data.q_feedback_1_2}}
+      {{props.feedback[1]}}
     </p>
     <p v-if="answer == 'incorrect'">
-      {{data.q_feedback_1_1}}
+      {{props.feedback[0]}}
     </p>
   </div>
   </section>
@@ -46,10 +47,13 @@ const store = useStore();
 const data = store.state.data;
 const path = ref('')
 const answerShown = ref(0)
-const checkAnswer = (answer) =>{
-  if(answer.correct){
+const answer = ref('')
+const checkAnswer = (clickedAnswer) =>{
+  if(clickedAnswer.correct){
+    answer.value = 'correct'
     path.value = 'assets/img/right.svg'
   } else {
+    answer.value = 'incorrect'
     path.value = 'assets/img/wrong.svg'
   }
 }
@@ -78,7 +82,6 @@ const props = defineProps({
   
 })
 
-const answer = ref('')
 
 </script>
 
