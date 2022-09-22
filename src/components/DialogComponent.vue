@@ -52,8 +52,8 @@ import ModalComponent from './ModalComponent.vue';
 
 <style scoped lang='scss'>
 .wrapper{
-  background-color: #CFE0DF;
-  background: url('/assets/img/old/apotek-kvinna.png') no-repeat #CFE0DF right -40% top 30%;
+  background: url('/assets/img/old/apotek-kvinna.png') no-repeat  right -40% top 30%;
+  /* background-color: #CFE0DF; */
   background-size: 90%;
   height: 100vh;
   display: grid;
