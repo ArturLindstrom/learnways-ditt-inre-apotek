@@ -45,7 +45,9 @@ id="Dysbios"
 :body="data.dia_06_p1"
 :instruction="data.dia_instruction"
 :textBox="[{heading: data.dia_06_h3_01, body: data.juxta_01_1},
-{heading: data.dia_06_h3_02, body: data.juxta_01_2}]" 
+{heading: data.dia_06_h3_02, body: data.juxta_01_2}]"
+:images="[{src:'url(assets/img/juxtaposition1-01-1.png)'},
+{src:'url(assets/img/juxtaposition1-01-2.png)'}]" 
 />
 </template>
 

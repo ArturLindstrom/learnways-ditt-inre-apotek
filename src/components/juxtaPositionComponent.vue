@@ -1,10 +1,13 @@
 <template>
 <section>
-    <ImgComparisonSlider class="slider" @click="test" value="20">
-      <div class="img" slot="first">
+    <ImgComparisonSlider class="slider" @click="test"
+    :style="{backgroundImage: props.images[1].src}">
+      <div class="img" slot="first"
+      :style="{backgroundImage: props.images[0].src}">
         <div class="text-container">
           <p class="page-title">
             {{props.title}}
+
           </p>
           <h2>
             {{props.heading}}
@@ -56,7 +59,11 @@ const props = defineProps({
   },
   textBox: {
     type: Array,
-  }
+  },
+  images: {
+    type: Array,
+  },
+
 
 })
 </script>
@@ -73,7 +80,7 @@ section{
   position: relative;
     width: 100%;
     height: 100%;
-    background: url(assets/img/juxtaposition1-01-2.png) #BBC19B center center no-repeat;
+    background: #BBC19B center center no-repeat;
     background-size: 100%;
     --divider-color: #000;
     --divider-width: 3px;
@@ -91,7 +98,7 @@ section{
 
 
 .img{
-    background: url(assets/img/juxtaposition1-01-1.png) #F4E9D7 center center no-repeat; 
+    background: #F4E9D7 center center no-repeat; 
     background-size: 100%;
     height: 100%;
     width: 100;
