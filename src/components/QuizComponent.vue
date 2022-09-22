@@ -11,30 +11,32 @@
       {{props.question}}
     </h4>
     <div class="button-wrapper" >
-      <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" 
+      <!-- <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" 
       @click="checkAnswer(answer)"
       >
       
         {{answer.answer}}
         <img :src="path" alt="">
-      </ButtonComponent>
-      <!-- <ButtonComponent type="quiz"
+      </ButtonComponent> -->
+      <ButtonComponent type="quiz"
       @click="answer = 'incorrect'"
       >
       <img src="assets/img/wrong.svg" alt="" v-if="answer == 'incorrect'">
-        {{data.dia_03_q_1}}
+        {{props.answers[0].answer}}
       </ButtonComponent>
       <ButtonComponent type="quiz" @click="answer = 'correct'">
         <img src="assets/img/right.svg" alt="" v-if="answer == 'correct'">
-        {{data.dia_03_q_2}}
-      </ButtonComponent> -->
+        {{props.answers[1].answer}}
+      </ButtonComponent>
     </div>
-    <p v-if="answer == 'correct'">
-      {{props.feedback[1]}}
-    </p>
-    <p v-if="answer == 'incorrect'">
-      {{props.feedback[0]}}
-    </p>
+    <!-- <div class="feedback-container"> -->
+      <p v-show="answer == 'correct'">
+        {{props.feedback[1]}}
+      </p>
+      <p v-show="answer == 'incorrect'">
+        {{props.feedback[0]}}
+      </p>
+    <!-- </div> -->
   </div>
   </section>
 </template>
@@ -100,6 +102,10 @@ const props = defineProps({
 
 .text-wrapper{
   max-width: 70%;
+}
+
+.feedback-container{
+  min-height: 570px;
 }
 
 img{

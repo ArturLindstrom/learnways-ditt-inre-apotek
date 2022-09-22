@@ -19,10 +19,7 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    correct: {
-        type: Boolean,
-        default: false
-    }
+  
 })
 
 const onAnswer = ref()
