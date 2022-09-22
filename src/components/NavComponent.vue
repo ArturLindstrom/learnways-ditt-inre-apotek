@@ -27,7 +27,7 @@
 
   const store = useStore();
 
-  const routes = ['Start', 'Historia', 'Arter', 'Funktioner', 'Dysbios', 'Antibiotika', 'Probiotika', 'Påverkan', 'Avslutning']
+  const routes = ['Start', 'Historia', 'Arter', 'Funktioner', 'Dysbios', 'Antibiotika', 'Begrepp', 'Avföring', 'Påverkan', 'Avslutning']
 
 
   const showNav = computed(() => store.state.showNav)

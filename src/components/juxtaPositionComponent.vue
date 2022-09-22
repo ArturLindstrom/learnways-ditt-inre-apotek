@@ -1,9 +1,9 @@
 <template>
 <section>
-    <ImgComparisonSlider class="slider" @click="test"
-    :style="{backgroundImage: props.images[1].src}">
+    <ImgComparisonSlider class="slider"
+    :style="{backgroundImage: props.images[1].src, backgroundColor: props.images[1].bgColor}">
       <div class="img" slot="first"
-      :style="{backgroundImage: props.images[0].src}">
+      :style="{backgroundImage: props.images[0].src, backgroundColor: props.images[0].bgColor}">
         <div class="text-container">
           <p class="page-title">
             {{props.title}}
@@ -18,14 +18,14 @@
           <p class="instruction" >
             {{props.instruction}}
           </p>
-          <div class="text-box first">
+          <div class="text-box first" :style="{backgroundColor: props.images[1].bgColor}">
             <h3>{{props.textBox[0].heading}}</h3>
             <p>{{props.textBox[0].body}}</p>
           </div>
         </div>
       </div>
       <div slot="second">
-        <div class="text-box second">
+        <div class="text-box second" :style="{backgroundColor: props.images[0].bgColor}">
           <h3>{{props.textBox[1].heading}}</h3>
           <p>{{props.textBox[1].body}}</p>
         </div>
@@ -80,7 +80,7 @@ section{
   position: relative;
     width: 100%;
     height: 100%;
-    background: #BBC19B center center no-repeat;
+    background:  center center no-repeat;
     background-size: 100%;
     --divider-color: #000;
     --divider-width: 3px;
@@ -91,14 +91,11 @@ section{
     }
 }
 
-.first-image{
-    background-color: #F4E9D7;
-    /* height: 100%; */
-}
+
 
 
 .img{
-    background: #F4E9D7 center center no-repeat; 
+    background: center center no-repeat; 
     background-size: 100%;
     height: 100%;
     width: 100;

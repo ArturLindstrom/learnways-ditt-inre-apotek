@@ -19,7 +19,7 @@ html{
 }
 
 section{
-    height: 110vh;
+    height: 100vh;
     padding: 0 140px;
     position: relative;
     display: flex;
@@ -66,7 +66,7 @@ h1{
 
 h2{
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 300;
     color: #000;
     margin-bottom: 46px;
     line-height: 74px;
@@ -76,6 +76,7 @@ h3{
     font-size: 32px;
     font-weight: '500';
     margin-bottom: 27px;
+    line-height: 40px;
     color: #000;
 }
 
@@ -88,7 +89,7 @@ h4{
 
 h5{
     font-size: 24px;
-    font-weight: 'bold';
+    font-weight: 400;
     line-height: 40px;
     color: #000;
 }
