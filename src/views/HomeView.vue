@@ -1,7 +1,16 @@
 <template>
 <StartComponent id="Start"/>
 <DialogComponent id="Historia"/>
-<QuizComponent id="Arter"/>
+<QuizComponent 
+id="Arter"
+:title="data.dia_i_03"
+:heading="data.dia_03_h2"
+:question="data.dia_03_p1"
+:answers="[{answer: data.dia_03_q_1, correct: false}, 
+{answer: data.dia_03_q_2, correct: true}]"
+:feedback="[data.q_feedback_1_1, data.q_feedback_1_2]"
+
+/>
 <TextComponent 
 :heading="data.dia_03_h2_2" 
 :body="data.dia_03_p2" 
@@ -35,6 +44,8 @@ id="Dysbios"
 :heading="data.dia_06_h2"
 :body="data.dia_06_p1"
 :instruction="data.dia_instruction"
+:textBox="[{heading: data.dia_06_h3_01, body: data.juxta_01_1},
+{heading: data.dia_06_h3_02, body: data.juxta_01_2}]" 
 />
 </template>
 
