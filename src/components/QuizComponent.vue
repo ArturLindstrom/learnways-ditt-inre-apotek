@@ -11,7 +11,9 @@
       {{props.question}}
     </h4>
     <div class="button-wrapper" >
-      <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" @click="checkAnswer(answer)">
+      <ButtonComponent type="quiz" v-for="answer in props.answers" :key="answer" 
+      @click="checkAnswer(answer)"
+      >
         {{answer.answer}}
         <img :src="path" alt="">
       </ButtonComponent>
@@ -43,6 +45,7 @@ import ButtonComponent from './ButtonComponent.vue';
 const store = useStore();
 const data = store.state.data;
 const path = ref('')
+const answerShown = ref(0)
 const checkAnswer = (answer) =>{
   if(answer.correct){
     path.value = 'assets/img/right.svg'
@@ -50,6 +53,7 @@ const checkAnswer = (answer) =>{
     path.value = 'assets/img/wrong.svg'
   }
 }
+
 
 const props = defineProps({
   title: {

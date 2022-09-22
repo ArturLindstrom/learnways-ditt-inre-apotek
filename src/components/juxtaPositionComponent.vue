@@ -1,7 +1,6 @@
 <template>
 <section>
-    <ImgComparisonSlider class="slider" >
-      <div class="red-square"></div>
+    <ImgComparisonSlider class="slider" @click="test" value="20">
       <div class="img" slot="first">
         <div class="text-container">
           <p class="page-title">
@@ -13,18 +12,29 @@
           <p>
             {{props.body}}
           </p>
-          <p class="instruction">
+          <p class="instruction" >
             {{props.instruction}}
           </p>
+          <div class="text-box first">
+            <h3>{{props.textBox[0].heading}}</h3>
+            <p>{{props.textBox[0].body}}</p>
+          </div>
+        </div>
+      </div>
+      <div slot="second">
+        <div class="text-box second">
+          <h3>{{props.textBox[1].heading}}</h3>
+          <p>{{props.textBox[1].body}}</p>
         </div>
       </div>
     </ImgComparisonSlider>
-</section>
+  </section>
 </template>
 
 <script setup>
 import { ImgComparisonSlider } from '@img-comparison-slider/vue'
 import { ref } from 'vue';
+
 
 const show = ref(true);
 
@@ -44,17 +54,14 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  textBox: {
+    type: Array,
+  }
 
 })
 </script>
 
 <style scoped lang='scss'>
-  .red-square{
-    width:200px;
-    height: 200px;
-    background-color: red;
-    z-index: 4;
-  }
 section{
     padding: 0;
     display: flex;
@@ -63,6 +70,7 @@ section{
 }
 
 .slider{
+  position: relative;
     width: 100%;
     height: 100%;
     background: url(assets/img/juxtaposition1-01-2.png) #BBC19B center center no-repeat;
@@ -102,6 +110,29 @@ section{
 .instruction{
   font-weight: bold;
   margin-top: 20px;
+}
+
+.text-box{
+ 
+  padding: 20px;
+  border-radius: 10px;
+  width: 35%;
+}
+
+.second{
+  position: absolute;  
+  margin-top: 46% ;
+  left: 10%;
+  background-color: #F4E9D7;
+}
+
+.first{
+  position: absolute;
+  /* bottom: 0; */
+  margin-top: 45% ;
+  right: 10%;
+  background-color: #BBC19B;
+  
 }
 
 </style>
