@@ -125,15 +125,15 @@ section{
 
 .second{
   position: absolute;  
-  margin-top: 46% ;
-  left: 10%;
+  margin-top: 3% ;
+  left: 5%;
   background-color: #F4E9D7;
 }
 
 .first{
   position: absolute;
   /* bottom: 0; */
-  margin-top: 45% ;
+  margin-top: 25% ;
   right: 10%;
   background-color: #BBC19B;
   
