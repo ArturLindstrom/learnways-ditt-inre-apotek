@@ -121,7 +121,9 @@ const props = defineProps({
   }
 
   .olive{
-    background-color: #BBC19B
+    background-color: #BBC19B;
+    transition: all 0.5s ease-in;
+
   }
 
   .blue{

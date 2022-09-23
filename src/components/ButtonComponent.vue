@@ -27,7 +27,7 @@ const onAnswer = ref()
 const onClick = () => {
     if(props.type == 'scroll'){
         window.scrollTo({
-            top: window.innerHeight,
+            top: window.innerHeight + 100,
             behavior: 'smooth'
         })
     }
@@ -61,9 +61,7 @@ const onClick = () => {
       align-items: center;
       justify-content: center;
       gap: 10px;
-        &:hover{
-            background-color: #F5F5F5;
-        }
+      
         
     }
 

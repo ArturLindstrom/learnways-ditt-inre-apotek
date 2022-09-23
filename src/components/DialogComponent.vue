@@ -55,7 +55,7 @@ import ModalComponent from './ModalComponent.vue';
   background: url('/assets/img/old/apotek-kvinna.png') no-repeat  right -40% top 30%;
   /* background-color: #CFE0DF; */
   background-size: 90%;
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   place-items: center; 
@@ -77,24 +77,7 @@ h2{
 
 }
 
-/* .read-more{
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-  width: 50%;
-  &::after
-  {
-    content: "";
-    height: 0.5em;
-    width: 1em;
-    margin-left: 0.5em;
-    display: inline-block;
-    background-image: url(assets/img/arrow.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    
-  }
-} */
+
 
 .open{
   font-weight: bold;

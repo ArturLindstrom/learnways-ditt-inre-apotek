@@ -96,16 +96,16 @@ section{
     background: center center no-repeat; 
     background-size: 100%;
     height: 100%;
-    width: 100;
+    width: 100%;
 }
 
 .text-container{
   height: 100%;
-  width: 35%;
+  width: 33%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 140px;
+  margin-left: 100px;
 
 }
 
