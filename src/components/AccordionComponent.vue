@@ -91,6 +91,7 @@ const props = defineProps({
 
   .accordion{
         width: 350px;
+        height: 50px;
         max-height: 50px;
         padding: 10px 5px;
         background-color: transparent;
@@ -122,7 +123,7 @@ const props = defineProps({
 
   .olive{
     background-color: #BBC19B;
-    transition: all 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
 
   }
 

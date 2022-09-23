@@ -116,23 +116,23 @@ h2{
 
 
 .dialog-button1{
-  top: -6%;
-  left: 4%;
+  top: -15%;
+  left: 2%;
 }
 
 .dialog-button2{
-  top: 8%;
-  left: -10%;
+  top: -4%;
+  left: -12%;
 }
 
 .dialog-button3{
-  top: 25%;
-  left: 0;
+  top: 15%;
+  left: -2%;
 }
 
 .dialog-button4{
-  top: 35%;
-  left: -3%;
+  top: 25%;
+  left: -5%;
 }
 }
 </style>
