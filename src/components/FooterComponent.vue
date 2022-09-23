@@ -4,11 +4,11 @@
     <p class=page-title>
       {{data.dia_i_11}}
     </p>
-    <h2>
+    <h3 class="heading">
       {{data.dia_11_h2}}
-    </h2>
+    </h3>
     <div class="text-grid">
-      <div class="grid-1">
+      <div class="grid-items">
         <h3>
           {{data.dia_11_h3_1}}
         </h3>
@@ -19,7 +19,7 @@
           {{data.dia_open_link_02}}
         </button>
       </div>
-      <div class="grid-2">
+      <div class="grid-items">
         <h3>
           {{data.dia_11_h3}}
         </h3>
@@ -67,17 +67,33 @@ section {
 
 }
 
-h2{
-  text-align: center; 
-  width: 70%;
+.heading{
+  /* text-align: center;  */
+  align-self: flex-start;
+  width: 60%;
+  margin-left:100px
 }
+
+.page-title {
+  align-self: flex-start;
+}
+
 
 .text-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  place-items: center center;
+  margin-top: 20px;
+  place-items: start;
   gap: 200px;
   padding: 0 100px;
+}
+
+.grid-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 400px;
 }
 
 .footer-button{
@@ -89,6 +105,7 @@ h2{
   width: 350px;
   border-radius: 5px;
   margin-top: 27px;
+  cursor: pointer;
 
 }
 .v-enter-active,
