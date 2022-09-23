@@ -1,5 +1,5 @@
 <template>
-    <section ref="background" :class="{green : buttonClicked == 2, 'blue': buttonClicked == 3}">
+    <section ref="background" :class="{olive: buttonClicked == 1, blue : buttonClicked == 2, green: buttonClicked == 3}">
         <p class="page-title" v-if="props.title">
             {{props.title}}
         </p>
@@ -79,9 +79,7 @@ const props = defineProps({
 </script>
 
 <style scoped lang='scss'>
-  section{
-    /* background-color: #DEB881; */
-  }
+  
   .button-wrapper{
     display: flex;
     margin-top: 2rem;
@@ -93,51 +91,48 @@ const props = defineProps({
 
   .accordion{
         width: 350px;
-        height: 50px;
+        max-height: 50px;
         padding: 10px 5px;
-        background: transparent;
+        background-color: transparent;
         border: 2px solid black;
+        border-radius: 5px;
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        margin-top: 42px
-        
+        margin-top: 42px;
+        transition: all 0.7s ease-in;    
     }
 
   .selected{
     height: auto;
     pointer-events: initial;
     cursor: text;
+    max-height: 500px;
+    /* transition: max-height 0.5s ease-in;    */
   }
 
   .not-selected{
     height: 50px;
+    /* transition: max-height 0.5s ease-in; */
     overflow: hidden;
   }
 
-  .green{
-    /* background-color: #BBC19B; */
+  .olive{
+    background-color: #BBC19B
   }
 
   .blue{
-    /* background-color: #AEA2B2; */
+    background-color: #AEA2B2;
+    transition: all 0.5s ease-in;
   }
 
-  .v-enter-active{
+  .green{
+    background-color: #A7C6B7;
+    transition: all 0.5s ease-in;
+  }
 
-transition: height 1s;
-height: auto;
-}
-.v-leave-active {
-opacity: 1;
-}
 
-.v-enter-from,
-.v-leave-to
-{
-opacity: 0;
-}
 </style>

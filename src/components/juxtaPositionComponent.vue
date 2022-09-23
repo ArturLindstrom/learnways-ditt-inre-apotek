@@ -71,15 +71,13 @@ const props = defineProps({
 <style scoped lang='scss'>
 section{
     padding: 0;
-    display: flex;
-    align-items: center;
     cursor: w-resize
 }
 
 .slider{
   position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background:  center center no-repeat;
     background-size: 100%;
     --divider-color: #000;

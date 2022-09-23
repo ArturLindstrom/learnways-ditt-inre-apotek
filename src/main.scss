@@ -19,12 +19,12 @@ html{
 }
 
 section{
-    height: 100vh;
-    padding: 0 140px;
+    min-height: 100vh;
+    padding: 100px 140px 0;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
@@ -68,7 +68,7 @@ h2{
     font-size: 60px;
     font-weight: 300;
     color: #000;
-    margin-bottom: 46px;
+    margin-bottom: 38px;
     line-height: 74px;
 }
 

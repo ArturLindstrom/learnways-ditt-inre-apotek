@@ -173,21 +173,7 @@ onMounted(() => {
 const store = useStore();
 const data = store.state.data;
 
-
-// for (let i = 0; i < colors.length; i++) {
-  
-//   gsap.to(".container", {
-//     backgroundColor: colors[i],
-//     scrollTrigger: {
-//       trigger: `.section-${i + 1}`,
-//       scroller: ".container",
-//       scrub: true
-//     }
-//   });
-// }
-
 </script>
 
 <style scoped lang='scss'>
-
 </style>
