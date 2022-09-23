@@ -22,12 +22,16 @@
               <h5 @click.self="toggleAccordion(i)">
                 {{button.heading}}
               </h5>
-              <p v-if="isSelected === i + 1">
-                {{button.body}}
-              </p>
-              <p v-if="isSelected === i + 1 " class="read-more" @click="openModal(button.modal)">
-                {{button.readMore}}
-              </p>
+              <transition>
+                <div class="transition">
+                  <p>
+                    {{button.body}}
+                  </p>
+                  <p class="read-more" @click="openModal(button.modal)">
+                    {{button.readMore}}
+                  </p>
+                </div>
+              </transition>
             </div>
         </div>
         
@@ -91,7 +95,7 @@ const props = defineProps({
 
   .accordion{
         width: 350px;
-        height: 50px;
+        /* height: 50px; */
         max-height: 50px;
         padding: 10px 5px;
         background-color: transparent;
@@ -104,21 +108,28 @@ const props = defineProps({
         flex-direction: column;
         overflow: hidden;
         margin-top: 42px;
-        transition: all 0.7s ease-in;    
+        transition: max-height 0.7s ease-in;    
     }
 
   .selected{
-    height: auto;
+    /* height: auto; */
+    max-height: 900px;
     pointer-events: initial;
     cursor: text;
-    max-height: 500px;
-    /* transition: max-height 0.5s ease-in;    */
+    transition: max-height 1s ease-in 0.4s;
+
+
   }
 
   .not-selected{
-    height: 50px;
-    /* transition: max-height 0.5s ease-in; */
+    /* height: 50px; */
+    max-height: 50px;
+    transition: max-height 0.4s ease-in;
     overflow: hidden;
+  }
+
+  .transition{
+    margin-top: 15px;
   }
 
   .olive{
@@ -129,13 +140,14 @@ const props = defineProps({
 
   .blue{
     background-color: #AEA2B2;
-    transition: all 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
   }
 
   .green{
     background-color: #A7C6B7;
-    transition: all 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
   }
+
 
 
 </style>
