@@ -30,10 +30,10 @@
       </ButtonComponent>
     </div>
     <!-- <div class="feedback-container"> -->
-      <p v-show="answer == 'correct'">
+      <p v-show="answer == 'correct'" class="feedback">
         {{props.feedback[1]}}
       </p>
-      <p v-show="answer == 'incorrect'">
+      <p v-show="answer == 'incorrect' " class="feedback">
         {{props.feedback[0]}}
       </p>
     <!-- </div> -->
@@ -88,13 +88,6 @@ const props = defineProps({
 </script>
 
 <style scoped lang='scss'>
-  section{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    /* background-color: #F0EDE9; */
-  }
 .button-wrapper{
   display: flex;
   gap: 20px;
@@ -104,9 +97,9 @@ const props = defineProps({
   max-width: 70%;
 }
 
-.feedback-container{
+/* .feedback-container{
   min-height: 570px;
-}
+} */
 
 img{
   position: absolute;
@@ -122,7 +115,7 @@ h4{
   margin-bottom: 46px;
 }
 
-p{
+.feedback{
   margin-top: 46px;
 }
 </style>

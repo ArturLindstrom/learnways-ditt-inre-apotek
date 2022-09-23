@@ -79,7 +79,7 @@ section{
 .slider{
   position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background:  center center no-repeat;
     background-size: 100%;
     --divider-color: #000;
