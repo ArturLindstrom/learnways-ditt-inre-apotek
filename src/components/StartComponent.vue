@@ -33,17 +33,7 @@ const data = store.state.data;
 </script>
 
 <style scoped lang='scss'>
-section{
-    /* background-color: #F4E9D7; */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: flex-start; 
-    
-    /* padding-left: 140px; */
 
-}
 
 .text-container{
     max-width: 70%;

@@ -20,11 +20,11 @@ html{
 
 section{
     min-height: 100vh;
-    padding: 0 140px;
+    padding: 100px 140px 0;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
@@ -36,7 +36,7 @@ section{
     line-height: 24px;
     text-transform: uppercase;
     position: absolute;
-    top: 0;
+    top: 50px;
 }
 
 .read-more{

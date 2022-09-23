@@ -71,8 +71,6 @@ const props = defineProps({
 <style scoped lang='scss'>
 section{
     padding: 0;
-    display: flex;
-    align-items: center;
     cursor: w-resize
 }
 

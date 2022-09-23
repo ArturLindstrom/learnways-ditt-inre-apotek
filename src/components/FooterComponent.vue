@@ -60,10 +60,10 @@ button,
 
 section {
   background-color: #5E5C7C;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  
+   */
 
 }
 
