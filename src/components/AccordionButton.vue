@@ -13,7 +13,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import gsap from 'gsap';
 
 const props = defineProps({
     heading: {
@@ -33,6 +32,7 @@ const isOpen = ref(false);
 
 <style scoped lang='scss'>
     .accordion{
+        height: 50px;
         width: 350px;
         padding: 10px 5px;
         background: transparent;
@@ -43,6 +43,7 @@ const isOpen = ref(false);
         cursor: pointer;
         display: flex;
         flex-direction: column;
+        transition: all 1s ease-in-out;
         
     }
 
