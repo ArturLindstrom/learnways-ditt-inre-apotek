@@ -15,8 +15,8 @@
         <p>
           {{data.dia_11_p2}}
         </p>
-        <button class="footer-button">
-          {{data.dia_open_link_02}}
+        <button class="footer-button" @click="copy">
+          {{linkClicked ? 'länk kopierad!'  :data.dia_open_link_02}}
         </button>
       </div>
       <div class="grid-items">
@@ -47,6 +47,14 @@ import InformationComponent from './InformationComponent.vue';
 const showInfo = ref(false)
 const store = useStore();
 const data = store.state.data
+const linkClicked = ref(false)
+
+  const copy = () => {
+
+    linkClicked.value = true
+    navigator.clipboard.writeText('https://www.dittinreapotek.se')
+
+  }
 </script>
 
 <style scoped lang='scss'>
@@ -103,6 +111,7 @@ section {
   border-radius: 5px;
   margin-top: 27px;
   cursor: pointer;
+  text-transform: uppercase;
 
 }
 .v-enter-active,

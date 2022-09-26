@@ -19,7 +19,7 @@ html{
 }
 
 section{
-    height: 100vh;
+    min-height: 100vh;
     padding: 100px 100px 0;
     position: relative;
     display: flex;
@@ -124,4 +124,8 @@ p{
     src: local('Apercu'), url(/assets/fonts/Apercu_Light.otf);
     font-weight: 'light';
 }
+
+
+    
+
 

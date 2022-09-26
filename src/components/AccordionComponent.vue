@@ -116,7 +116,7 @@ const props = defineProps({
     max-height: 900px;
     pointer-events: initial;
     cursor: text;
-    transition: max-height 1s ease-in 0.4s;
+    transition: max-height 1s ease-in 0.5s;
 
 
   }
@@ -124,7 +124,7 @@ const props = defineProps({
   .not-selected{
     /* height: 50px; */
     max-height: 50px;
-    transition: max-height 0.4s ease-in;
+    transition: max-height 0.5s ease-in;
     overflow: hidden;
   }
 
