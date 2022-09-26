@@ -94,11 +94,12 @@ const props = defineProps({
   }
 
   .accordion{
-        width: 350px;
+        max-width: 350px;
         /* height: 50px; */
         max-height: 50px;
         padding: 10px 5px;
         background-color: transparent;
+        /* background-color: white; */
         border: 2px solid black;
         border-radius: 5px;
         font-size: 18px;
@@ -109,14 +110,18 @@ const props = defineProps({
         overflow: hidden;
         margin-top: 42px;
         transition: max-height 0.7s ease-in;    
+        transition: background-color 0.5s ease-in;
+
     }
 
   .selected{
     /* height: auto; */
     max-height: 900px;
     pointer-events: initial;
+    background-color: transparent;
     cursor: text;
     transition: max-height 1s ease-in 0.5s;
+    /* transition: background-color 0.5s ease-in; */
 
 
   }
@@ -129,7 +134,7 @@ const props = defineProps({
   }
 
   .transition{
-    margin-top: 15px;
+    margin-top: 20px;
   }
 
   .olive{
@@ -148,6 +153,27 @@ const props = defineProps({
     transition: background-color 0.5s ease-in;
   }
 
+  @media screen and (max-width: 768px){
+    .accordion-container{
+      flex-direction: column;
+      
+    }
+
+    .not-selected{
+      max-height: 30px;
+    }
+
+    .accordion{
+      max-height: 30px;
+      margin-top: 20px;
+    }
+
+    .selected{
+      max-height: 900px;
+    }
+  }
+    
+  
 
 
 </style>

@@ -62,5 +62,17 @@ section{
 .text-wrapper{
     max-width: 50%;
 }
+
+@media screen and (max-width: 768px){
+    section{
+        align-items: center;
+        padding-top: 0;
+        min-height: 0;
+    }
+    .text-wrapper{
+        max-width: 100%;
+    }
+}
+  
   
 </style>

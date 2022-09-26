@@ -46,4 +46,13 @@ const openInfo = () => {
         background: url(assets/navButton/navButtonActive.svg) center no-repeat ;
         border-radius: 0%;
     }
+
+    @media screen and (max-width: 768px) {
+        .button{
+            margin-top: 8px;
+            margin-left: 8px;
+        }
+    
+        
+    }
 </style>

@@ -54,7 +54,7 @@ const onClick = () => {
       background-color: white;
       font-family: 'Apercu';
       font-weight: bold;
-      font-size: 18px;
+      /* font-size: 18px; */
       cursor: pointer;
       text-transform: uppercase;
       display: flex;
@@ -71,6 +71,12 @@ const onClick = () => {
         border-radius: 50%;
         background: url(assets/scrollButtonArrow.svg) no-repeat center;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px){
+      .button{
+        min-width: 130px;
+      }
     }
 
     

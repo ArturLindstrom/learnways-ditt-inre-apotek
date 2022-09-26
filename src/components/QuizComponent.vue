@@ -128,4 +128,19 @@ h4{
   transform: translateY(100%);
   opacity: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .text-wrapper{
+    max-width: 100%;
+  }
+
+  .button-wrapper{
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h2,h4{
+    margin-bottom: 20px;
+  }
+}
 </style>

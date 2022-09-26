@@ -1,5 +1,5 @@
 <template>
-  <div class="app" v-if="showNav">
+  <div v-if="showNav">
     <button class="nav-button"
     @click="navToggle = !navToggle"
     :class="{ 'nav-button-active': navToggle }"
@@ -131,5 +131,14 @@
 .v-enter-from,
 .v-leave-to {
   transform: translateX(110%);
+}
+
+@media screen and (max-width: 768px) {
+  
+.nav-button{
+  margin-right: 8px;
+  margin-top: 8px;
+}
+  
 }
 </style>

@@ -10,7 +10,9 @@ import NavComponent from './components/NavComponent.vue';
 
 
 <style lang="scss">
-
+/* #app{
+  width: 100%;
+} */
   
 </style>
 
