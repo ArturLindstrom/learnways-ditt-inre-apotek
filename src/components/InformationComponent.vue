@@ -86,22 +86,24 @@ h2{
     
     .text-wrapper{
         grid-template-columns: 1fr;
-        gap: 50px;
-        padding: 0 20px;
-        max-width: 70%;
+        gap: 20px;
+        max-width: 100%;
+        place-items: center;
     }
     .text-container{
         max-width: 70%;
-        align-items: center;
     }
     .img-container{
         justify-content: center;
-        max-width: 70%;
+        & img{
+            width: 150px;
+        }
         
     }
     h2{
         margin: 100px 0 50px;
     }
+
 
   
 }

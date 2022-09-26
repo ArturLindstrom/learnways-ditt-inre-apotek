@@ -139,8 +139,9 @@ h2{
 @media  screen and (max-width: 768px) {
   .wrapper{
     grid-template-columns: 1fr;
-    background-position: center bottom 0;
-    background-size: 130%;
+    background-position: center bottom 120%;
+    background-size: 320%;
+    /* background-size: calc(100vh - 100px); */
     place-items: start;
   }
 
@@ -155,23 +156,23 @@ h2{
   }
 
   .dialog-button1{
-    top: -50%;
-    left: 10%;
+    top: -30%;
+    left: 7%;
   }
 
   .dialog-button2{
-    top: -50%;
-    left: -10%;
+    top: -20%;
+    left: -30%;
   }
 
   .dialog-button3{
-    top: -60%;
+    top: 10%;
     left: 5%;
   }
 
   .dialog-button4{
-    top: -65%;
-    left: -2%;
+    top: 20%;
+    left: -10%;
   }
 
   

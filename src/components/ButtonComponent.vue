@@ -75,7 +75,7 @@ const onClick = () => {
 
     @media screen and (max-width: 768px){
       .button{
-        min-width: 130px;
+        min-width: 120px;
       }
     }
 
