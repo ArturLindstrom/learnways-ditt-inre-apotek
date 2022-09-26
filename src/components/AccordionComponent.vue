@@ -96,7 +96,7 @@ const props = defineProps({
   .accordion{
         max-width: 350px;
         /* height: 50px; */
-        max-height: 50px;
+        max-height: 40px;
         padding: 10px 5px;
         background-color: transparent;
         /* background-color: white; */
@@ -128,7 +128,7 @@ const props = defineProps({
 
   .not-selected{
     /* height: 50px; */
-    max-height: 50px;
+    max-height: 40px;
     transition: max-height 0.5s ease-in;
     overflow: hidden;
   }

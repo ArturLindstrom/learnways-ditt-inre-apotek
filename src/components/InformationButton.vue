@@ -51,6 +51,8 @@ const openInfo = () => {
         .button{
             margin-top: 8px;
             margin-left: 8px;
+            width: 25px;
+            height: 25px;
         }
     
         
