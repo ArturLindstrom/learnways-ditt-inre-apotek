@@ -135,4 +135,48 @@ h2{
   left: -5%;
 }
 }
+
+@media  screen and (max-width: 768px) {
+  .wrapper{
+    grid-template-columns: 1fr;
+    background-position: center bottom 120%;
+    background-size: 320%;
+    /* background-size: calc(100vh - 100px); */
+    place-items: start;
+  }
+
+  .dialog-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+  }
+
+  .dialog-button1{
+    top: -30%;
+    left: 7%;
+  }
+
+  .dialog-button2{
+    top: -20%;
+    left: -30%;
+  }
+
+  .dialog-button3{
+    top: 10%;
+    left: 5%;
+  }
+
+  .dialog-button4{
+    top: 20%;
+    left: -10%;
+  }
+
+  
+  
+
+}
 </style>

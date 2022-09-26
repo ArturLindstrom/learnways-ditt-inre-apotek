@@ -20,7 +20,6 @@ import { useStore } from 'vuex';
 import ButtonComponent from './ButtonComponent.vue';
 import InformationComponent from './InformationComponent.vue';
 import InformationButton from './InformationButton.vue';
-import DialogButton from './DialogButton.vue';
 
 
 const showInfo = ref(false)
@@ -57,5 +56,11 @@ h5{
 .v-enter-from,
 .v-leave-to {
   transform: translateX(100%);
+}
+
+@media screen and (max-width: 768px) {
+    .text-container{
+        max-width: 100%;
+    }
 }
 </style>

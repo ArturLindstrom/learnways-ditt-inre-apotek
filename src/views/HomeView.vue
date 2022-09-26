@@ -49,6 +49,7 @@
   />
   <JuxtaPositionComponent
   id="Dysbios"
+  class="section"
   data-color="#BBC19B"
   :title="data.dia_i_06"
   :heading="data.dia_06_h2"
@@ -56,8 +57,8 @@
   :instruction="data.dia_instruction"
   :textBox="[{heading: data.dia_06_h3_01, body: data.juxta_01_1},
   {heading: data.dia_06_h3_02, body: data.juxta_01_2}]"
-  :images="[{src:'url(assets/img/juxtaposition1-01-1.png)', bgColor: '#F4E9D7'},
-  {src:'url(assets/img/juxtaposition1-01-2.png)', bgColor: '#BBC19B'}]"
+  :images="[{src:'url(assets/img/juxtaposition1-01-1.png)', bgColor: '#BBC19B'},
+  {src:'url(assets/img/juxtaposition1-01-2.png)', bgColor: '#F4E9D7'}]"
   />
   
   <QuizComponent
@@ -111,6 +112,7 @@
   
   <JuxtaPositionComponent
   id="Påverkan"
+  class="section"
   data-color="#F8D9D9"
   :title="data.dia_i_10"
   :heading="data.dia_10_h2"

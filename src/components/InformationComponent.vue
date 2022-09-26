@@ -1,9 +1,9 @@
 <template>
 <section class="info">
-<h2>
-    {{data.info_dia_h2}}
-</h2>
-<div class="text-wrapper">
+  <h2>
+      {{data.info_dia_h2}}
+  </h2>
+  <div class="text-wrapper">
     <div class="text-container">
       <h3>
           {{data.info_dia_h3_1}}
@@ -46,9 +46,10 @@ const data = store.state.data;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    padding: 0;
+    padding:0 0 0 0;
+  
 }
 
 .text-wrapper{
@@ -78,5 +79,32 @@ const data = store.state.data;
 
 h2{
   margin-bottom:103px
+}
+
+@media screen and (max-width: 768px) {
+
+    
+    .text-wrapper{
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+        place-items: center;
+    }
+    .text-container{
+        max-width: 70%;
+    }
+    .img-container{
+        justify-content: center;
+        & img{
+            width: 150px;
+        }
+        
+    }
+    h2{
+        margin: 100px 0 50px;
+    }
+
+
+  
 }
 </style>

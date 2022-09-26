@@ -107,7 +107,7 @@ section {
   font-size: 18px;
   font-weight: 700;
   padding: 15px;
-  width: 350px;
+  min-width: 350px;
   border-radius: 5px;
   margin-top: 27px;
   cursor: pointer;
@@ -122,5 +122,21 @@ section {
 .v-enter-from,
 .v-leave-to {
   transform: translateX(100%);
+}
+
+@media screen and (max-width: 768px) {
+  .text-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heading{
+    width: 100%;
+    margin-left:0
+  }
+  .footer-button{
+    min-width: 200px;
+    margin: 20px 0 0 0;
+  }
 }
 </style>
