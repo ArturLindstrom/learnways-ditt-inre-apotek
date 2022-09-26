@@ -77,7 +77,7 @@
     margin: auto;
     border: 1px solid #888;
     height: 70%;
-    min-width: 500px;
+    /* min-width: 500px; */
     max-width: 800px;
     position: relative;
     overflow-y: auto;
@@ -126,8 +126,11 @@
     justify-content: flex-start;
     align-items: center;
     width: 70%;
+
+    /* height: 100%; */
     padding: 2rem 0 ;
   }
+ 
 
   .modal-body{
     margin-top: 30px;
@@ -163,16 +166,16 @@
 
   @media screen and (max-width: 768px) {
     .modal {
-      padding: 1rem;
+      padding: 0;
     }
     .modal-content {
-      width: 100%;
+      max-width: 100%;
       height: 100%;
       border-radius: 0;
     }
     .close-container {
-      top: 3%;
-      right: -2%;
+      top: 0;
+      right: 5%;
       width: 38px;
     }
     .close-text {
