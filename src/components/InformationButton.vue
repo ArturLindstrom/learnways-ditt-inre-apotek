@@ -49,8 +49,8 @@ const openInfo = () => {
 
     @media screen and (max-width: 768px) {
         .button{
-            margin-top: 8px;
-            margin-left: 8px;
+            margin-top: 12px;
+            margin-left: 12px;
             width: 25px;
             height: 25px;
         }

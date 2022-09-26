@@ -136,7 +136,7 @@ h4{
 
   .button-wrapper{
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   h2,h4{
