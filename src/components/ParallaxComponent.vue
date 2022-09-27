@@ -4,14 +4,14 @@
       v-for="(image, i) in sectionImages"
       :src="`/assets/img/${image}`"
       :key="image"
-      :data-speed="Math.random() + 0.5"
+      :data-speed="i  * 0.4 "
       :class="'image' + props.section + '-' +  (i + 1)"
     >
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -42,6 +42,8 @@ const sectionImages = computed(() => {
       '02-bacteria.png',
       '07-bacteria.png',
       '01-bacteria.png',
+      'parallax-image5.png',
+      'parallax-image5.png'
     ]
   } else if(props.section === 3){
     return [
@@ -49,6 +51,22 @@ const sectionImages = computed(() => {
       '02-bacteria.png',
       '07-bacteria.png',
       '05-bacteria.png',
+      '0-bacteria.png',
+    ]
+  } else if(props.section === 4){
+    return [
+      '12-antibiotika.png',
+      '10-antibiotika.png',
+      '10-antibiotika.png',
+      '05-antibiotika.png',
+      '05-antibiotika.png',
+      '05-antibiotika.png',
+      
+    ]
+  } else if (props.section === 5){
+    return [
+      '0-bacteria.png',
+      '0-bacteria.png',
       '0-bacteria.png',
     ]
   }
@@ -60,18 +78,22 @@ onMounted(() => {
 
 const parallaxAnimation = () => {
   gsap.to("[data-speed]",{
-  y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
+  // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
+  y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
   ease: "none",
-  rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 400,
+  rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 200,
   scrollTrigger: {
     start: 0,
     end: '200%',
     // end: () => "+=" + document.body.offsetHeight,
     invalidateOnRefresh: true,
-    scrub: 3
+    scrub: 5
   }
   });
 }
+
+let speeds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.2, 0.5, 0.7, 0.9]
+
 
 </script>
 
@@ -96,8 +118,8 @@ img {
 }
 
 .image1-2 {
-  top: 30%;
-  right: 50%;
+  top: 35%;
+  right: 15%;
   height: 336.07px;
   width: 336.07px;
 }
@@ -110,15 +132,16 @@ img {
 }
 
 .image1-4 {
+  z-index: -2;
   top: 10%;
-  right: 25%;
+  right: 5%;
   width: 485px;
   height: 485px;
 }
 
 .image1-5 {
   top: 20%;
-  right: 45%;
+  right: 15%;
   width: 102px;
   height: 102px;
 }
@@ -131,8 +154,9 @@ img {
 }
 
 .image1-7{
+  z-index: -3;
   top: 40%;
-  right: 5%;
+  right: 15%;
   width: 577px;
   height: 577px;
 }
@@ -140,29 +164,18 @@ img {
 .image1-8 {
   top: 70%;
   right: 5%;
-  width: 360px;
-  height: 360px;
+  width: 160px;
 }
 
 .image1-9{
   top: 10%;
   right: 20%;
-  width: 180px;
+  width: 80px;
   height: 180px;
 }
 
-.image1-10 {
-  top: 65%;
-  right: 40%;
-  height: 487px;
-  width: 487px;
-}
 
-.image1-11{
- top: 60%;
-  right: 70%;
 
-}
 
 .image2-1{
   top: 0%;
@@ -193,10 +206,23 @@ img {
 }
 
 .image2-5{
-  top: 90%;
+  top: 50%;
   right: 50%;
   height: 485px;
   width: 485px;
+}
+
+.image2-6{
+  top: 70%;
+  right: 50%;
+  height: 102px;
+  width: 102px;
+}
+
+.image2-7{
+  top: 80%;
+  right: 80%;
+
 }
 
 .image3-1{
@@ -235,5 +261,71 @@ img {
   height: 102px;
 }
 
+.image4-1{
+  top: -30%;
+  right: 0%;
+  
+}
+
+.image4-2{
+  top: -10%;
+  right: 40%;
+  transform: rotate(60deg);
+  height: 188px;
+  width: 188px;
+}
+
+.image4-3{
+  top: 30%;
+  right: 40%;
+  height: 188px;
+  width: 188px;
+}
+
+.image4-4{
+  top: 30%;
+  right: 40%;
+  transform: rotate(60deg);
+  height: 151px;
+  width: 151px;
+}
+
+.image4-5{
+  top: 90%;
+  right: 60%;
+  height: 151px;
+  width: 151px;
+}
+
+.image4-6{
+  top: 100%;
+  right: 80%;
+  transform: rotate(60deg);
+  height: 151px;
+  width: 151px;
+}
+
+.image5-1{
+  top: -80%;
+  right: 5%;
+  height: 700px;
+  transform: rotate(270deg);
+}
+
+.image5-2{
+  top: -20%;
+  right: 5%;
+  transform: rotate(45deg);
+  height: 188px;
+  width: 188px;
+}
+
+.image5-3{
+  top: -10%;
+  right: 40%;
+  transform: rotate(20deg);
+  height: 336.07px;
+  width: 336.07px;
+}
 
 </style>

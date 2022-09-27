@@ -50,7 +50,7 @@
     readMore: data.q_feedback_4_1_1,
     modal: {heading:data.dia_popup_h_p04_03, body:data.dia_popup_p_p04_03}},
     ]"
-  />
+   />
   <JuxtaPositionComponent
   id="Dysbios"
   class="section"
@@ -75,7 +75,9 @@
   :answers="[{answer: data.dia_07_q_1, correct: false},
   {answer: data.dia_07_q_2, correct: true}]"
   :feedback="[data.q_feedback_2_1, data.q_feedback_2_2]"
-  />
+  >
+    <ParallaxComponent :section="4" />
+  </QuizComponent>
   
   <AccordionComponent
   id="Begrepp"
@@ -112,7 +114,9 @@
   :answers="[{answer: data.dia_09_q_1, correct: false},
   {answer: data.dia_09_q_2, correct: true}]"
   :feedback="[data.q_feedback_3_1, data.q_feedback_3_2]"
-  />
+  >
+    <ParallaxComponent :section="5" />
+  </QuizComponent>
   
   <JuxtaPositionComponent
   id="Påverkan"

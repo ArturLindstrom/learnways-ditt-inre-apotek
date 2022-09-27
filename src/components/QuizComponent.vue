@@ -110,6 +110,7 @@ h4{
 
 .feedback{
   margin-top: 46px;
+  width: 70%;
 }
 
 .selected{

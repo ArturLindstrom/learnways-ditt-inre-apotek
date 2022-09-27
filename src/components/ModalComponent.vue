@@ -60,7 +60,7 @@
 <style scoped lang="scss">
   .modal {
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     padding-top: 3rem;
     left: 0;
     top: 0;
@@ -81,7 +81,7 @@
     max-width: 800px;
     position: relative;
     overflow-y: auto;
-    z-index: 3;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
