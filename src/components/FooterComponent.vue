@@ -128,6 +128,7 @@ section {
   .text-grid{
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 0;
   }
 
   .heading{

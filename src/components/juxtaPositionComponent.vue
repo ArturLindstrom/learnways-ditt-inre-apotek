@@ -194,7 +194,7 @@ section {
     margin: 20px 50px;
   }
   .mobile-text-container {
-    margin: 20px 50px;
+    margin: 20px 30px;
     padding: 12px;
     border-radius: 5px;
     border: solid 2px black;

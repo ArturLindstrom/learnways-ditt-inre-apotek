@@ -26,7 +26,7 @@ const openInfo = () => {
 
 <style scoped lang='scss'>
     .button{
-        z-index: 2;
+        z-index: 3;
         position: absolute;
         top: 0;
         left: 0;

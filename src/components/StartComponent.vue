@@ -1,5 +1,6 @@
 <template>
 <section>
+    <ParallaxComponent :section=1 />
     <InformationButton @openInfo="showInfo = !showInfo"/>
     <div class="text-container">
         <h1>{{data.dia_p1_h1}}</h1>
@@ -20,6 +21,7 @@ import { useStore } from 'vuex';
 import ButtonComponent from './ButtonComponent.vue';
 import InformationComponent from './InformationComponent.vue';
 import InformationButton from './InformationButton.vue';
+import ParallaxComponent from './ParallaxComponent.vue';
 
 
 const showInfo = ref(false)
@@ -35,7 +37,7 @@ const data = store.state.data;
 
 
 .text-container{
-    max-width: 70%;
+    max-width: 65%;
 }
 
 h1{
@@ -44,6 +46,7 @@ h1{
 
 h5{
     margin-bottom: 40px;
+    font-weight: bold;
 }
 
 

@@ -2,6 +2,7 @@
 <div class="container">
   <StartComponent id="Start" class="section"
   data-color="#F4E9D7"/>
+
   <DialogComponent id="Historia" class="section"
   data-color="#CFE0DF"/>
   <QuizComponent
@@ -14,15 +15,18 @@
   :answers="[{answer: data.dia_03_q_1, correct: false},
   {answer: data.dia_03_q_2, correct: true}]"
   :feedback="[data.q_feedback_1_1, data.q_feedback_1_2]"
-  />
-  
+  >
+    <ParallaxComponent :section="2" />
+  </QuizComponent>
   <TextComponent
   class="section"
   :heading="data.dia_03_h2_2"
   :body="data.dia_03_p2"
   :readMore="data.dia_03_p3"
   :modal="{heading:data.dia_popup_h_p03, body:data.dia_popup_p_p03}" 
-  />
+  >
+    <ParallaxComponent :section="3" />
+  </TextComponent>
   <AccordionComponent
   id="Funktioner"
   class="section"
@@ -140,6 +144,7 @@ import { useStore } from 'vuex';
 import { onMounted } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ParallaxComponent from '../components/ParallaxComponent.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -158,7 +163,7 @@ onMounted(() => {
         trigger: section,
         scrub: true,
         start:'top bottom',
-        end: '+=100%'
+        end: '+=100%',
       }
     });
 

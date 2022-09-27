@@ -1,5 +1,6 @@
 <template>
 <section>
+    <slot></slot>
     <p class="page-title" v-if="props.title">
         {{props.title}}
     </p>
