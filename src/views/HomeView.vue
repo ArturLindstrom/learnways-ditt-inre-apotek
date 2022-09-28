@@ -49,8 +49,9 @@
     body: data.q_feedback_4_3,
     readMore: data.q_feedback_4_1_1,
     modal: {heading:data.dia_popup_h_p04_03, body:data.dia_popup_p_p04_03}},
-    ]"
-   />
+    ]">
+    <ParallaxComponent :section="6" />  
+  </AccordionComponent>
   <JuxtaPositionComponent
   id="Dysbios"
   class="section"
@@ -101,8 +102,8 @@
     body: data.q_feedback_8_3,
     readMore: data.q_feedback_4_1_1,
     modal: {heading:data.dia_popup_h_p08_03, body:data.dia_popup_p_p08_03}},
-    ]"
-  />
+    ]">
+    </AccordionComponent>
   
   <QuizComponent
   id="Avföring"

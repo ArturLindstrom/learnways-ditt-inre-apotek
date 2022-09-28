@@ -1,5 +1,6 @@
 <template>
   <div>
+    <transition-group name="list">
     <img
       v-for="(image, i) in sectionImages"
       :src="`/assets/img/${image}`"
@@ -7,6 +8,7 @@
       :data-speed="i  * 0.4 "
       :class="'image' + props.section + '-' +  (i + 1)"
     >
+    </transition-group>
   </div>
 </template>
 
@@ -14,6 +16,7 @@
 import { computed, onMounted, ref } from 'vue'
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useStore } from 'vuex';
 gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
@@ -23,9 +26,11 @@ const props = defineProps({
     },
 })
 
+const store = useStore();
+
 const sectionImages = computed(() => {
-  if(props.section === 1){
-    return [
+  switch(props.section){
+    case 1: return [
       '01-bacteria.png',
       '02-bacteria.png',
       '05-bacteria.png',
@@ -35,8 +40,7 @@ const sectionImages = computed(() => {
       '07-bacteria.png',
       '10-antibiotika.png',
     ]
-  } else if(props.section === 2){
-    return [
+    case 2: return [
       '01-bacteria.png',
       '0-bacteria.png',
       '02-bacteria.png',
@@ -44,16 +48,14 @@ const sectionImages = computed(() => {
       'parallax-image5.png',
       'parallax-image5.png'
     ]
-  } else if(props.section === 3){
-    return [
+    case 3: return [
       '01-bacteria.png',
       '02-bacteria.png',
       '07-bacteria.png',
       '05-bacteria.png',
       '0-bacteria.png',
     ]
-  } else if(props.section === 4){
-    return [
+    case 4: return [
       '12-antibiotika.png',
       '10-antibiotika.png',
       '10-antibiotika.png',
@@ -61,14 +63,33 @@ const sectionImages = computed(() => {
       '05-antibiotika.png',
       '05-antibiotika.png',
     ]
-  } else if (props.section === 5){
-    return [
+    case 5: return [
       '0-bacteria.png',
       '0-bacteria.png',
       '0-bacteria.png',
     ]
+    case 6: switch(store.state.currentAccordion){
+      case 1: return [
+        '01-bacteria.png',
+      ]
+      case 2: return [
+        '02-bacteria.png',
+      ]
+      case 3: return [
+        '05-bacteria.png',
+      ]
+      case null: return [
+      'apelsin-inre-apotek.png',
+      '01-gurka.png',
+      '02-vita-blodkroppar.png',
+      '01-signal.png',
+      '11-bacteria.png',
+      '11-bacteria.png'
+      ]
+      default: return [];
+    }
+  default: return [];
   }
-  return ''
 })
 
 onMounted(() => {
@@ -107,6 +128,18 @@ img {
   /* top: 50%;
   right: 10%; */
 }
+
+.list-enter-active,
+.list-leave-active {
+  transform: translateX(30px);
+  transition: all 0.5s ease-in-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
  
 .image1-1 {
   top: 30%;
@@ -321,6 +354,37 @@ img {
   transform: rotate(70deg);
   height: 336.07px;
   width: 336.07px;
+}
+
+.image6-1 {
+  transform: scale(0.75);
+  bottom: 10%;
+  left: 0%;
+}
+
+.image6-2 {
+  right: 10%;
+  bottom: 25%;
+}
+.image6-3 {
+  right: 5%;
+  top: -25%;
+  height: 400px;
+}
+.image6-4 {
+  right: 30%;
+  bottom: 25%;
+}
+
+.image6-5 {
+  right: 10%;
+  bottom: 10%;
+  transform: rotate(90deg)
+}
+.image6-6 {
+  right: 40%;
+  top: 20%;
+  transform: rotate(90deg)
 }
 
 </style>
