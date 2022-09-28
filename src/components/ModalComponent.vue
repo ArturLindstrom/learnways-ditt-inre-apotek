@@ -11,8 +11,8 @@
               <h4 class="modal-heading">
                 {{store.state.modalContent.heading}}
               </h4>
-              <p class="modal-body" v-html="store.state.modalContent.body">
-              </p>
+              <div class="modal-body" v-html="store.state.modalContent.body">
+              </div>
             </div>
 
         </div>
@@ -44,11 +44,11 @@
 
 
   const showContent = () => {
+    console.log(store.state.modalContent.body)
     store.commit("modalContentOpen");
   };
 
   const closeModal = () => {
-    //prevents the modal from closing when dragging and dropping
     store.commit("modalContentClose");
     setTimeout(() => 
       {
@@ -60,8 +60,8 @@
 <style scoped lang="scss">
   .modal {
     position: fixed;
-    z-index: 4;
-    padding-top: 3rem;
+    z-index: 10;
+    padding-top: 1rem;
     left: 0;
     top: 0;
     width: 100%;
@@ -77,11 +77,12 @@
     margin: auto;
     border: 1px solid #888;
     height: 70%;
+    padding: 2.5rem 0;
     /* min-width: 500px; */
-    max-width: 800px;
+    max-width: 55%;
     position: relative;
     overflow-y: auto;
-    z-index: 5;
+    z-index: 11;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -95,7 +96,7 @@
     grid-template-columns: 15.5fr 1fr 1fr;
     grid-template-areas: ".. close-text close-icon";
     place-items: center;
-    z-index: 9999;
+    /* z-index: 9999; */
   }
 
   .close-text {
@@ -105,9 +106,6 @@
     }
   }
 
-  /* .close-text:hover + .close-icon {
-    transform: rotate(90deg);
-  } */
 
   .close-icon {
     grid-area: close-icon;
@@ -132,10 +130,15 @@
   }
  
 
-  .modal-body{
-    margin-top: 30px;
+  .modal-body :deep(p) {
+    margin-top: 20px;
+   
   }
 
+  .modal-body  {
+    margin-bottom: 30px;
+  }
+  
 
   .modal-animation-enter-active,
   .modal-animation-leave-active {
