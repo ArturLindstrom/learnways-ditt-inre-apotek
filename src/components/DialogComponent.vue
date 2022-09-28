@@ -62,9 +62,6 @@ import ModalComponent from './ModalComponent.vue';
 }
 
 
-h2{
-  margin-bottom: 46px;
-}
 
 .dialog-wrapper{
   position: relative;

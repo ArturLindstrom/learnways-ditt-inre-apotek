@@ -41,7 +41,6 @@ const sectionImages = computed(() => {
       '0-bacteria.png',
       '02-bacteria.png',
       '07-bacteria.png',
-      '01-bacteria.png',
       'parallax-image5.png',
       'parallax-image5.png'
     ]
@@ -142,13 +141,15 @@ img {
 .image1-5 {
   top: 20%;
   right: 15%;
+  transform: rotate(110deg);
   width: 102px;
   height: 102px;
 }
 
 .image1-6 {
-  top: 50%;
-  right: 15%;
+  top: 60%;
+  right: 10%;
+  transform: rotate(45deg);
   width: 151px;
   height: 151px;
 }
@@ -164,15 +165,16 @@ img {
 .image1-8 {
   top: 70%;
   right: 5%;
+  transform: rotate(30deg);
   width: 160px;
 }
 
-.image1-9{
+/* .image1-9{
   top: 10%;
   right: 20%;
   width: 80px;
   height: 180px;
-}
+} */
 
 
 
@@ -206,24 +208,17 @@ img {
 }
 
 .image2-5{
-  top: 50%;
-  right: 50%;
-  height: 485px;
-  width: 485px;
-}
-
-.image2-6{
-  top: 70%;
+  top: 90%;
   right: 50%;
   height: 102px;
   width: 102px;
 }
 
-.image2-7{
+.image2-6{
   top: 80%;
-  right: 80%;
-
+  right: 0%;
 }
+
 
 .image3-1{
   top: 30%;
@@ -262,14 +257,14 @@ img {
 }
 
 .image4-1{
-  top: -30%;
+  top: -40%;
   right: 0%;
   
 }
 
 .image4-2{
   top: -10%;
-  right: 40%;
+  right: 10%;
   transform: rotate(60deg);
   height: 188px;
   width: 188px;
@@ -283,23 +278,23 @@ img {
 }
 
 .image4-4{
-  top: 30%;
-  right: 40%;
+  top: 40%;
+  right: 30%;
   transform: rotate(60deg);
   height: 151px;
   width: 151px;
 }
 
 .image4-5{
-  top: 90%;
-  right: 60%;
+  top: 65%;
+  right: 40%;
   height: 151px;
   width: 151px;
 }
 
 .image4-6{
-  top: 100%;
-  right: 80%;
+  top: 120%;
+  right: 15%;
   transform: rotate(60deg);
   height: 151px;
   width: 151px;
@@ -321,9 +316,9 @@ img {
 }
 
 .image5-3{
-  top: -10%;
+  top: 20%;
   right: 40%;
-  transform: rotate(20deg);
+  transform: rotate(70deg);
   height: 336.07px;
   width: 336.07px;
 }
