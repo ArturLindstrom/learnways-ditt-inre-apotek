@@ -111,7 +111,6 @@ button {
   border-radius: 50%;
   background-color: #eeeae6;
   background: url("assets/img/ICON-HOTSPOT.svg") no-repeat center;
-  /* border: 2px solid black; */
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   transition: transform 0.2s;
@@ -196,14 +195,14 @@ button {
     place-items: start;
   }
 
-  /* .dialog-wrapper {
+  .dialog-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 90%;
-} */
+}
 
   .woman {
     z-index: -1;
