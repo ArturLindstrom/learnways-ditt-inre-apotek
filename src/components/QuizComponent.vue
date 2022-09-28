@@ -27,7 +27,7 @@
       :class="{
         'selected': answer === 'correct',
       }">
-        <img src="assets/img/right.svg" alt="" v-if="answer == 'correct'">
+        <img src="/assets/img/right.svg" alt="" v-if="answer == 'correct'">
         {{props.answers[1].answer}}
       </ButtonComponent>
     </div>
