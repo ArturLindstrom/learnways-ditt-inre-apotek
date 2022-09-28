@@ -131,6 +131,7 @@
   :images="[{src:'url(assets/img/juxtaposition2-01-1.png)', bgColor: '#F8D9D9'},
   {src:'url(assets/img/juxtaposition2-01-2.png)', bgColor: '#FCEBEA'}]"
   />
+  <ModalComponent> </ModalComponent>
 </div>
 
 <FooterComponent id="Avslutning"/>
@@ -144,6 +145,7 @@ import TextComponent from '../components/TextComponent.vue';
 import AccordionComponent from '../components/AccordionComponent.vue';
 import JuxtaPositionComponent from '../components/juxtaPositionComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue';
+import ModalComponent from '../components/ModalComponent.vue';
 import { useStore } from 'vuex';
 import { onMounted } from 'vue';
 import gsap from 'gsap';

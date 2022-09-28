@@ -91,7 +91,6 @@ const parallaxAnimation = () => {
   });
 }
 
-let speeds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.2, 0.5, 0.7, 0.9]
 
 
 </script>
@@ -99,6 +98,7 @@ let speeds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.2, 0.5, 0.7, 0.9]
 <style scoped lang='scss'>
   div{
     overflow-x: hidden;
+    /* z-index: 0; */
   }
 
 img {
@@ -157,7 +157,7 @@ img {
 .image1-7{
   z-index: -3;
   top: 40%;
-  right: 15%;
+  right: 7%;
   width: 577px;
   height: 577px;
 }
@@ -194,8 +194,8 @@ img {
 }
 
 .image2-3{
-  top: 30%;
-  right: 10%;
+  top: 40%;
+  right: 8%;
   height: 336.07px;
   width: 336.07px;
 }
@@ -263,7 +263,7 @@ img {
 }
 
 .image4-2{
-  top: -10%;
+  top: 50%;
   right: 10%;
   transform: rotate(60deg);
   height: 188px;
@@ -286,7 +286,7 @@ img {
 }
 
 .image4-5{
-  top: 65%;
+  top: 105%;
   right: 40%;
   height: 151px;
   width: 151px;
@@ -294,21 +294,21 @@ img {
 
 .image4-6{
   top: 120%;
-  right: 15%;
+  right: 25%;
   transform: rotate(60deg);
   height: 151px;
   width: 151px;
 }
 
 .image5-1{
-  top: -80%;
+  top: -60%;
   right: 5%;
   height: 700px;
   transform: rotate(270deg);
 }
 
 .image5-2{
-  top: -20%;
+  top: 10%;
   right: 5%;
   transform: rotate(45deg);
   height: 188px;

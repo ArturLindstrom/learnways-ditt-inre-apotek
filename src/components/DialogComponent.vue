@@ -33,8 +33,8 @@
             </div>
           </transition>
       </div>
+      <!-- <ModalComponent> </ModalComponent> -->
     </div>
-    <ModalComponent> </ModalComponent>
   </section>
 </template>
 
@@ -89,7 +89,7 @@ const toggleDialog = (i) => {
 
 .woman {
   /* max-height: 150%; */
-  z-index: -1;
+  /* z-index: -1; */
   height: 150%;
   position: absolute;
   top: -40%;
@@ -164,7 +164,7 @@ button {
     width: 30%;
   }
   span{
-    z-index: 5;
+    /* z-index: 5; */
     border-radius: 5px;
     display: block;
     /* border: 3px solid black; */

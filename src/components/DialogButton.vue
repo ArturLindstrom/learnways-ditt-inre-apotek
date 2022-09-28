@@ -38,7 +38,7 @@ const props = defineProps({
 
 
   button{
-    z-index: 2;
+    /* z-index: 2; */
     width: 35px;
     height: 35px;
     border-radius:50%;
