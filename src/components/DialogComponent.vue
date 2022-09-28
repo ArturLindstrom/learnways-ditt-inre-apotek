@@ -189,6 +189,23 @@ button {
   /* opacity: 0; */
  
 }
+@media screen and (max-width: 2600px) {
+  .dialog-button1{
+    top: -30%;
+    left: -22%;
+  }
+  .dialog-button2{
+    left: -35%;
+  }
+
+  .dialog-button3{
+    left: -30%;
+  }
+  .dialog-button4{
+    top: 1%;
+    left: -30%;
+  }
+}
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
