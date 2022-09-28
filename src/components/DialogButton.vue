@@ -56,13 +56,15 @@ const props = defineProps({
     position: absolute;
     transform: translate(50%);
     display: flex;
-   
+    
   }
   img{
     width: 30%;
   }
   span{
+    border-radius: 5px;
     display: block;
+    border: 3px solid black;
     width: 200px;
     /* height: 100px; */
     background-color: white;
