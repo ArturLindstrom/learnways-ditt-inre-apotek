@@ -12,33 +12,40 @@
         {{ data.dia_02_p2 }}
       </p>
       <!-- <p class="open" v-if="mq.current != 'xs' && mq.current != 'md'"> -->
-      <p class="open" >
+      <p class="open">
         {{ data.dia_02_open }}
       </p>
     </div>
 
     <div class="dialog-wrapper">
-      <img src="/assets/img/apotek-kvinna.png" alt="" />
-<!-- 
-      <img src="/assets/img/apotek-kvinna.png" alt="" v-if="mq.current == 'xs' && mq.current == 'md'"> -->
-      <DialogButton
-        v-for="(button, i) in 4"
-        :key="button"
-        :text="data[`dia_hot_0${i + 1}`]"
-        :class="'dialog-button' + (i + 1)"
-        class="dialog-buttons"
-      >
-      </DialogButton>
+      <img class="woman" src="/assets/img/apotek-kvinna.png" alt="" />
+      <div class="button-container" v-for="(button, i) in 4" :class="'dialog-button' + (i + 1)">
+        <button  @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i + 1 }">
+        </button>
+          <transition name="scale">
+            <div class="dialog-content" v-if="dialogShown == i + 1">
+              <img src="/assets/img/info-line.svg" alt=""  class="dotted-line"/>
+              <transition name="text">
+                <span>
+                  {{data[`dia_hot_0${i + 1}`]}}
+                </span>
+              </transition>
+            </div>
+          </transition>
+      </div>
     </div>
     <ModalComponent> </ModalComponent>
   </section>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useStore } from "vuex";
 import DialogButton from "./DialogButton.vue";
 import ModalComponent from "./ModalComponent.vue";
 import { useMq } from "vue3-mq";
+
+const dialogShown = ref(0)
 
 const mq = useMq();
 const store = useStore();
@@ -52,6 +59,14 @@ const openModal = () => {
   console.log(data);
   store.commit("modalOpen", modalContent);
 };
+
+const toggleDialog = (i) => {
+    if (dialogShown.value == i + 1) {
+      dialogShown.value = 0;
+    } else {
+      dialogShown.value = i + 1;
+    }
+  };
 </script>
 
 <style scoped lang="scss">
@@ -72,13 +87,43 @@ const openModal = () => {
   height: 100%;
 }
 
-img {
+.woman {
   /* max-height: 150%; */
+  z-index: -1;
   height: 150%;
   position: absolute;
   top: -40%;
   right: -10%;
 }
+
+.button-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #eeeae6;
+  background: url("assets/img/ICON-HOTSPOT.svg") no-repeat center;
+  /* border: 2px solid black; */
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  transition: transform 0.2s;
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.active-button {
+    transform: rotate(45deg) scale(1.1);
+    transition: all 0.5s ease-in-out;
+  }
 
 .open {
   font-weight: bold;
@@ -90,31 +135,66 @@ img {
 }
 
 .dialog-button1 {
-  top: -32%;
-  left: 2%;
+  top: -25%;
+  left: -3%;
 }
 
 .dialog-button2 {
-  top: -20%;
-  left: -12%;
+  top: -18%;
+  left: -15%;
 }
 
 .dialog-button3 {
-  top: -7%;
-  left: -2%;
+  top: -10%;
+  left: -10%;
 }
 
 .dialog-button4 {
-  top: 5%;
-  left: -5%;
+  top: -4%;
+  left: -10%;
 }
 
+.dialog-content{
+    position: absolute;
+    transform: translate(50%);
+    display: flex;
+    
+  }
+  .dotted-line{
+    width: 30%;
+  }
+  span{
+    z-index: 5;
+    border-radius: 5px;
+    display: block;
+    /* border: 3px solid black; */
+    width: 300px;
+    /* height: 100px; */
+    background-color: white;
+    padding: 10px;
+    transform: translate(-20px);
+    font-size: 18px;
+  }
+
+  .scale-enter-active,
+.scale-leave-active {
+  transition: transform 0.7s ease;
+}
+
+.scale-enter-from,
+.scale-leave-to
+ {
+  /* transform: translateX(0%); */
+  /* transform: matrix(1, 0, 0, 1, 0, 1); */
+  transform: scale(0.1);
+  /* opacity: 0; */
+ 
+}
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
     place-items: start;
   }
-
 
   /* .dialog-wrapper {
   position: relative;
@@ -124,33 +204,40 @@ img {
   flex-direction: column;
   width: 90%;
 } */
- 
 
- img{
-  z-index: -1;
-  position: static;
-  width: 300%;
-  margin-top: -120px;
-  margin-left: 50px;
- } 
+  .woman {
+    z-index: -1;
+    position: static;
+    width: 300%;
+    margin-top: -120px;
+    margin-left: 50px;
+  }
+
+  .dotted-line{
+    width: 30%;
+  }
+
+  span{
+    width: 180px
+  };
 
   .dialog-button1 {
-    top: -20%;
+    top: -62%;
     left: -4%;
   }
 
   .dialog-button2 {
-    top: -10%;
-    left: -15%;
+    top: -58%;
+    left: 0%;
   }
 
   .dialog-button3 {
-    top: 0%;
+    top: -53%;
     left: -5%;
   }
 
   .dialog-button4 {
-    top: 8%;
+    top: -50%;
     left: -3%;
   }
 }
