@@ -34,7 +34,10 @@ const data = store.state.data;
 </script>
 
 <style scoped lang='scss'>
-
+section{
+    justify-content: center;
+    padding-top: 0;
+}
 
 .text-container{
     max-width: 65%;

@@ -19,7 +19,7 @@
         'selected': answer === 'incorrect',
       }"
       >
-      <img src="assets/img/wrong.svg" alt="" v-if="answer == 'incorrect'">
+      <img src="/assets/img/wrong.svg" alt="" v-if="answer == 'incorrect'">
         {{props.answers[0].answer}}
       </ButtonComponent>
       <ButtonComponent type="quiz" 
