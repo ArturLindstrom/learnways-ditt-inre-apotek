@@ -202,6 +202,18 @@ const props = defineProps({
   }
 
   .green{
+    background:
+    url('/assets/img/02-vita-blodkroppar.png') bottom 40% right 5% / 40%,
+    url('/assets/img/02-vita-blodkroppar.png') top 10% right 35% / 12.5%,
+    url('/assets/img/02-vita-blodkroppar.png') bottom 15% left 5% / 10%,
+    url('/assets/img/02-vita-blodkroppar.png') bottom 15% left 30% / 17.5%,
+    url('/assets/img/02-vita-blodkroppar.png') top 35% left 45% / 7.5%,
+    url('/assets/img/antikropp-tilt.png') top -12.5% left 45% / 20%,
+    url('/assets/img/antikropp-tilt-2.png') bottom 27.5% left 10% / 10%,
+    url('/assets/img/antikropp-tilt-2.png') bottom 35% left 13% / 10%,
+    url('/assets/img/antikropp-tilt-2.png') bottom 12.5% left 50% / 10%,
+    ;
+    background-repeat: no-repeat;
     background-color: #A7C6B7;
     transition: background-color 0.5s ease-in;
   }

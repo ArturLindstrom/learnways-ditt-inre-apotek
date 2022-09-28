@@ -60,7 +60,6 @@ const sectionImages = computed(() => {
       '05-antibiotika.png',
       '05-antibiotika.png',
       '05-antibiotika.png',
-      
     ]
   } else if (props.section === 5){
     return [
@@ -69,6 +68,7 @@ const sectionImages = computed(() => {
       '0-bacteria.png',
     ]
   }
+  return ''
 })
 
 onMounted(() => {
