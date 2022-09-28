@@ -110,7 +110,7 @@ img {
  
 .image1-1 {
   top: 30%;
-  right: 10%;
+  right: 15%;
   height: 188px;
   transform: rotate(45deg);
   width: 188px;
@@ -118,7 +118,7 @@ img {
 
 .image1-2 {
   top: 35%;
-  right: 15%;
+  right: 20%;
   height: 336.07px;
   width: 336.07px;
 }
@@ -140,7 +140,7 @@ img {
 
 .image1-5 {
   top: 20%;
-  right: 15%;
+  right: 35%;
   transform: rotate(110deg);
   width: 102px;
   height: 102px;
@@ -148,7 +148,7 @@ img {
 
 .image1-6 {
   top: 60%;
-  right: 10%;
+  right: 2%;
   transform: rotate(45deg);
   width: 151px;
   height: 151px;
@@ -157,7 +157,7 @@ img {
 .image1-7{
   z-index: -3;
   top: 40%;
-  right: 7%;
+  right: 20%;
   width: 577px;
   height: 577px;
 }

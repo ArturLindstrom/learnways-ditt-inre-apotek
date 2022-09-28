@@ -50,6 +50,7 @@ h1{
 h5{
     margin-bottom: 40px;
     font-weight: bold;
+    max-width: 80%;
 }
 
 
