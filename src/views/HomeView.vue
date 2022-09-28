@@ -2,7 +2,7 @@
 <div class="container">
   <StartComponent id="Start" class="section"
   data-color="#F4E9D7"/>
-
+  
   <DialogComponent id="Historia" class="section"
   data-color="#CFE0DF"/>
   <QuizComponent
@@ -187,4 +187,5 @@ const data = store.state.data;
 </script>
 
 <style scoped lang='scss'>
+ 
 </style>
