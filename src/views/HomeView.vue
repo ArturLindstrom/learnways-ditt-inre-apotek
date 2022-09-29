@@ -103,6 +103,7 @@
     readMore: data.q_feedback_4_1_1,
     modal: {heading:data.dia_popup_h_p08_03, body:data.dia_popup_p_p08_03}},
     ]">
+  <ParallaxComponent :section="7" />
     </AccordionComponent>
   
   <QuizComponent

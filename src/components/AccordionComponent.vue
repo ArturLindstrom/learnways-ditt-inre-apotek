@@ -65,7 +65,11 @@ const toggleAccordion = (i) => {
     isSelected.value = i +1;
     buttonClicked.value = i + 1;
   }
-  store.commit('setAccordion', isSelected.value)
+  if(setClass.value == 'funktioner'){
+    store.commit('setAccordion', isSelected.value)
+  } else {
+    store.commit('setAccordion2', isSelected.value)
+  }
 }
 
 const props = defineProps({
