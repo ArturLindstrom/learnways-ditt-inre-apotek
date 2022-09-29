@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="section">
   <slot></slot>
   <p class="page-title">
     {{props.title}}
@@ -12,7 +12,6 @@
       {{props.question}}
     </h4>
     <div class="button-wrapper" >
-    
       <ButtonComponent type="quiz"
       @click="answer = 'incorrect'"
       :class="{
@@ -42,6 +41,7 @@
           </div>
         </transition>
   </div>
+
   </section>
 </template>
 
@@ -56,6 +56,10 @@ const answerShown = ref(0)
 const answer = ref('')
 
 
+const log = () => {
+  console.log(color)
+}
+// const color = document.querySelector('.section')
 
 const props = defineProps({
   title: {
@@ -137,12 +141,34 @@ h4{
   }
 
   .button-wrapper{
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
   }
 
   h2,h4{
     margin-bottom: 20px;
   }
+
+  .feedback{
+   margin: 0;
+  }
+
+  .feedback-container{
+    margin-top: 30px;
+    padding: 10px;
+    background: #F0EDE9;
+    border: 1px black solid;
+    border-radius: 5px;
+  }
+
+  /* .section[data-color="#F0EDE9"] .feedback-container{
+    background: #F0EDE9 
+  }
+  .section[data-color="#F0EDE9"] .feedback-container{
+    background: #F0EDE9 
+  }
+  .section[data-color="#F0EDE9"] .feedback-container{
+    background: #F0EDE9 
+  } */
 }
 </style>
