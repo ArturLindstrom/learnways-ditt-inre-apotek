@@ -90,10 +90,10 @@ const toggleDialog = (i) => {
 .woman {
   /* max-height: 150%; */
   /* z-index: -1; */
-  height: 150%;
-  position: absolute;
-  top: -40%;
-  right: -10%;
+  /* height: 150%; */
+  /* position: absolute; */
+  top: -30%;
+  right: 0%;
 }
 
 .button-container{
@@ -134,23 +134,23 @@ button {
 }
 
 .dialog-button1 {
-  top: -25%;
-  left: -3%;
+  top: -55%;
+  left: 2%;
 }
 
 .dialog-button2 {
-  top: -18%;
-  left: -15%;
+  top: -50%;
+  left: -8%;
 }
 
 .dialog-button3 {
-  top: -10%;
-  left: -10%;
+  top: -48%;
+  left: -4%;
 }
 
 .dialog-button4 {
-  top: -4%;
-  left: -10%;
+  top: -45%;
+  left: -5%;
 }
 
 .dialog-content{
@@ -189,7 +189,9 @@ button {
   /* opacity: 0; */
  
 }
-@media screen and (max-width: 2600px) {
+
+
+/* @media screen and (max-width: 1500px) {
   .dialog-button1{
     top: -30%;
     left: -22%;
@@ -205,7 +207,7 @@ button {
     top: 1%;
     left: -30%;
   }
-}
+} */
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
