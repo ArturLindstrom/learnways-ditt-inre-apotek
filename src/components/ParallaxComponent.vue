@@ -6,7 +6,7 @@
       :src="`/assets/img/${image}`"
       :key="image"
       :data-speed="i  * 0.4 "
-      :class="'image' + props.section + '-' +  (i + 1)"
+      :class="['image' + props.section + '-' +  (i + 1), state.store.currentAccordion > 0 ? 'accordion' + state.store.currentAccordion : '']"
     >
     </transition-group>
   </div>
@@ -70,7 +70,12 @@ const sectionImages = computed(() => {
     ]
     case 6: switch(store.state.currentAccordion){
       case 1: return [
-        '01-bacteria.png',
+        '01-gurka.png',
+        '01-gurka.png',
+        '01-ananas.png',
+        '01-ananas.png',
+        'apelsin-inre-apotek.png',
+        'apelsin-inre-apotek.png',
       ]
       case 2: return [
         '02-bacteria.png',
@@ -79,12 +84,12 @@ const sectionImages = computed(() => {
         '05-bacteria.png',
       ]
       case null: return [
-      'apelsin-inre-apotek.png',
-      '01-gurka.png',
-      '02-vita-blodkroppar.png',
-      '01-signal.png',
-      '11-bacteria.png',
-      '11-bacteria.png'
+        'apelsin-inre-apotek.png',
+        '01-gurka.png',
+        '02-vita-blodkroppar.png',
+        '01-signal.png',
+        '11-bacteria.png',
+        '11-bacteria.png'
       ]
       default: return [];
     }
