@@ -123,6 +123,9 @@ const sectionImages = computed(() => {
   case 7: switch(store.state.currentAccordion2){
       case 1: return [
         '01-food.png',
+        '01-bean.png',
+        '02-food.png',
+        '02-food.png',
       ]
       case 2: return [
         '15-pill.png',
@@ -137,7 +140,6 @@ const sectionImages = computed(() => {
         '20-bacteria-learnways.png',
         '20-bacteria-learnways.png',
         '4-antibiotika-learnways.png',
-
       ]
       default: return [];
     }
@@ -202,8 +204,8 @@ img {
     rotate: 0deg;
   }
   50% {
-    transform: translateY(-10px);
-    rotate: 5deg;
+    transform: translateY(-5px);
+    rotate: 2.5deg;
   }
   100% {
     transform: translateY(0);
@@ -587,7 +589,7 @@ img {
 }
 
 .image7-1 {
-  top: 15%;
+  top: 0%;
   right: 0;
 }
 
@@ -617,7 +619,21 @@ img {
 
 .accordion7-1-1 {
   top: 40%;
-  left: 40%;
+  left: 65%;
+}
+.accordion7-1-2 {
+  top: 30%;
+  left: 20%;
+  height: 700px;
+}
+.accordion7-1-3 {
+  top: 12.5%;
+  left: 80%;
+}
+.accordion7-1-4 {
+  top: 35%;
+  left: 75%;
+  height: 200px;
 }
 
 
