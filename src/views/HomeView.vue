@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
+  <div class="container" ref="container">
     <StartComponent id="Start" class="section" data-color="#F4E9D7" />
-
     <DialogComponent id="Historia" class="section" data-color="#CFE0DF" />
     <QuizComponent
       id="Arter"
@@ -195,7 +194,7 @@ import JuxtaPositionComponent from "../components/juxtaPositionComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { useStore } from "vuex";
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxComponent from "../components/ParallaxComponent.vue";
@@ -219,6 +218,12 @@ onMounted(() => {
     }
   });
 });
+
+const container = reactive({})
+
+
+
+
 
 const store = useStore();
 const data = store.state.data;

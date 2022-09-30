@@ -74,15 +74,19 @@ ul {
   }
 }
 .nav-button {
+  all: unset;
   z-index: 999;
   margin-top: 54px;
   margin-right: 54px;
   position: fixed;
   top: 0;
   right: 0;
-  background: url(/assets/navButton/navButton.svg) center no-repeat;
+  background: url(/assets/navButton/navButton.svg) center no-repeat white;
+  background-size: 105%;
   width: 40px;
   height: 40px;
+  border-radius: 5px;
+  border: 1px solid black;
   transition: all 0.5s;
   &:hover {
     transition: all 0.5s;
@@ -93,6 +97,8 @@ ul {
 
 .nav-button-active {
   background: url(/assets/navButton/navButtonActive.svg) center no-repeat;
+  background-size: 105%;
+  border: 1px solid black;
   transition: background 1s;
 }
 

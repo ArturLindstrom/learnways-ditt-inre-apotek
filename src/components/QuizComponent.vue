@@ -14,6 +14,16 @@
       <div class="button-wrapper">
         <ButtonComponent
           type="quiz"
+          @click="answer = 'correct'"
+          :class="{
+            selected: answer === 'correct',
+          }"
+        >
+          <img src="/assets/img/right.svg" alt="" v-if="answer == 'correct'" />
+          {{ props.answers[1].answer }}
+        </ButtonComponent>
+        <ButtonComponent
+          type="quiz"
           @click="answer = 'incorrect'"
           :class="{
             selected: answer === 'incorrect',
@@ -25,16 +35,6 @@
             v-if="answer == 'incorrect'"
           />
           {{ props.answers[0].answer }}
-        </ButtonComponent>
-        <ButtonComponent
-          type="quiz"
-          @click="answer = 'correct'"
-          :class="{
-            selected: answer === 'correct',
-          }"
-        >
-          <img src="/assets/img/right.svg" alt="" v-if="answer == 'correct'" />
-          {{ props.answers[1].answer }}
         </ButtonComponent>
       </div>
       <transition>
@@ -103,6 +103,7 @@ img {
 
 h2 {
   margin-bottom: 46px;
+  width: 70%;
 }
 
 h4 {
@@ -117,6 +118,7 @@ h4 {
 .selected {
   background-color: #362917;
   color: white;
+  transition: all 0.5s ease;
 }
 
 .v-enter-active,
@@ -141,6 +143,7 @@ h4 {
 
   h2,
   h4 {
+    width: 100%;
     margin-bottom: 20px;
   }
 
