@@ -61,9 +61,6 @@ const path = ref("");
 const answerShown = ref(0);
 const answer = ref("");
 
-const log = () => {
-  console.log(color);
-};
 
 const props = defineProps({
   title: {

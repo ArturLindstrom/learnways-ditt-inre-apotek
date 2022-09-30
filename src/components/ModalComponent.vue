@@ -51,7 +51,6 @@ const modalComponentOpen = computed(() => store.state.modalShown);
 const showModalContent = computed(() => store.state.modalContentShown);
 
 const showContent = () => {
-  console.log(store.state.modalContent.body);
   store.commit("modalContentOpen");
 };
 

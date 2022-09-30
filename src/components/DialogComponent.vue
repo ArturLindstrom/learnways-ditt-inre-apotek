@@ -59,7 +59,6 @@ const modalContent = {
 };
 
 const openModal = () => {
-  console.log(data);
   store.commit("modalOpen", modalContent);
 };
 

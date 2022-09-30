@@ -48,7 +48,6 @@ const modalContent = props.modal;
 
 const openModal = () => {
   store.commit("modalOpen", modalContent);
-  console.log(props.modal);
 };
 </script>
 

@@ -458,9 +458,10 @@ img {
   transform: rotate(90deg);
 }
 .image6-6 {
-  right: 40%;
+  display: none;
+  /* right: 40%;
   top: 20%;
-  transform: rotate(90deg);
+  transform: rotate(90deg); */
 }
 
 .accordion6-1-1 {
