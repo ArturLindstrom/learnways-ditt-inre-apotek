@@ -10,8 +10,10 @@
         'image' + props.section + '-' + (i + 1),
         currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
         accordionOpened && props.section == 6 ? 'accordion__image' : '',
+        !currentAccordion && accordionOpened && props.section == 6 ? 'hide' : '',
         currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
         accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
+        !currentAccordion2 && accordionOpened2 && props.section == 7 ? 'hide' : '',
       ]"
     >
     </transition-group>
@@ -128,10 +130,20 @@ const sectionImages = computed(() => {
         '02-food.png',
       ]
       case 2: return [
-        '15-pill.png',
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '03-food.png',
       ]
       case 3: return [
-        '15-pill.png'
+        '12-antibiotika.png',
+        '13-anitbiotika.png',
+        '15-pill.png',
+        '16-pill.png',
+        '12-antibiotika.png',
+        '12-antibiotika.png',
+        '3-antibiotika-learnways.png',
+        '3-antibiotika-learnways.png',
       ]
       case null: return [
         '02-apple.png',
@@ -182,6 +194,10 @@ img {
   z-index: -1;
   /* top: 50%;
   right: 10%; */
+}
+
+.hide {
+  display: none;
 }
 
 .list-enter-active,
@@ -635,6 +651,72 @@ img {
   top: 35%;
   left: 75%;
   height: 200px;
+}
+
+.accordion7-2-1 {
+  top: 60%;
+  left: 25%;
+}
+.accordion7-2-2 {
+  top: 55%;
+  left: 60%;
+  rotate: 100deg;
+  animation: none;
+}
+.accordion7-2-3 {
+  top: 75%;
+  left: 45%;
+  rotate: -40deg;
+}
+.accordion7-2-4 {
+  top: -40%;
+  left: 70%;
+}
+
+.accordion7-3-1 {
+  top: 70%;
+  left: 10%;
+  height: 300px;
+}
+.accordion7-3-2 {
+  top: 50%;
+  left: 10%;
+}
+.accordion7-3-3 {
+  top: 10%;
+  left: 50%;
+  rotate: 45deg;
+  animation: none;
+}
+.accordion7-3-4 {
+  top: 55%;
+  left: 65%;
+}
+
+.accordion7-3-5 {
+  top: 20%;
+  left: 90%;
+  height: 100px;
+}
+.accordion7-3-6 {
+  top: 35%;
+  left: 95%;
+  height: 100px;
+  rotate: 60deg;
+  animation: none;
+}
+
+.accordion7-3-7 {
+  top: 50%;
+  left: 40%;
+  
+}
+.accordion7-3-8 {
+  top: 65%;
+  left: 47.5%;
+  rotate: -30deg;
+  animation: none;
+
 }
 
 @media screen and (max-width: 768px){
