@@ -29,6 +29,7 @@
   </TextComponent>
   <AccordionComponent
   id="Funktioner"
+  type="Funktioner"
   class="section"
   data-color="#DEB881"
   :title="data.dia_i_04"

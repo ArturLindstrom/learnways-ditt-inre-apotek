@@ -10,10 +10,12 @@
         <ul >
           <div class="line"></div>
           <li v-for="route in routes" :key="route">
-            <a :href="'#' + route">
-              {{ route }}
-              <div class="ball"></div>
-            </a>
+            <!-- <router-link :to=" '#' + route"> -->
+              <a :href="'#' + route">
+                {{ route }}
+                <div class="ball"></div>
+                </a>
+              <!-- </router-link> -->
           </li>
         </ul>
       </nav>

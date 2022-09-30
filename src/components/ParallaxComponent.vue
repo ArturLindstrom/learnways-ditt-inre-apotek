@@ -419,6 +419,7 @@ img {
   width: 336.07px;
 }
 
+
 .image6-1 {
   transform: scale(0.75);
   bottom: 10%;
@@ -636,5 +637,85 @@ img {
   height: 200px;
 }
 
+@media screen and (max-width: 768px){
 
+  .image1-1{
+    display: none;
+  }
+  .image1-2{
+    right: -50%;
+    top: 0
+  }
+  .image1-3{
+    right: -60%;
+    top: 20%
+  }
+  .image1-4{
+    transform: scale(0.7);
+    right: -80%;
+    top: 30%
+  }
+  .image1-5{
+    display: none;
+  }
+  .image1-7{
+    display: none;
+  }
+  .image1-8{
+    top: 80%;
+    right: -5%;
+  }
+  .image2-1{
+    top: -40%
+  }
+  .image2-2{
+    top: -30%
+  }
+  .image2-3{
+    display: none;
+  }
+  .image2-5{
+    display: none;
+  } 
+  .image3-1, .image3-3,.image3-2{
+    display: none;
+  }
+  .image3-4{
+    top: -30%;
+    transform: scale(0.2);
+  }
+  .image3-5{
+
+    top: 10%;
+    left: 0%;
+  }
+  .image4-1{
+    transform: scale(0.3);
+    top:-10%
+  }
+  .image4-4{
+    top: 60%;
+  }
+  //select all images with class image4-2 and image4-3 and image4-4 and image4-5 and image4-6
+  .image4-2, .image4-3, .image4-4, .image4-5, .image4-6{
+    transform: scale(0.3);
+  }
+
+  //select all images with class image5-1 and image5-2 and image5-3
+  .image5-1, .image5-2, .image5-3{
+    transform: scale(0.3);
+  }
+  
+  .image5-1{
+    top: -40%;
+  }
+  .image5-2{
+    top: 20%;
+  }
+  .image5-3{
+    top: 40%;
+    right: 10%;
+  }
+ 
+}
 </style>

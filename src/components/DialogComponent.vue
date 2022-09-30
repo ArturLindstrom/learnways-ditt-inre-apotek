@@ -11,7 +11,6 @@
       <p class="read-more" @click="openModal">
         {{ data.dia_02_p2 }}
       </p>
-      <!-- <p class="open" v-if="mq.current != 'xs' && mq.current != 'md'"> -->
       <p class="open">
         {{ data.dia_02_open }}
       </p>
@@ -19,21 +18,20 @@
 
     <div class="dialog-wrapper">
       <img class="woman" src="/assets/img/apotek-kvinna.png" alt="" />
-      <div class="button-container" v-for="(button, i) in 4" :class="'dialog-button' + (i + 1)">
-        <button  @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i + 1 }">
+      <div class="button-container" v-for="(button, i) in 4" :class="'dialog-button' + (i + 1)" :key="button">
+        <button @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i + 1 }">
         </button>
-          <transition name="scale">
-            <div class="dialog-content" v-if="dialogShown == i + 1">
-              <img src="/assets/img/info-line.svg" alt=""  class="dotted-line"/>
-              <transition name="text">
-                <span>
-                  {{data[`dia_hot_0${i + 1}`]}}
-                </span>
-              </transition>
-            </div>
-          </transition>
+        <transition name="scale">
+          <div class="dialog-content" v-if="dialogShown == i + 1">
+            <img src="/assets/img/info-line.svg" alt="" class="dotted-line" />
+            <transition name="text">
+              <span>
+                {{data[`dia_hot_0${i + 1}`]}}
+              </span>
+            </transition>
+          </div>
+        </transition>
       </div>
-      <!-- <ModalComponent> </ModalComponent> -->
     </div>
   </section>
 </template>
@@ -41,8 +39,6 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import DialogButton from "./DialogButton.vue";
-import ModalComponent from "./ModalComponent.vue";
 import { useMq } from "vue3-mq";
 
 const dialogShown = ref(0)
@@ -61,12 +57,12 @@ const openModal = () => {
 };
 
 const toggleDialog = (i) => {
-    if (dialogShown.value == i + 1) {
-      dialogShown.value = 0;
-    } else {
-      dialogShown.value = i + 1;
-    }
-  };
+  if (dialogShown.value == i + 1) {
+    dialogShown.value = 0;
+  } else {
+    dialogShown.value = i + 1;
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -74,13 +70,13 @@ const toggleDialog = (i) => {
   background-size: 90%;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  place-items: center;
+  place-items: start center;
 }
 
 .dialog-wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 90%;
@@ -90,13 +86,14 @@ const toggleDialog = (i) => {
 .woman {
   /* max-height: 150%; */
   /* z-index: -1; */
-  height: 150%;
-  position: absolute;
-  top: -40%;
-  right: -10%;
+  /* height: 150%; */
+  /* position: absolute; */
+  margin-top: -200px;
+  top: -30%;
+  right: 0%;
 }
 
-.button-container{
+.button-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -110,20 +107,20 @@ button {
   height: 35px;
   border-radius: 50%;
   background-color: #eeeae6;
-  background: url("assets/img/ICON-HOTSPOT.svg") no-repeat center;
-  /* border: 2px solid black; */
+  background: url("/assets/img/ICON-HOTSPOT.svg") no-repeat center;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   transition: transform 0.2s;
+
   &:hover {
     filter: brightness(0.8);
   }
 }
 
 .active-button {
-    transform: rotate(45deg) scale(1.1);
-    transition: all 0.5s ease-in-out;
-  }
+  transform: rotate(45deg) scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
 
 .open {
   font-weight: bold;
@@ -135,75 +132,95 @@ button {
 }
 
 .dialog-button1 {
-  top: -25%;
-  left: -3%;
+  top: -68%;
+  left: 2%;
 }
 
 .dialog-button2 {
-  top: -18%;
-  left: -15%;
+  top: -62%;
+  left: -8%;
 }
 
 .dialog-button3 {
-  top: -10%;
-  left: -10%;
+  top: -58%;
+  left: -4%;
 }
 
 .dialog-button4 {
-  top: -4%;
-  left: -10%;
+  top: -54%;
+  left: -5%;
 }
 
-.dialog-content{
-    position: absolute;
-    transform: translate(50%);
-    display: flex;
-    
-  }
-  .dotted-line{
-    width: 30%;
-  }
-  span{
-    /* z-index: 5; */
-    border-radius: 5px;
-    display: block;
-    /* border: 3px solid black; */
-    width: 300px;
-    /* height: 100px; */
-    background-color: white;
-    padding: 10px;
-    transform: translate(-20px);
-    font-size: 18px;
-  }
+.dialog-content {
+  position: absolute;
+  transform: translate(50%);
+  display: flex;
 
-  .scale-enter-active,
+}
+
+.dotted-line {
+  width: 30%;
+}
+
+span {
+  /* z-index: 5; */
+  border-radius: 5px;
+  display: block;
+  /* border: 3px solid black; */
+  width: 300px;
+  /* height: 100px; */
+  background-color: white;
+  padding: 10px;
+  transform: translate(-20px);
+  font-size: 18px;
+}
+
+.scale-enter-active,
 .scale-leave-active {
   transition: transform 0.7s ease;
 }
 
 .scale-enter-from,
-.scale-leave-to
- {
+.scale-leave-to {
   /* transform: translateX(0%); */
   /* transform: matrix(1, 0, 0, 1, 0, 1); */
   transform: scale(0.1);
   /* opacity: 0; */
- 
+
 }
+
+
+/* @media screen and (max-width: 1500px) {
+  .dialog-button1{
+    top: -30%;
+    left: -22%;
+  }
+  .dialog-button2{
+    left: -35%;
+  }
+
+  .dialog-button3{
+    left: -30%;
+  }
+  .dialog-button4{
+    top: 1%;
+    left: -30%;
+  }
+} */
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
     place-items: start;
   }
 
-  /* .dialog-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 90%;
-} */
+  .dialog-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+  }
 
   .woman {
     z-index: -1;
@@ -213,13 +230,15 @@ button {
     margin-left: 50px;
   }
 
-  .dotted-line{
+  .dotted-line {
     width: 30%;
   }
 
-  span{
+  span {
     width: 180px
-  };
+  }
+
+  ;
 
   .dialog-button1 {
     top: -62%;

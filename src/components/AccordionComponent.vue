@@ -54,8 +54,7 @@ const openModal = (modalContent) => {
 }
 
 const setClass = computed(() => {
-    return props.id.toLowerCase();
-})
+    return props.type.toLowerCase();
 
 const toggleAccordion = (i) => {
   
@@ -88,7 +87,7 @@ const props = defineProps({
         type: Array,
         default: []
     },
-    id: {
+    type: {
         type: String,
         default: ''
     }
