@@ -1,20 +1,28 @@
-<template >
+<template>
   <Transition name="modal-animation" @enter="showContent">
     <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
         <div class="modal-content" v-if="showModalContent">
-            <div class="close-container" >
-              <p class="close-text" @click="closeModal">Stäng</p>
-              <img class="close-icon" src="/assets/img/icon-close.svg" alt="Stäng" @click="closeModal" tabindex="3" @keyup.enter="closeModal"/>
-            </div>
-            <div class="modal-content-inner">
-              <h4 class="modal-heading">
-                {{store.state.modalContent.heading}}
-              </h4>
-              <div class="modal-body" v-html="store.state.modalContent.body">
-              </div>
-            </div>
-
+          <div class="close-container">
+            <p class="close-text" @click="closeModal">Stäng</p>
+            <img
+              class="close-icon"
+              src="/assets/img/icon-close.svg"
+              alt="Stäng"
+              @click="closeModal"
+              tabindex="3"
+              @keyup.enter="closeModal"
+            />
+          </div>
+          <div class="modal-content-inner">
+            <h4 class="modal-heading">
+              {{ store.state.modalContent.heading }}
+            </h4>
+            <div
+              class="modal-body"
+              v-html="store.state.modalContent.body"
+            ></div>
+          </div>
         </div>
       </Transition>
     </div>
@@ -22,171 +30,160 @@
 </template>
 
 <script setup>
-  import { useStore } from "vuex";
-  import { computed } from "vue";
-  import gsap from "gsap";
+import { useStore } from "vuex";
+import { computed } from "vue";
+import gsap from "gsap";
 
-  const store = useStore();
+const store = useStore();
 
-  const showCloseContainer = () => {
-    gsap.from(".close-container", {
-      duration: 0.5,
-      opacity: 0,
-      y: 20,
-      ease: "power2.out",
-      delay: 0.5,
-    });
-  };
+const showCloseContainer = () => {
+  gsap.from(".close-container", {
+    duration: 0.5,
+    opacity: 0,
+    y: 20,
+    ease: "power2.out",
+    delay: 0.5,
+  });
+};
 
-  const modalComponentOpen = computed(() => store.state.modalShown);
+const modalComponentOpen = computed(() => store.state.modalShown);
 
-  const showModalContent = computed(() => store.state.modalContentShown);
+const showModalContent = computed(() => store.state.modalContentShown);
 
+const showContent = () => {
+  console.log(store.state.modalContent.body);
+  store.commit("modalContentOpen");
+};
 
-  const showContent = () => {
-    console.log(store.state.modalContent.body)
-    store.commit("modalContentOpen");
-  };
-
-  const closeModal = () => {
-    store.commit("modalContentClose");
-    setTimeout(() => 
-      {
-        store.commit("modalClose");
-      }, 500);
-  }
+const closeModal = () => {
+  store.commit("modalContentClose");
+  setTimeout(() => {
+    store.commit("modalClose");
+  }, 500);
+};
 </script>
 
 <style scoped lang="scss">
-  .modal {
-    position: fixed;
-    z-index: 10;
-    padding-top: 1rem;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: grid;
-    place-items: center center;
+.modal {
+  position: fixed;
+  z-index: 10;
+  padding-top: 1rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 10px;
+  margin: auto;
+  border: 1px solid #888;
+  height: 70%;
+  padding: 2.5rem 0;
+  max-width: 55%;
+  position: relative;
+  overflow-y: auto;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.close-container {
+  position: fixed;
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: 15.5fr 1fr 1fr;
+  grid-template-areas: ".. close-text close-icon";
+  place-items: center;
+}
+
+.close-text {
+  grid-area: close-text;
+  &:hover {
+    cursor: pointer;
   }
+}
 
+.close-icon {
+  grid-area: close-icon;
+  height: 38px;
+  width: 38px;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+.modal-content-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  padding: 2rem 0;
+}
+
+.modal-body :deep(p) {
+  margin-top: 20px;
+}
+
+.modal-body {
+  margin-bottom: 30px;
+}
+
+.modal-animation-enter-active,
+.modal-animation-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal-animation-enter-from,
+.modal-animation-leave-to {
+  opacity: 0;
+}
+
+.modal-animation-inner-enter-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-animation-inner-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-animation-inner-enter-from {
+  /* opacity: 0; */
+  transform: translateY(100%);
+}
+
+.modal-animation-inner-leave-to {
+  transform: translateY(100%);
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: 0;
+  }
   .modal-content {
-    background-color: #fefefe;
-    border-radius: 10px;
-    margin: auto;
-    border: 1px solid #888;
-    height: 70%;
-    padding: 2.5rem 0;
-    /* min-width: 500px; */
-    max-width: 55%;
-    position: relative;
-    overflow-y: auto;
-    z-index: 11;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
   .close-container {
-    position: fixed;
-    display: grid;
-    margin-top: 1rem;
-    grid-template-columns: 15.5fr 1fr 1fr;
-    grid-template-areas: ".. close-text close-icon";
-    place-items: center;
-    /* z-index: 9999; */
-  }
-
-  .close-text {
-    grid-area: close-text;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-
-  .close-icon {
-    grid-area: close-icon;
-    height: 38px;
+    top: 0;
+    right: 5%;
     width: 38px;
-    transition: all 0.25s ease-in-out;
-    &:hover {
-      cursor: pointer;
-      transition: all 0.25s ease-in-out;
-    }
   }
-
-  .modal-content-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 70%;
-
-    /* height: 100%; */
-    padding: 2rem 0 ;
+  .close-text {
+    display: none;
   }
- 
+}
 
-  .modal-body :deep(p) {
-    margin-top: 20px;
-   
-  }
-
-  .modal-body  {
-    margin-bottom: 30px;
-  }
-  
-
-  .modal-animation-enter-active,
-  .modal-animation-leave-active {
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  .modal-animation-enter-from,
-  .modal-animation-leave-to {
-    opacity: 0;
-  }
-
-  .modal-animation-inner-enter-active {
-    transition: all 0.5s ease-in-out;
-  }
-
-  .modal-animation-inner-leave-active {
-    transition: all 0.5s ease-in-out;
-  }
-
-  .modal-animation-inner-enter-from {
-    /* opacity: 0; */
-    transform: translateY(100%);
-  }
-
-  .modal-animation-inner-leave-to {
-    transform: translateY(100%);
-  }
-
-  @media screen and (max-width: 768px) {
-    .modal {
-      padding: 0;
-    }
-    .modal-content {
-      max-width: 100%;
-      height: 100%;
-      border-radius: 0;
-    }
-    .close-container {
-      top: 0;
-      right: 5%;
-      width: 38px;
-    }
-    .close-text {
-      display: none;
-    }
-  }
-
-  /* @media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
     .modal {
       padding: 0;
     }
