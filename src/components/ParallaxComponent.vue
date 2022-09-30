@@ -423,7 +423,7 @@ img {
 }
 
 .image5-3 {
-  top: 20%;
+  top: 40%;
   right: 40%;
   transform: rotate(70deg);
   height: 336.07px;
@@ -600,28 +600,30 @@ img {
 }
 
 .image7-1 {
-  top: -80%;
-  right: 0;
+  height: 500px;
+  top: -30%;
+  right: 5%;
 }
 
 .image7-2 {
   left: 0%;
-  top: 10%;
+  top: -10%;
   transform: scaleX(-1);
 }
 
 .image7-3 {
   left: 50%;
-  bottom: 30%;
+  bottom: 20%;
 }
 
 .image7-4 {
-  left: 55%;
-  bottom: 35%;
+  left: 40%;
+  bottom: -20%;
 }
 .image7-5 {
   left: 45%;
-  bottom: 35%;
+  bottom: -20%;
+  transform: rotate(90deg);
 }
 .image7-6 {
   left: 50%;
@@ -648,6 +650,7 @@ img {
 }
 
 .accordion7-2-1 {
+  height: 200px;
   top: 60%;
   left: 25%;
 }
@@ -663,8 +666,9 @@ img {
   rotate: -40deg;
 }
 .accordion7-2-4 {
-  top: -40%;
-  left: 70%;
+  height: 500px;
+  /* top: -40%; */
+  left: 60%;
 }
 
 .accordion7-3-1 {
@@ -741,10 +745,14 @@ img {
     right: -5%;
   }
   .image2-1 {
-    top: -55%;
+    height: 300px;
+    top: -40%;
+    right: 30%;
+    display: none;
   }
   .image2-2 {
-    top: -30%;
+    top: -35%;
+    display: none;
   }
   .image2-3 {
     display: none;
@@ -797,6 +805,56 @@ img {
   .image5-3 {
     top: 40%;
     right: 10%;
+  }
+
+  .image6-1 {
+    height: 300px;
+    top: 20%;
+    right: 0%;
+  }
+  .image6-2 {
+    height: 200px;
+    top: 60%;
+    right: 0%;
+  }
+
+  .image6-3{
+    height: 200px;
+    top: -20%;
+  }
+
+  .image6-4 {
+    display: none;
+  }
+
+  .image6-5 {
+    display: none;
+  }
+  .accordion6-1-1{
+    height: 200px;
+    top: 85%;
+    left: 10%;
+  }
+  .accordion6-1-2{
+    height: 200px;
+    /* top: 85%; */
+    left: 30%;
+  }
+  .accordion6-1-3{
+    height: 200px;
+    left: 50%;
+    top: -10%
+  }
+  .accordion6-1-4{
+    height: 200px;
+    left: 70%;
+    /* top: -10% */
+  }
+
+  .accordion6-1-5{
+    height: 200px;
+    top: 80%;
+    right: -30%;
   }
 }
 </style>

@@ -24,7 +24,7 @@ const openInfo = () => {
 .button {
   z-index: 3;
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   margin-top: 54px;
   margin-left: 54px;

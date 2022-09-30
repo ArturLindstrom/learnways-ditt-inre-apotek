@@ -76,7 +76,7 @@ const toggleDialog = (i) => {
   background-size: 90%;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  place-items: start center;
+  place-items: start;
 }
 
 .dialog-wrapper {
