@@ -1,10 +1,13 @@
 <template>
   <a href="#Historia" v-if="props.type == 'scroll'">
-    <button @click="onClick" class="button">
-      <slot></slot>
-      <button v-if="props.type == 'scroll'" class="scroll" />
-    </button>
-  </a>
+  <button @click="onClick" class="button">
+    <slot></slot>
+    <button v-if="props.type == 'scroll'" class="scroll" />
+  </button>
+</a>
+  <button v-else @click="onClick" class="button">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup>
