@@ -1,30 +1,29 @@
 <template>
   <a href="#Historia" v-if="props.type == 'scroll'">
-  <button @click="onClick" class="button">
-    <slot></slot>
-    <button v-if="props.type == 'scroll'" class="scroll" />
-  </button>
-</a>
+    <button @click="onClick" class="button">
+      <slot></slot>
+      <button v-if="props.type == 'scroll'" class="scroll" />
+    </button>
+  </a>
   <button v-else @click="onClick" class="button">
     <slot></slot>
   </button>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const props = defineProps({
   type: {
     type: String,
-    default: 'button'
+    default: "button",
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
+});
 
-})
-
-const onAnswer = ref()
+const onAnswer = ref();
 
 const onClick = () => {
   // if (props.type == 'scroll') {
@@ -34,19 +33,17 @@ const onClick = () => {
   //   })
   // }
 
-  if (props.type == 'quiz') {
+  if (props.type == "quiz") {
     if (props.correct) {
-      onAnswer.value = 'correct'
+      onAnswer.value = "correct";
     } else {
-      onAnswer.value = 'incorrect'
+      onAnswer.value = "incorrect";
     }
-
   }
-}
-
+};
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .button {
   position: relative;
   min-width: 200px;
@@ -54,7 +51,7 @@ const onClick = () => {
   border-radius: 4px;
   padding: 10px 15px;
   background-color: white;
-  font-family: 'Apercu';
+  font-family: "Apercu";
   font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
@@ -62,11 +59,9 @@ const onClick = () => {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-
 }
 
-a{
+a {
   text-decoration: none;
 }
 

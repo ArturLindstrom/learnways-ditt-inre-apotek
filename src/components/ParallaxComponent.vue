@@ -1,36 +1,50 @@
 <template>
   <div>
     <transition-group name="list">
-    <img
-      v-for="(image, i) in sectionImages"
-      :src="`/assets/img/${image}`"
-      :key="image + i"
-      :data-speed="i  * 0.4"
-      :class="[
-        'image' + props.section + '-' + (i + 1),
-        currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
-        accordionOpened && props.section == 6 ? 'accordion__image' : '',
-        currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
-        accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
-      ]"
-    >
+      <img
+        v-for="(image, i) in sectionImages"
+        :src="`/assets/img/${image}`"
+        :key="image + i"
+        :data-speed="i * 0.4"
+        :class="[
+          'image' + props.section + '-' + (i + 1),
+          currentAccordion && props.section == 6
+            ? 'accordion' +
+              props.section +
+              '-' +
+              currentAccordion +
+              '-' +
+              (i + 1)
+            : '',
+          accordionOpened && props.section == 6 ? 'accordion__image' : '',
+          currentAccordion2 && props.section == 7
+            ? 'accordion' +
+              props.section +
+              '-' +
+              currentAccordion2 +
+              '-' +
+              (i + 1)
+            : '',
+          accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
+        ]"
+      />
     </transition-group>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useStore } from 'vuex';
+import { useStore } from "vuex";
 gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
-    section: {
-        type: Number,
-        default: ''
-    },
-})
+  section: {
+    type: Number,
+    default: "",
+  },
+});
 
 const store = useStore();
 
@@ -41,141 +55,143 @@ const accordionOpened = computed(() => store.state.accordionOpened);
 const accordionOpened2 = computed(() => store.state.accordionOpened2);
 
 const sectionImages = computed(() => {
-  switch(props.section){
-    case 1: return [
-      '01-bacteria.png',
-      '02-bacteria.png',
-      '05-bacteria.png',
-      'apelsin-inre-apotek.png',
-      '05-antibiotika.png',
-      '09-antikropp.png',
-      '07-bacteria.png',
-      '10-antibiotika.png',
-    ]
-    case 2: return [
-      '01-bacteria.png',
-      '0-bacteria.png',
-      '02-bacteria.png',
-      '07-bacteria.png',
-      'parallax-image5.png',
-      'parallax-image5.png'
-    ]
-    case 3: return [
-      '01-bacteria.png',
-      '02-bacteria.png',
-      '07-bacteria.png',
-      '05-bacteria.png',
-      '0-bacteria.png',
-    ]
-    case 4: return [
-      '12-antibiotika.png',
-      '10-antibiotika.png',
-      '10-antibiotika.png',
-      '05-antibiotika.png',
-      '05-antibiotika.png',
-      '05-antibiotika.png',
-    ]
-    case 5: return [
-      '0-bacteria.png',
-      '0-bacteria.png',
-      '0-bacteria.png',
-    ]
-    case 6: switch(store.state.currentAccordion){
-      case 1: return [
-        '01-gurka.png',
-        '01-ananas.png',
-        '01-ananas.png',
-        'apelsin-inre-apotek.png',
-        'apelsin-inre-apotek.png',
-        '01-gurka.png',
-      ]
-      case 2: return [
-        '01-brain.png',
-        '11-bacteria.png',
-        '11-bacteria.png',
-        '11-bacteria.png',
-        '01-signal.png',
-        '01-signal.png',
-        '01-signal.png',
-        '01-signal.png',
-      ]
-      case 3: return [
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-      ]
-      case null: return [
-        'apelsin-inre-apotek.png',
-        '01-gurka.png',
-        '02-vita-blodkroppar.png',
-        '01-signal.png',
-        '11-bacteria.png',
-        '11-bacteria.png'
-      ]
-      default: return [];
-    }
-  case 7: switch(store.state.currentAccordion2){
-      case 1: return [
-        '01-food.png',
-        '01-bean.png',
-        '02-food.png',
-        '02-food.png',
-      ]
-      case 2: return [
-        '15-pill.png',
-      ]
-      case 3: return [
-        '15-pill.png'
-      ]
-      case null: return [
-        '02-apple.png',
-        '01-bean.png',
-        '4-antibiotika-learnways.png',
-        '20-bacteria-learnways.png',
-        '20-bacteria-learnways.png',
-        '4-antibiotika-learnways.png',
-      ]
-      default: return [];
-    }
-  default: return [];
+  switch (props.section) {
+    case 1:
+      return [
+        "01-bacteria.png",
+        "02-bacteria.png",
+        "05-bacteria.png",
+        "apelsin-inre-apotek.png",
+        "05-antibiotika.png",
+        "09-antikropp.png",
+        "07-bacteria.png",
+        "10-antibiotika.png",
+      ];
+    case 2:
+      return [
+        "01-bacteria.png",
+        "0-bacteria.png",
+        "02-bacteria.png",
+        "07-bacteria.png",
+        "parallax-image5.png",
+        "parallax-image5.png",
+      ];
+    case 3:
+      return [
+        "01-bacteria.png",
+        "02-bacteria.png",
+        "07-bacteria.png",
+        "05-bacteria.png",
+        "0-bacteria.png",
+      ];
+    case 4:
+      return [
+        "12-antibiotika.png",
+        "10-antibiotika.png",
+        "10-antibiotika.png",
+        "05-antibiotika.png",
+        "05-antibiotika.png",
+        "05-antibiotika.png",
+      ];
+    case 5:
+      return ["0-bacteria.png", "0-bacteria.png", "0-bacteria.png"];
+    case 6:
+      switch (store.state.currentAccordion) {
+        case 1:
+          return [
+            "01-gurka.png",
+            "01-ananas.png",
+            "01-ananas.png",
+            "apelsin-inre-apotek.png",
+            "apelsin-inre-apotek.png",
+            "01-gurka.png",
+          ];
+        case 2:
+          return [
+            "01-brain.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+            "01-signal.png",
+            "01-signal.png",
+            "01-signal.png",
+            "01-signal.png",
+          ];
+        case 3:
+          return [
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+          ];
+        case null:
+          return [
+            "apelsin-inre-apotek.png",
+            "01-gurka.png",
+            "02-vita-blodkroppar.png",
+            "01-signal.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+          ];
+        default:
+          return [];
+      }
+    case 7:
+      switch (store.state.currentAccordion2) {
+        case 1:
+          return ["01-food.png", "01-bean.png", "02-food.png", "02-food.png"];
+        case 2:
+          return ["15-pill.png"];
+        case 3:
+          return ["15-pill.png"];
+        case null:
+          return [
+            "02-apple.png",
+            "01-bean.png",
+            "4-antibiotika-learnways.png",
+            "20-bacteria-learnways.png",
+            "20-bacteria-learnways.png",
+            "4-antibiotika-learnways.png",
+          ];
+        default:
+          return [];
+      }
+    default:
+      return [];
   }
-})
+});
 
 onMounted(() => {
-  parallaxAnimation()
+  parallaxAnimation();
 });
 
 const parallaxAnimation = () => {
-  gsap.to("[data-speed]",{
-  // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
-  y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
-  ease: "none",
-  rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 200,
-  scrollTrigger: {
-    start: 0,
-    end: '200%',
-    // end: () => "+=" + document.body.offsetHeight,
-    invalidateOnRefresh: true,
-    scrub: 5
-  }
+  gsap.to("[data-speed]", {
+    // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
+    y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
+    ease: "none",
+    rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 200,
+    scrollTrigger: {
+      start: 0,
+      end: "200%",
+      // end: () => "+=" + document.body.offsetHeight,
+      invalidateOnRefresh: true,
+      scrub: 5,
+    },
   });
-}
-
-
-
+};
 </script>
 
-<style scoped lang='scss'>
-  div{
-    overflow-x: hidden;
-    /* z-index: 0; */
-  }
+<style scoped lang="scss">
+div {
+  overflow-x: hidden;
+  /* z-index: 0; */
+}
 
 img {
   position: absolute;
@@ -213,7 +229,6 @@ img {
   }
 }
 
- 
 .image1-1 {
   top: 30%;
   right: 15%;
@@ -229,7 +244,7 @@ img {
   width: 336.07px;
 }
 
-.image1-3{
+.image1-3 {
   top: -10%;
   right: 5%;
   width: 300px;
@@ -260,7 +275,7 @@ img {
   height: 151px;
 }
 
-.image1-7{
+.image1-7 {
   z-index: -3;
   top: 40%;
   right: 20%;
@@ -275,13 +290,13 @@ img {
   width: 160px;
 }
 
-.image2-1{
+.image2-1 {
   top: 0%;
   right: 5%;
   height: 400px;
 }
 
-.image2-2{
+.image2-2 {
   top: 0%;
   right: 10%;
   transform: rotate(45deg);
@@ -289,34 +304,33 @@ img {
   width: 188px;
 }
 
-.image2-3{
+.image2-3 {
   top: 40%;
   right: 8%;
   height: 336.07px;
   width: 336.07px;
 }
 
-.image2-4{
+.image2-4 {
   top: 60%;
   right: 30%;
   height: 300px;
   width: 300px;
 }
 
-.image2-5{
+.image2-5 {
   top: 90%;
   right: 50%;
   height: 102px;
   width: 102px;
 }
 
-.image2-6{
+.image2-6 {
   top: 80%;
   right: 0%;
 }
 
-
-.image3-1{
+.image3-1 {
   top: 30%;
   left: 20%;
   height: 188px;
@@ -324,41 +338,40 @@ img {
   width: 188px;
 }
 
-.image3-2{
+.image3-2 {
   top: 30%;
   left: 0%;
   height: 336.07px;
   width: 336.07px;
 }
 
-.image3-3{
+.image3-3 {
   top: -10%;
   left: 5%;
   width: 300px;
   height: 300px;
 }
 
-.image3-4{
+.image3-4 {
   top: 10%;
   left: 25%;
   width: 485px;
   height: 485px;
 }
 
-.image3-5{
+.image3-5 {
   top: 20%;
   left: 35%;
   width: 102px;
   height: 102px;
 }
 
-.image4-1{
+.image4-1 {
   top: -40%;
   right: 0%;
-  
 }
 
-.image4-2{
+.image4-2 {
   top: 50%;
   right: 10%;
   transform: rotate(60deg);
@@ -366,14 +379,14 @@ img {
   width: 188px;
 }
 
-.image4-3{
+.image4-3 {
   top: 30%;
   right: 40%;
   height: 188px;
   width: 188px;
 }
 
-.image4-4{
+.image4-4 {
   top: 40%;
   right: 30%;
   transform: rotate(60deg);
@@ -381,14 +394,14 @@ img {
   width: 151px;
 }
 
-.image4-5{
+.image4-5 {
   top: 105%;
   right: 40%;
   height: 151px;
   width: 151px;
 }
 
-.image4-6{
+.image4-6 {
   top: 120%;
   right: 25%;
   transform: rotate(60deg);
@@ -396,14 +409,14 @@ img {
   width: 151px;
 }
 
-.image5-1{
+.image5-1 {
   top: -60%;
   right: 5%;
   height: 700px;
   transform: rotate(270deg);
 }
 
-.image5-2{
+.image5-2 {
   top: 10%;
   right: 5%;
   transform: rotate(45deg);
@@ -411,14 +424,13 @@ img {
   width: 188px;
 }
 
-.image5-3{
+.image5-3 {
   top: 20%;
   right: 40%;
   transform: rotate(70deg);
   height: 336.07px;
   width: 336.07px;
 }
-
 
 .image6-1 {
   transform: scale(0.75);
@@ -443,12 +455,12 @@ img {
 .image6-5 {
   right: 10%;
   bottom: 10%;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 .image6-6 {
   right: 40%;
   top: 20%;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .accordion6-1-1 {
@@ -538,7 +550,6 @@ img {
   rotate: 90deg;
 }
 
-
 .accordion6-3-1 {
   top: 60%;
   left: 2.5%;
@@ -590,7 +601,7 @@ img {
 }
 
 .image7-1 {
-  top: 0%;
+  top: -80%;
   right: 0;
 }
 
@@ -637,85 +648,90 @@ img {
   height: 200px;
 }
 
-@media screen and (max-width: 768px){
-
-  .image1-1{
+@media screen and (max-width: 768px) {
+  .image1-1 {
     display: none;
   }
-  .image1-2{
+  .image1-2 {
     right: -50%;
-    top: 0
+    top: 0;
   }
-  .image1-3{
+  .image1-3 {
     right: -60%;
-    top: 20%
+    top: 20%;
   }
-  .image1-4{
+  .image1-4 {
     transform: scale(0.7);
     right: -80%;
-    top: 30%
+    top: 30%;
   }
-  .image1-5{
+  .image1-5 {
     display: none;
   }
-  .image1-7{
+  .image1-7 {
     display: none;
   }
-  .image1-8{
+  .image1-8 {
     top: 80%;
     right: -5%;
   }
-  .image2-1{
-    top: -40%
+  .image2-1 {
+    top: -55%;
   }
-  .image2-2{
-    top: -30%
+  .image2-2 {
+    top: -30%;
   }
-  .image2-3{
+  .image2-3 {
     display: none;
   }
-  .image2-5{
-    display: none;
-  } 
-  .image3-1, .image3-3,.image3-2{
+  .image2-5 {
     display: none;
   }
-  .image3-4{
+  .image3-1,
+  .image3-3,
+  .image3-2 {
+    display: none;
+  }
+  .image3-4 {
     top: -30%;
     transform: scale(0.2);
   }
-  .image3-5{
-
+  .image3-5 {
     top: 10%;
     left: 0%;
   }
-  .image4-1{
+  .image4-1 {
     transform: scale(0.3);
-    top:-10%
+    top: -10%;
   }
-  .image4-4{
+  .image4-4 {
     top: 60%;
   }
   //select all images with class image4-2 and image4-3 and image4-4 and image4-5 and image4-6
-  .image4-2, .image4-3, .image4-4, .image4-5, .image4-6{
+  .image4-2,
+  .image4-3,
+  .image4-4,
+  .image4-5,
+  .image4-6 {
     transform: scale(0.3);
   }
 
   //select all images with class image5-1 and image5-2 and image5-3
-  .image5-1, .image5-2, .image5-3{
+  .image5-1,
+  .image5-2,
+  .image5-3 {
     transform: scale(0.3);
   }
-  
-  .image5-1{
+
+  .image5-1 {
     top: -40%;
   }
-  .image5-2{
+  .image5-2 {
     top: 20%;
   }
-  .image5-3{
+  .image5-3 {
     top: 40%;
     right: 10%;
   }
- 
 }
 </style>

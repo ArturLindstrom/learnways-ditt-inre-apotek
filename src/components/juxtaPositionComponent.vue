@@ -1,6 +1,9 @@
 <template>
   <section>
-    <div class="mobile-heading-container" v-if="mq.current == 'xs' || mq.current == 'sm'">
+    <div
+      class="mobile-heading-container"
+      v-if="mq.current == 'xs' || mq.current == 'sm'"
+    >
       <h2>
         {{ props.heading }}
       </h2>
@@ -27,11 +30,11 @@
           backgroundColor: props.images[0].bgColor,
         }"
       >
-      <div
-      class="text-container"
-      v-if="mq.current != 'sm' && mq.current != 'xs'"
-      >
-      <p class="page-title">{{ props.title }}</p>
+        <div
+          class="text-container"
+          v-if="mq.current != 'sm' && mq.current != 'xs'"
+        >
+          <p class="page-title">{{ props.title }}</p>
           <h2>
             {{ props.heading }}
           </h2>
@@ -61,24 +64,26 @@
         </div>
       </div>
     </ImgComparisonSlider>
-    <transition>
-      <div class="mobile-text-container" v-if="sliderExposure < 49 && mq.current == 'xs' || mq.current == 'sm'"
+    <div
+      class="mobile-text-container"
+      v-show="(sliderExposure < 49 && mq.current == 'xs') || mq.current == 'sm'"
       :style="{
         backgroundColor: props.images[0].bgColor,
-      }">
-        <h3>{{ props.textBox[0].heading }}</h3>
-        <p>{{ props.textBox[0].body }}</p>
-      </div>
-    </transition>
-    <transition>
-      <div class="mobile-text-container" v-if="sliderExposure > 50 && mq.current == 'xs' || mq.current == 'sm'"
-        :style="{
+      }"
+    >
+      <h3>{{ props.textBox[0].heading }}</h3>
+      <p>{{ props.textBox[0].body }}</p>
+    </div>
+    <div
+      class="mobile-text-container"
+      v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
+      :style="{
         backgroundColor: props.images[1].bgColor,
-      }">
-        <h3>{{ props.textBox[1].heading }}</h3>
-        <p>{{ props.textBox[1].body }}</p>
-      </div>
-    </transition>
+      }"
+    >
+      <h3>{{ props.textBox[1].heading }}</h3>
+      <p>{{ props.textBox[1].body }}</p>
+    </div>
   </section>
 </template>
 
@@ -179,13 +184,15 @@ section {
 
 .first {
   position: absolute;
-  /* bottom: 0; */
   margin-top: 25%;
   right: 10%;
   background-color: #bbc19b;
 }
 
 @media screen and (max-width: 768px) {
+  section {
+    padding-bottom: 150px;
+  }
   .slider {
     max-height: 200px;
   }
@@ -199,6 +206,5 @@ section {
     border-radius: 5px;
     border: solid 2px black;
   }
-
 }
 </style>
