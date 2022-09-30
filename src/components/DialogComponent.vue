@@ -18,15 +18,22 @@
 
     <div class="dialog-wrapper">
       <img class="woman" src="/assets/img/apotek-kvinna.png" alt="" />
-      <div class="button-container" v-for="(button, i) in 4" :class="'dialog-button' + (i + 1)" :key="button">
-        <button @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i + 1 }">
-        </button>
+      <div
+        class="button-container"
+        v-for="(button, i) in 4"
+        :class="'dialog-button' + (i + 1)"
+        :key="button"
+      >
+        <button
+          @click="toggleDialog(i)"
+          :class="{ 'active-button': dialogShown === i + 1 }"
+        ></button>
         <transition name="scale">
           <div class="dialog-content" v-if="dialogShown == i + 1">
             <img src="/assets/img/info-line.svg" alt="" class="dotted-line" />
             <transition name="text">
               <span>
-                {{data[`dia_hot_0${i + 1}`]}}
+                {{ data[`dia_hot_0${i + 1}`] }}
               </span>
             </transition>
           </div>
@@ -41,7 +48,7 @@ import { ref } from "vue";
 import { useStore } from "vuex";
 import { useMq } from "vue3-mq";
 
-const dialogShown = ref(0)
+const dialogShown = ref(0);
 
 const mq = useMq();
 const store = useStore();
@@ -84,10 +91,6 @@ const toggleDialog = (i) => {
 }
 
 .woman {
-  /* max-height: 150%; */
-  /* z-index: -1; */
-  /* height: 150%; */
-  /* position: absolute; */
   margin-top: -200px;
   top: -30%;
   right: 0%;
@@ -155,7 +158,6 @@ button {
   position: absolute;
   transform: translate(50%);
   display: flex;
-
 }
 
 .dotted-line {
@@ -163,12 +165,9 @@ button {
 }
 
 span {
-  /* z-index: 5; */
   border-radius: 5px;
   display: block;
-  /* border: 3px solid black; */
   width: 300px;
-  /* height: 100px; */
   background-color: white;
   padding: 10px;
   transform: translate(-20px);
@@ -182,31 +181,9 @@ span {
 
 .scale-enter-from,
 .scale-leave-to {
-  /* transform: translateX(0%); */
-  /* transform: matrix(1, 0, 0, 1, 0, 1); */
   transform: scale(0.1);
-  /* opacity: 0; */
-
 }
 
-
-/* @media screen and (max-width: 1500px) {
-  .dialog-button1{
-    top: -30%;
-    left: -22%;
-  }
-  .dialog-button2{
-    left: -35%;
-  }
-
-  .dialog-button3{
-    left: -30%;
-  }
-  .dialog-button4{
-    top: 1%;
-    left: -30%;
-  }
-} */
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -235,10 +212,8 @@ span {
   }
 
   span {
-    width: 180px
+    width: 180px;
   }
-
-  ;
 
   .dialog-button1 {
     top: -62%;
