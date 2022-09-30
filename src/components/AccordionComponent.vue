@@ -55,6 +55,7 @@ const openModal = (modalContent) => {
 
 const setClass = computed(() => {
     return props.type.toLowerCase();
+})
 
 const toggleAccordion = (i) => {
   
