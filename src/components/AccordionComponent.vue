@@ -53,7 +53,7 @@ const openModal = (modalContent) => {
 }
 
 const setClass = computed(() => {
-  if(props.id == 'Funktioner'){
+  if(props.type == 'Funktioner'){
     console.log(props.id)
     if(buttonClicked.value == 1){
       return 'olive'
@@ -104,7 +104,7 @@ const props = defineProps({
         type: Array,
         default: []
     },
-    id: {
+    type: {
         type: String,
         default: ''
     }

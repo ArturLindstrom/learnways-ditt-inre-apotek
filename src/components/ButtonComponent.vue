@@ -1,8 +1,10 @@
 <template>
-  <button @click="onClick" class="button">
-    <slot></slot>
-    <button v-if="props.type == 'scroll'" class="scroll" />
-  </button>
+  <a href="#Historia" v-if="props.type == 'scroll'">
+    <button @click="onClick" class="button">
+      <slot></slot>
+      <button v-if="props.type == 'scroll'" class="scroll" />
+    </button>
+  </a>
 </template>
 
 <script setup>
@@ -22,12 +24,12 @@ const props = defineProps({
 const onAnswer = ref()
 
 const onClick = () => {
-  if (props.type == 'scroll') {
-    window.scrollTo({
-      top: window.innerHeight + 100,
-      behavior: 'smooth'
-    })
-  }
+  // if (props.type == 'scroll') {
+  //   window.scrollTo({
+  //     top: window.innerHeight + 100,
+  //     behavior: 'smooth'
+  //   })
+  // }
 
   if (props.type == 'quiz') {
     if (props.correct) {
@@ -59,6 +61,10 @@ const onClick = () => {
   gap: 10px;
 
 
+}
+
+a{
+  text-decoration: none;
 }
 
 .scroll {
