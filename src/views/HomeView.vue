@@ -83,6 +83,7 @@
   
   <AccordionComponent
   id="Begrepp"
+  type="Begrepp"
   class="section"
   data-color="#AEA2B2"
   :title="data.dia_i_08"
