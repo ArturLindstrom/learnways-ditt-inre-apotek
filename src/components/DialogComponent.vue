@@ -70,7 +70,7 @@ const toggleDialog = (i) => {
   background-size: 90%;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  place-items: center;
+  place-items: start center;
 }
 
 .dialog-wrapper {
@@ -88,6 +88,7 @@ const toggleDialog = (i) => {
   /* z-index: -1; */
   /* height: 150%; */
   /* position: absolute; */
+  margin-top: -200px;
   top: -30%;
   right: 0%;
 }
