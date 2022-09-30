@@ -80,7 +80,7 @@ ul {
   position: fixed;
   top: 0;
   right: 0;
-  background: url(assets/navButton/navButton.svg) center no-repeat;
+  background: url(/assets/navButton/navButton.svg) center no-repeat;
   width: 40px;
   height: 40px;
   transition: all 0.5s;
