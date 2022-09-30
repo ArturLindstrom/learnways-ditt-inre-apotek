@@ -92,7 +92,7 @@ ul {
 }
 
 .nav-button-active {
-  background: url(assets/navButton/navButtonActive.svg) center no-repeat;
+  background: url(/assets/navButton/navButtonActive.svg) center no-repeat;
   transition: background 1s;
 }
 
