@@ -1,33 +1,21 @@
 <template>
   <div>
     <transition-group name="list">
-      <img
-        v-for="(image, i) in sectionImages"
-        :src="`/assets/img/${image}`"
-        :key="image + i"
-        :data-speed="i * 0.4"
-        :class="[
-          'image' + props.section + '-' + (i + 1),
-          currentAccordion && props.section == 6
-            ? 'accordion' +
-              props.section +
-              '-' +
-              currentAccordion +
-              '-' +
-              (i + 1)
-            : '',
-          accordionOpened && props.section == 6 ? 'accordion__image' : '',
-          currentAccordion2 && props.section == 7
-            ? 'accordion' +
-              props.section +
-              '-' +
-              currentAccordion2 +
-              '-' +
-              (i + 1)
-            : '',
-          accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
-        ]"
-      />
+    <img
+      v-for="(image, i) in sectionImages"
+      :src="`/assets/img/${image}`"
+      :key="image + i"
+      :data-speed="i  * 0.4"
+      :class="[
+        'image' + props.section + '-' + (i + 1),
+        currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
+        accordionOpened && props.section == 6 ? 'accordion__image' : '',
+        !currentAccordion && accordionOpened && props.section == 6 ? 'hide' : '',
+        currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
+        accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
+        !currentAccordion2 && accordionOpened2 && props.section == 7 ? 'hide' : '',
+      ]"
+    >
     </transition-group>
   </div>
 </template>
@@ -55,114 +43,120 @@ const accordionOpened = computed(() => store.state.accordionOpened);
 const accordionOpened2 = computed(() => store.state.accordionOpened2);
 
 const sectionImages = computed(() => {
-  switch (props.section) {
-    case 1:
-      return [
-        "01-bacteria.png",
-        "02-bacteria.png",
-        "05-bacteria.png",
-        "apelsin-inre-apotek.png",
-        "05-antibiotika.png",
-        "09-antikropp.png",
-        "07-bacteria.png",
-        "10-antibiotika.png",
-      ];
-    case 2:
-      return [
-        "01-bacteria.png",
-        "0-bacteria.png",
-        "02-bacteria.png",
-        "07-bacteria.png",
-        "parallax-image5.png",
-        "parallax-image5.png",
-      ];
-    case 3:
-      return [
-        "01-bacteria.png",
-        "02-bacteria.png",
-        "07-bacteria.png",
-        "05-bacteria.png",
-        "0-bacteria.png",
-      ];
-    case 4:
-      return [
-        "12-antibiotika.png",
-        "10-antibiotika.png",
-        "10-antibiotika.png",
-        "05-antibiotika.png",
-        "05-antibiotika.png",
-        "05-antibiotika.png",
-      ];
-    case 5:
-      return ["0-bacteria.png", "0-bacteria.png", "0-bacteria.png"];
-    case 6:
-      switch (store.state.currentAccordion) {
-        case 1:
-          return [
-            "01-gurka.png",
-            "01-ananas.png",
-            "01-ananas.png",
-            "apelsin-inre-apotek.png",
-            "apelsin-inre-apotek.png",
-            "01-gurka.png",
-          ];
-        case 2:
-          return [
-            "01-brain.png",
-            "11-bacteria.png",
-            "11-bacteria.png",
-            "11-bacteria.png",
-            "01-signal.png",
-            "01-signal.png",
-            "01-signal.png",
-            "01-signal.png",
-          ];
-        case 3:
-          return [
-            "02-vita-blodkroppar.png",
-            "02-vita-blodkroppar.png",
-            "02-vita-blodkroppar.png",
-            "02-vita-blodkroppar.png",
-            "02-vita-blodkroppar.png",
-            "09-antikropp.png",
-            "09-antikropp.png",
-            "09-antikropp.png",
-            "09-antikropp.png",
-          ];
-        case null:
-          return [
-            "apelsin-inre-apotek.png",
-            "01-gurka.png",
-            "02-vita-blodkroppar.png",
-            "01-signal.png",
-            "11-bacteria.png",
-            "11-bacteria.png",
-          ];
-        default:
-          return [];
-      }
-    case 7:
-      switch (store.state.currentAccordion2) {
-        case 1:
-          return ["01-food.png", "01-bean.png", "02-food.png", "02-food.png"];
-        case 2:
-          return ["15-pill.png"];
-        case 3:
-          return ["15-pill.png"];
-        case null:
-          return [
-            "02-apple.png",
-            "01-bean.png",
-            "4-antibiotika-learnways.png",
-            "20-bacteria-learnways.png",
-            "20-bacteria-learnways.png",
-            "4-antibiotika-learnways.png",
-          ];
-        default:
-          return [];
-      }
-    default:
-      return [];
+  switch(props.section){
+    case 1: return [
+      '01-bacteria.png',
+      '02-bacteria.png',
+      '05-bacteria.png',
+      'apelsin-inre-apotek.png',
+      '05-antibiotika.png',
+      '09-antikropp.png',
+      '07-bacteria.png',
+      '10-antibiotika.png',
+    ]
+    case 2: return [
+      '01-bacteria.png',
+      '0-bacteria.png',
+      '02-bacteria.png',
+      '07-bacteria.png',
+      'parallax-image5.png',
+      'parallax-image5.png'
+    ]
+    case 3: return [
+      '01-bacteria.png',
+      '02-bacteria.png',
+      '07-bacteria.png',
+      '05-bacteria.png',
+      '0-bacteria.png',
+    ]
+    case 4: return [
+      '12-antibiotika.png',
+      '10-antibiotika.png',
+      '10-antibiotika.png',
+      '05-antibiotika.png',
+      '05-antibiotika.png',
+      '05-antibiotika.png',
+    ]
+    case 5: return [
+      '0-bacteria.png',
+      '0-bacteria.png',
+      '0-bacteria.png',
+    ]
+    case 6: switch(store.state.currentAccordion){
+      case 1: return [
+        '01-gurka.png',
+        '01-ananas.png',
+        '01-ananas.png',
+        'apelsin-inre-apotek.png',
+        'apelsin-inre-apotek.png',
+        '01-gurka.png',
+      ]
+      case 2: return [
+        '01-brain.png',
+        '11-bacteria.png',
+        '11-bacteria.png',
+        '11-bacteria.png',
+        '01-signal.png',
+        '01-signal.png',
+        '01-signal.png',
+        '01-signal.png',
+      ]
+      case 3: return [
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+      ]
+      case null: return [
+        'apelsin-inre-apotek.png',
+        '01-gurka.png',
+        '02-vita-blodkroppar.png',
+        '01-signal.png',
+        '11-bacteria.png',
+        '11-bacteria.png'
+      ]
+      default: return [];
+    }
+  case 7: switch(store.state.currentAccordion2){
+      case 1: return [
+        '01-food.png',
+        '01-bean.png',
+        '02-food.png',
+        '02-food.png',
+      ]
+      case 2: return [
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '03-food.png',
+      ]
+      case 3: return [
+        '12-antibiotika.png',
+        '13-anitbiotika.png',
+        '15-pill.png',
+        '16-pill.png',
+        '12-antibiotika.png',
+        '12-antibiotika.png',
+        '3-antibiotika-learnways.png',
+        '3-antibiotika-learnways.png',
+      ]
+      case null: return [
+        '02-apple.png',
+        '01-bean.png',
+        '4-antibiotika-learnways.png',
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '4-antibiotika-learnways.png',
+      ]
+      default: return [];
+    }
+  default: return [];
+
   }
 });
 
@@ -198,6 +192,10 @@ img {
   z-index: -1;
   /* top: 50%;
   right: 10%; */
+}
+
+.hide {
+  display: none;
 }
 
 .list-enter-active,
@@ -648,8 +646,74 @@ img {
   height: 200px;
 }
 
-@media screen and (max-width: 768px) {
-  .image1-1 {
+.accordion7-2-1 {
+  top: 60%;
+  left: 25%;
+}
+.accordion7-2-2 {
+  top: 55%;
+  left: 60%;
+  rotate: 100deg;
+  animation: none;
+}
+.accordion7-2-3 {
+  top: 75%;
+  left: 45%;
+  rotate: -40deg;
+}
+.accordion7-2-4 {
+  top: -40%;
+  left: 70%;
+}
+
+.accordion7-3-1 {
+  top: 70%;
+  left: 10%;
+  height: 300px;
+}
+.accordion7-3-2 {
+  top: 50%;
+  left: 10%;
+}
+.accordion7-3-3 {
+  top: 10%;
+  left: 50%;
+  rotate: 45deg;
+  animation: none;
+}
+.accordion7-3-4 {
+  top: 55%;
+  left: 65%;
+}
+
+.accordion7-3-5 {
+  top: 20%;
+  left: 90%;
+  height: 100px;
+}
+.accordion7-3-6 {
+  top: 35%;
+  left: 95%;
+  height: 100px;
+  rotate: 60deg;
+  animation: none;
+}
+
+.accordion7-3-7 {
+  top: 50%;
+  left: 40%;
+  
+}
+.accordion7-3-8 {
+  top: 65%;
+  left: 47.5%;
+  rotate: -30deg;
+  animation: none;
+
+}
+
+@media screen and (max-width: 768px){
+  .image1-1{
     display: none;
   }
   .image1-2 {
