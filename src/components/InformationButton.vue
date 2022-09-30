@@ -38,7 +38,7 @@ const openInfo = () => {
   cursor: pointer;
 }
 .active {
-  background: url(assets/navButton/navButtonActive.svg) center no-repeat;
+  background: url(/assets/navButton/navButtonActive.svg) center no-repeat;
   border-radius: 0%;
 }
 
