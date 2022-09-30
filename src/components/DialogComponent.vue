@@ -132,22 +132,22 @@ button {
 }
 
 .dialog-button1 {
-  top: -55%;
+  top: -68%;
   left: 2%;
 }
 
 .dialog-button2 {
-  top: -50%;
+  top: -62%;
   left: -8%;
 }
 
 .dialog-button3 {
-  top: -48%;
+  top: -58%;
   left: -4%;
 }
 
 .dialog-button4 {
-  top: -45%;
+  top: -54%;
   left: -5%;
 }
 
