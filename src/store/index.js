@@ -8,6 +8,10 @@ export default createStore({
     modalShown: false,
     modalContentShown: false,
     modalContent: null,
+    currentAccordion: null,
+    currentAccordion2: null,
+    accordionOpened: false,
+    accordionOpened2: false,
   },
   getters: {
   },
@@ -36,6 +40,15 @@ export default createStore({
     modalContentOpen(state) {
       state.modalContentShown = true;
     },
+    setAccordion(state, index) {
+      state.currentAccordion = index;
+      state.accordionOpened = true;
+    },
+    setAccordion2(state, index) {
+      state.currentAccordion2 = index;
+      state.accordionOpened2 = true;
+    }
+
   },
   actions: {
   },

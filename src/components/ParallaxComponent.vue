@@ -1,19 +1,28 @@
 <template>
   <div>
+    <transition-group name="list">
     <img
       v-for="(image, i) in sectionImages"
       :src="`/assets/img/${image}`"
-      :key="image"
-      :data-speed="i  * 0.4 "
-      :class="'image' + props.section + '-' +  (i + 1)"
+      :key="image + i"
+      :data-speed="i  * 0.4"
+      :class="[
+        'image' + props.section + '-' + (i + 1),
+        currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
+        accordionOpened && props.section == 6 ? 'accordion__image' : '',
+        currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
+        accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
+      ]"
     >
+    </transition-group>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted } from 'vue'
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useStore } from 'vuex';
 gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
@@ -23,9 +32,17 @@ const props = defineProps({
     },
 })
 
+const store = useStore();
+
+const currentAccordion = computed(() => store.state.currentAccordion);
+const currentAccordion2 = computed(() => store.state.currentAccordion2);
+
+const accordionOpened = computed(() => store.state.accordionOpened);
+const accordionOpened2 = computed(() => store.state.accordionOpened2);
+
 const sectionImages = computed(() => {
-  if(props.section === 1){
-    return [
+  switch(props.section){
+    case 1: return [
       '01-bacteria.png',
       '02-bacteria.png',
       '05-bacteria.png',
@@ -35,8 +52,7 @@ const sectionImages = computed(() => {
       '07-bacteria.png',
       '10-antibiotika.png',
     ]
-  } else if(props.section === 2){
-    return [
+    case 2: return [
       '01-bacteria.png',
       '0-bacteria.png',
       '02-bacteria.png',
@@ -44,16 +60,14 @@ const sectionImages = computed(() => {
       'parallax-image5.png',
       'parallax-image5.png'
     ]
-  } else if(props.section === 3){
-    return [
+    case 3: return [
       '01-bacteria.png',
       '02-bacteria.png',
       '07-bacteria.png',
       '05-bacteria.png',
       '0-bacteria.png',
     ]
-  } else if(props.section === 4){
-    return [
+    case 4: return [
       '12-antibiotika.png',
       '10-antibiotika.png',
       '10-antibiotika.png',
@@ -61,14 +75,76 @@ const sectionImages = computed(() => {
       '05-antibiotika.png',
       '05-antibiotika.png',
     ]
-  } else if (props.section === 5){
-    return [
+    case 5: return [
       '0-bacteria.png',
       '0-bacteria.png',
       '0-bacteria.png',
     ]
+    case 6: switch(store.state.currentAccordion){
+      case 1: return [
+        '01-gurka.png',
+        '01-ananas.png',
+        '01-ananas.png',
+        'apelsin-inre-apotek.png',
+        'apelsin-inre-apotek.png',
+        '01-gurka.png',
+      ]
+      case 2: return [
+        '01-brain.png',
+        '11-bacteria.png',
+        '11-bacteria.png',
+        '11-bacteria.png',
+        '01-signal.png',
+        '01-signal.png',
+        '01-signal.png',
+        '01-signal.png',
+      ]
+      case 3: return [
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '02-vita-blodkroppar.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+        '09-antikropp.png',
+      ]
+      case null: return [
+        'apelsin-inre-apotek.png',
+        '01-gurka.png',
+        '02-vita-blodkroppar.png',
+        '01-signal.png',
+        '11-bacteria.png',
+        '11-bacteria.png'
+      ]
+      default: return [];
+    }
+  case 7: switch(store.state.currentAccordion2){
+      case 1: return [
+        '01-food.png',
+        '01-bean.png',
+        '02-food.png',
+        '02-food.png',
+      ]
+      case 2: return [
+        '15-pill.png',
+      ]
+      case 3: return [
+        '15-pill.png'
+      ]
+      case null: return [
+        '02-apple.png',
+        '01-bean.png',
+        '4-antibiotika-learnways.png',
+        '20-bacteria-learnways.png',
+        '20-bacteria-learnways.png',
+        '4-antibiotika-learnways.png',
+      ]
+      default: return [];
+    }
+  default: return [];
   }
-  return ''
 })
 
 onMounted(() => {
@@ -107,6 +183,36 @@ img {
   /* top: 50%;
   right: 10%; */
 }
+
+.list-enter-active,
+.list-leave-active {
+  /* transform: translateX(30px); */
+  transition: all 0.5s ease-in-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+}
+
+.accordion__image {
+  animation: bounce infinite 5s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+  50% {
+    transform: translateY(-5px);
+    rotate: 2.5deg;
+  }
+  100% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+}
+
  
 .image1-1 {
   top: 30%;
@@ -168,16 +274,6 @@ img {
   transform: rotate(30deg);
   width: 160px;
 }
-
-/* .image1-9{
-  top: 10%;
-  right: 20%;
-  width: 80px;
-  height: 180px;
-} */
-
-
-
 
 .image2-1{
   top: 0%;
@@ -323,6 +419,224 @@ img {
   width: 336.07px;
 }
 
+
+.image6-1 {
+  transform: scale(0.75);
+  bottom: 10%;
+  left: 0%;
+}
+
+.image6-2 {
+  right: 10%;
+  bottom: 25%;
+}
+.image6-3 {
+  right: 5%;
+  top: -25%;
+  height: 400px;
+}
+.image6-4 {
+  right: 30%;
+  bottom: 25%;
+}
+
+.image6-5 {
+  right: 10%;
+  bottom: 10%;
+  transform: rotate(90deg)
+}
+.image6-6 {
+  right: 40%;
+  top: 20%;
+  transform: rotate(90deg)
+}
+
+.accordion6-1-1 {
+  left: 25%;
+  bottom: -10%;
+  height: 500px;
+}
+
+.accordion6-1-2 {
+  right: 15%;
+  bottom: 25%;
+  height: 375px;
+}
+
+.accordion6-1-3 {
+  top: -20%;
+  right: 20%;
+  height: 500px;
+}
+
+.accordion6-1-4 {
+  right: -10%;
+  bottom: 50%;
+  height: 300px;
+}
+.accordion6-1-5 {
+  right: -15%;
+  bottom: -15%;
+  height: 500px;
+}
+
+.accordion6-1-6 {
+  right: 10%;
+  top: 55%;
+  height: 250px;
+}
+
+.accordion6-2-1 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 800px;
+  animation: none;
+}
+.accordion6-2-2 {
+  top: 0%;
+  right: 17.5%;
+  rotate: 95deg;
+  animation: none;
+}
+.accordion6-2-3 {
+  top: 17.5%;
+  right: 12.5%;
+  height: 200px;
+  rotate: -45deg;
+  animation: none;
+}
+.accordion6-2-4 {
+  top: 37.5%;
+  right: 7.5%;
+  height: 200px;
+  rotate: 160deg;
+  animation: none;
+}
+
+.accordion6-2-5 {
+  top: 5%;
+  right: 30%;
+  height: 80px;
+  rotate: -90deg;
+}
+.accordion6-2-6 {
+  top: 57.5%;
+  right: 15%;
+  height: 60px;
+}
+.accordion6-2-7 {
+  top: 7.5%;
+  right: 10%;
+  height: 60px;
+  rotate: -45deg;
+}
+.accordion6-2-8 {
+  top: 15%;
+  right: 10%;
+  height: 60px;
+  rotate: 90deg;
+}
+
+
+.accordion6-3-1 {
+  top: 60%;
+  left: 2.5%;
+  height: 220px;
+}
+.accordion6-3-2 {
+  top: 52.5%;
+  left: 27.5%;
+  height: 250px;
+}
+.accordion6-3-3 {
+  top: 27.5%;
+  left: 35%;
+  height: 100px;
+}
+.accordion6-3-4 {
+  top: 25%;
+  left: 70%;
+  height: 550px;
+}
+.accordion6-3-5 {
+  top: 10%;
+  left: 67.5%;
+  height: 150px;
+}
+.accordion6-3-6 {
+  top: -7.5%;
+  left: 55%;
+  height: 150px;
+  rotate: -105deg;
+}
+.accordion6-3-7 {
+  top: 57.5%;
+  left: 13%;
+  rotate: 45deg;
+  height: 75px;
+}
+.accordion6-3-8 {
+  top: 52.5%;
+  left: 16%;
+  rotate: 35deg;
+  height: 75px;
+}
+.accordion6-3-9 {
+  top: 75%;
+  left: 45%;
+  rotate: 25deg;
+  height: 75px;
+}
+
+.image7-1 {
+  top: 0%;
+  right: 0;
+}
+
+.image7-2 {
+  left: 0%;
+  top: 10%;
+  transform: scaleX(-1);
+}
+
+.image7-3 {
+  left: 50%;
+  bottom: 30%;
+}
+
+.image7-4 {
+  left: 55%;
+  bottom: 35%;
+}
+.image7-5 {
+  left: 45%;
+  bottom: 35%;
+}
+.image7-6 {
+  left: 50%;
+  bottom: 10%;
+}
+
+.accordion7-1-1 {
+  top: 40%;
+  left: 65%;
+}
+.accordion7-1-2 {
+  top: 30%;
+  left: 20%;
+  height: 700px;
+}
+.accordion7-1-3 {
+  top: 12.5%;
+  left: 80%;
+}
+.accordion7-1-4 {
+  top: 35%;
+  left: 75%;
+  height: 200px;
+}
+
 @media screen and (max-width: 768px){
 
   .image1-1{
@@ -404,5 +718,4 @@ img {
   }
  
 }
-
 </style>
