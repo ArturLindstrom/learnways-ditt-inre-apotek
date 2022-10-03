@@ -194,18 +194,20 @@ import JuxtaPositionComponent from "../components/juxtaPositionComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { useStore } from "vuex";
-import { onMounted, reactive } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxComponent from "../components/ParallaxComponent.vue";
 gsap.registerPlugin(ScrollTrigger);
+
+const container = ref(null)
 
 onMounted(() => {
   gsap.utils.toArray(".section").forEach((section, i) => {
     if (section.getAttribute("data-color") !== null) {
       var colorAttr = section.getAttribute("data-color");
 
-      gsap.to(".container", {
+      gsap.to(container.value, {
         backgroundColor: colorAttr,
         immediateRender: false,
         scrollTrigger: {
@@ -219,7 +221,7 @@ onMounted(() => {
   });
 });
 
-const container = reactive({})
+
 
 
 

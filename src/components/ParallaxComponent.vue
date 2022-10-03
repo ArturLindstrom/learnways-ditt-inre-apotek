@@ -161,7 +161,7 @@ const sectionImages = computed(() => {
 });
 
 onMounted(() => {
-  parallaxAnimation();
+  parallaxAnimation()
 });
 
 const parallaxAnimation = () => {
