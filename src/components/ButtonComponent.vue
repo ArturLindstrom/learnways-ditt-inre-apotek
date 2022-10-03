@@ -66,6 +66,8 @@ a {
 }
 
 .scroll {
+  all: unset;
+  border: 2px solid black;
   width: 28px;
   height: 28px;
   border-radius: 50%;

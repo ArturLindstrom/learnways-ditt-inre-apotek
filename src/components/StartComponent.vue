@@ -16,12 +16,21 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import ButtonComponent from "./ButtonComponent.vue";
 import InformationComponent from "./InformationComponent.vue";
 import InformationButton from "./InformationButton.vue";
 import ParallaxComponent from "./ParallaxComponent.vue";
+import gsap from "gsap";
+
+
+onMounted(() => {
+  gsap.from(".text-container", {
+    opacity: 0,
+    duration: 1,
+  })
+})
 
 const showInfo = ref(false);
 
