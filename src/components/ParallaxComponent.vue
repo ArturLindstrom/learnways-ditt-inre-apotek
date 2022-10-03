@@ -667,8 +667,8 @@ img {
 }
 .accordion7-2-4 {
   height: 500px;
-  /* top: -40%; */
-  left: 60%;
+  top: 40%;
+  left: 70%;
 }
 
 .accordion7-3-1 {

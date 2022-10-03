@@ -1,5 +1,5 @@
 <template>
-  <section ref="background" :class="setClass">
+    <section ref="background" :class="setClass">
     <p class="page-title" v-if="props.title">
       {{ props.title }}
     </p>
@@ -50,6 +50,8 @@ const store = useStore();
 const isSelected = ref(null);
 
 const buttonClicked = ref(0);
+
+const background = ref(null)
 
 const openModal = (modalContent) => {
   store.commit("modalOpen", modalContent);
@@ -106,11 +108,22 @@ const props = defineProps({
   gap: 20px;
 }
 
+h2 {
+  width: 80%;
+}
+
+/* make h5 uppercase */
+h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .accordion {
   max-width: 350px;
   /* height: 50px; */
-  max-height: 40px;
-  padding: 10px 5px;
+  max-height: 30px;
+  padding: 1rem;
   background-color: transparent;
   /* background-color: white; */
   border: 2px solid black;
@@ -128,6 +141,7 @@ const props = defineProps({
 
 .selected {
   /* height: auto; */
+  padding: 1rem;
   max-height: 900px;
   pointer-events: initial;
   background-color: transparent;
@@ -136,17 +150,15 @@ const props = defineProps({
   /* transition: background-color 0.5s ease-in; */
 }
 
-.funktioner .selected {
-  background: #deb881;
+.selected {
+  background: rgba(255, 255, 255, 0.40);
 }
 
-.begrepp .selected {
-  background: #aea2b2;
-}
 
 .not-selected {
   /* height: 50px; */
-  max-height: 40px;
+  padding: 1rem;
+  max-height: 30px;
   transition: max-height 0.5s ease-in;
   overflow: hidden;
 }
@@ -157,6 +169,11 @@ const props = defineProps({
 @media screen and (max-width: 768px) {
   .accordion-container {
     flex-direction: column;
+  }
+
+
+  h2 {
+    width: 100%;
   }
 
   .not-selected {
