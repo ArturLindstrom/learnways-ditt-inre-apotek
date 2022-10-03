@@ -34,6 +34,7 @@ const props = defineProps({
   },
 });
 
+
 const store = useStore();
 
 const currentAccordion = computed(() => store.state.currentAccordion);
@@ -165,7 +166,7 @@ onMounted(() => {
 });
 
 const parallaxAnimation = () => {
-  gsap.to("[data-speed]", {
+  const tween = gsap.to("img", {
     // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
     ease: "none",
@@ -179,9 +180,12 @@ const parallaxAnimation = () => {
     },
   });
 };
+
 </script>
 
 <style scoped lang="scss">
+@use "sass:math" as math;
+
 div {
   overflow-x: hidden;
   /* z-index: 0; */
@@ -209,6 +213,24 @@ img {
 }
 
 .accordion__image {
+  animation: bounce2 infinite 6s;
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+  50% {
+    transform: translateY(5px);
+    rotate: -3deg;
+  }
+  100% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+}
+.accordion__image:nth-of-type(2n) {
   animation: bounce infinite 5s;
 }
 
@@ -224,6 +246,30 @@ img {
   100% {
     transform: translateY(0);
     rotate: 0deg;
+  }
+}
+
+@keyframes brain-bounce {
+  0% {
+    height: 800px; 
+  }
+  50% {
+    height: 825px;
+  }
+  100% {
+    height: 800px;
+  }
+}
+
+@keyframes brain-signal {
+  0% {
+    height: 200px; 
+  }
+  50% {
+    height: 190px; 
+  }
+  100% {
+    height: 200px; 
   }
 }
 
@@ -502,27 +548,28 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 800px;
-  animation: none;
+  animation: brain-bounce infinite 5s;
 }
 .accordion6-2-2 {
   top: 0%;
   right: 17.5%;
+  height: 200px;
   rotate: 95deg;
-  animation: none;
+  animation: brain-signal infinite 4.5s !important;
 }
 .accordion6-2-3 {
   top: 17.5%;
   right: 12.5%;
   height: 200px;
   rotate: -45deg;
-  animation: none;
+  animation: brain-signal infinite 5s !important;
 }
 .accordion6-2-4 {
   top: 37.5%;
   right: 7.5%;
   height: 200px;
   rotate: 160deg;
-  animation: none;
+  animation: brain-signal infinite 5.5s !important;
 }
 
 .accordion6-2-5 {
@@ -530,6 +577,7 @@ img {
   right: 30%;
   height: 80px;
   rotate: -90deg;
+  
 }
 .accordion6-2-6 {
   top: 57.5%;
@@ -658,7 +706,7 @@ img {
   top: 55%;
   left: 60%;
   rotate: 100deg;
-  animation: none;
+  animation: none !important;
 }
 .accordion7-2-3 {
   top: 75%;
@@ -684,7 +732,7 @@ img {
   top: 10%;
   left: 50%;
   rotate: 45deg;
-  animation: none;
+  animation: none !important;
 }
 .accordion7-3-4 {
   top: 55%;
@@ -701,7 +749,7 @@ img {
   left: 95%;
   height: 100px;
   rotate: 60deg;
-  animation: none;
+  animation: none !important;
 }
 
 .accordion7-3-7 {
@@ -713,7 +761,7 @@ img {
   top: 65%;
   left: 47.5%;
   rotate: -30deg;
-  animation: none;
+  animation: none !important;
 
 }
 
