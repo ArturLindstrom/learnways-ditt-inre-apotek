@@ -4,9 +4,9 @@
     <p class="page-title">
       {{ data.dia_i_11 }}
     </p>
-    <h3 class="heading">
+    <h2 class="heading">
       {{ data.dia_11_h2 }}
-    </h3>
+    </h2>
     <div class="text-grid">
       <div class="grid-items">
         <h3>
@@ -72,7 +72,7 @@ section {
 .heading {
   /* text-align: center;  */
   align-self: flex-start;
-  width: 60%;
+  width: 80%;
   margin-left: 100px;
 }
 
@@ -129,6 +129,13 @@ section {
   .heading {
     width: 100%;
     margin-left: 0;
+  }
+
+  h3 {
+    margin: 0;
+  }
+  .grid-items {
+    height: 100%;
   }
   .footer-button {
     min-width: 200px;
