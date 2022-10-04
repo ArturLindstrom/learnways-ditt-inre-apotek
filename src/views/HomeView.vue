@@ -209,7 +209,7 @@ onMounted(() => {
 });
 
 const animation = () => {
-  gsap.utils.toArray(".section").forEach((section, i) => {
+  gsap.utils.toArray(".section").forEach((section) => {
     if (section.getAttribute("data-color") !== null) {
       var colorAttr = section.getAttribute("data-color");
       gsap.to(container.value, {
@@ -222,7 +222,6 @@ const animation = () => {
           end: "+=100%",
         },
       });
-      // tween.play();
     }
   });
 }
@@ -232,14 +231,7 @@ const changeColor = () => {
   animation()
 }
 
-
-
-
-
-
-
 const store = useStore();
 const data = store.state.data;
 </script>
 
-<style scoped lang="scss"></style>
