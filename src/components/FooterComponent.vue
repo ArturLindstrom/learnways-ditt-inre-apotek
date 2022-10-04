@@ -65,7 +65,6 @@ button,
 }
 
 section {
-  background-color: #5e5c7c;
   justify-content: center;
 }
 

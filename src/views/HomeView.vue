@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container">
+  <div class="container" ref="container" @scroll="(event) => checkScroll">
     <StartComponent id="Start" class="section" data-color="#F4E9D7" />
     <DialogComponent id="Historia" class="section" data-color="#CFE0DF" />
     <QuizComponent
@@ -181,9 +181,9 @@
       ]"
     />
     <ModalComponent> </ModalComponent>
+    <FooterComponent id="Avslutning" class="section" data-color="#5E5C7C" />
   </div>
 
-  <FooterComponent id="Avslutning" />
 </template>
 
 <script setup>
@@ -204,6 +204,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const container = ref(null)
 
+
 onMounted(() => {
   animation();
 });
@@ -217,6 +218,7 @@ const animation = () => {
         immediateRender: false,
         scrollTrigger: {
           trigger: section,
+          onUpdate: () => {store.commit('setSection', section.id)},
           scrub: true,
           start: "top bottom",
           end: "+=100%",
@@ -233,5 +235,6 @@ const changeColor = () => {
 
 const store = useStore();
 const data = store.state.data;
+
 </script>
 
