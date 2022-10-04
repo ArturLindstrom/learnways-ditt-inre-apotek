@@ -69,7 +69,7 @@
     >
       <ParallaxComponent :section="6" />
     </AccordionComponent>
-    <JuxtaPositionComponent
+    <JuxtapositionComponent
       id="Dysbios"
       class="section"
       data-color="#BBC19B"
@@ -163,7 +163,7 @@
       <ParallaxComponent :section="5" />
     </QuizComponent>
 
-    <JuxtaPositionComponent
+    <JuxtapositionComponent
       id="Påverkan"
       class="section"
       data-color="#F8D9D9"
@@ -192,7 +192,7 @@ import DialogComponent from "../components/DialogComponent.vue";
 import QuizComponent from "../components/QuizComponent.vue";
 import TextComponent from "../components/TextComponent.vue";
 import AccordionComponent from "../components/AccordionComponent.vue";
-import JuxtaPositionComponent from "../components/juxtaPositionComponent.vue";
+import JuxtapositionComponent from "../components/JuxtapositionComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { useStore } from "vuex";
