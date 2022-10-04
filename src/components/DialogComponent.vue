@@ -46,11 +46,9 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import { useMq } from "vue3-mq";
 
 const dialogShown = ref(0);
 
-const mq = useMq();
 const store = useStore();
 const data = store.state.data;
 const modalContent = {

@@ -30,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger);
 const props = defineProps({
   section: {
     type: Number,
-    default: "",
+    default: 0,
   },
 });
 
@@ -166,7 +166,7 @@ onMounted(() => {
 });
 
 const parallaxAnimation = () => {
-  const tween = gsap.to("img", {
+  gsap.to("img", {
     // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
     ease: "none",

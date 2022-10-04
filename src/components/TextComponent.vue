@@ -20,6 +20,7 @@
 
 <script setup>
 import { useStore } from "vuex";
+import { computed } from "vue";
 const store = useStore();
 
 const props = defineProps({
@@ -40,11 +41,11 @@ const props = defineProps({
   },
   modal: {
     type: Object,
-    default: {},
+    default: () => {},
   },
 });
 
-const modalContent = props.modal;
+const modalContent = computed(() => props.modal);
 
 const openModal = () => {
   store.commit("modalOpen", modalContent);

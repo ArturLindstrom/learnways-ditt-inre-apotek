@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
   <section>
     <div
@@ -95,8 +96,6 @@ import { ref, computed } from "vue";
 import { useMq } from "vue3-mq";
 
 const mq = useMq();
-
-const show = ref(true);
 
 const isBottom = computed(() => props.title == 'Påverkan' ? true : false)
 

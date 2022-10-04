@@ -212,7 +212,7 @@ const animation = () => {
   gsap.utils.toArray(".section").forEach((section, i) => {
     if (section.getAttribute("data-color") !== null) {
       var colorAttr = section.getAttribute("data-color");
-      const tween = gsap.to(container.value, {
+      gsap.to(container.value, {
         backgroundColor: colorAttr,
         immediateRender: false,
         scrollTrigger: {

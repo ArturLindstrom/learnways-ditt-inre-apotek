@@ -117,7 +117,7 @@ const props = defineProps({
   },
   buttons: {
     type: Array,
-    default: [],
+    default: () => [],
   },
   type: {
     type: String,

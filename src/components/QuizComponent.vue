@@ -52,13 +52,8 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
 import { ref } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
-const store = useStore();
-const data = store.state.data;
-const path = ref("");
-const answerShown = ref(0);
 const answer = ref("");
 
 
@@ -76,11 +71,11 @@ const props = defineProps({
   },
   answers: {
     type: Array,
-    default: "",
+    default: () => [],
   },
   feedback: {
     type: Array,
-    default: [],
+    default: () => [],
   },
 });
 </script>
