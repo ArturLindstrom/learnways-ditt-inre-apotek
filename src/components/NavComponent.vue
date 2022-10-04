@@ -12,7 +12,7 @@
           <li v-for="route in routes" :key="route">
             <a :href="'#' + route" @click="navToggle = !navToggle">
               {{ route }}
-              <div class="ball"></div>
+              <div class="ball" :class="store.state.currentSection == route ? 'active' : ''"></div>
             </a>
           </li>
         </ul>
@@ -24,6 +24,7 @@
 <script setup>
 import { useStore } from "vuex";
 import { ref, computed } from "vue";
+
 
 const store = useStore();
 
@@ -40,9 +41,12 @@ const routes = [
   "Avslutning",
 ];
 
-const showNav = computed(() => store.state.showNav);
 
+
+const showNav = computed(() => store.state.showNav);
 const navToggle = ref(false);
+
+
 </script>
 
 <style scoped lang="scss">
@@ -55,7 +59,7 @@ nav {
   padding-right: 54px;
   height: 100%;
   background-color: white;
-  width: 200px;
+  width: 140px;
   box-shadow: -9px 0px 7px 0px rgba(0, 0, 0, 0.37);
 }
 ul {
@@ -90,7 +94,7 @@ ul {
   transition: all 0.5s;
   &:hover {
     transition: all 0.5s;
-    filter: brightness(0.5);
+    filter: brightness(0.9);
     cursor: pointer;
   }
 }
@@ -134,6 +138,12 @@ li {
   background: #f5f5f5;
   border: 1px solid #707070;
   border-radius: 50%;
+  transition: all 0.5s;
+}
+
+.active {
+  background-color: #707070;
+  transition: all 0.5s;
 }
 
 .v-enter-active,

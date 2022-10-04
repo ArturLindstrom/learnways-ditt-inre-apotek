@@ -12,6 +12,7 @@ export default createStore({
     currentAccordion2: null,
     accordionOpened: false,
     accordionOpened2: false,
+    currentSection: null,
   },
   getters: {
   },
@@ -47,8 +48,10 @@ export default createStore({
     setAccordion2(state, index) {
       state.currentAccordion2 = index;
       state.accordionOpened2 = true;
+    },
+    setSection(state, id){
+      state.currentSection = id;
     }
-
   },
   actions: {
   },
