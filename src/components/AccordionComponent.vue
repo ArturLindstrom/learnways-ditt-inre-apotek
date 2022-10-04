@@ -47,6 +47,7 @@ import { useStore } from "vuex";
 
 const store = useStore();
 
+
 const isSelected = ref(null);
 
 const buttonClicked = ref(0);
@@ -61,6 +62,30 @@ const setClass = computed(() => {
   return props.type.toLowerCase();
 });
 
+const emit = defineEmits(["changeColor"]);
+
+const color = computed(() => {
+  switch(setClass.value) {
+    case "funktioner":
+      switch(isSelected.value) {
+        case null: return '#DEB881';
+        case 1: return '#BBC19B';
+        case 2: return '#AEA2B2'
+        case 3: return '#A7C6B7'
+        default: return '#DEB881';
+      }
+    case "begrepp":
+      switch(isSelected.value) {
+        case null: return '#AEA2B2';
+        case 1: return '#CFE0DF';
+        case 2: return '#DAD1DD'
+        case 3: return '#B2CCCC'
+        default: return '#AEA2B2';
+      }
+    default: return "purple";
+  }
+})
+
 const toggleAccordion = (i) => {
   if (isSelected.value === i + 1) {
     isSelected.value = null;
@@ -73,6 +98,9 @@ const toggleAccordion = (i) => {
   } else {
     store.commit("setAccordion2", isSelected.value);
   }
+  background.value.dataset.color = color.value;
+
+  emit('changeColor')
 };
 
 const props = defineProps({

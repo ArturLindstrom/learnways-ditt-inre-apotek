@@ -31,6 +31,7 @@
       type="Funktioner"
       class="section"
       data-color="#DEB881"
+      @changeColor="(payload) => changeColor(payload)"
       :title="data.dia_i_04"
       :heading="data.dia_04_h2"
       :body="data.dia_04_p"
@@ -107,6 +108,7 @@
       type="Begrepp"
       class="section"
       data-color="#AEA2B2"
+      @change-color="changeColor"
       :title="data.dia_i_08"
       :heading="data.dia_08_h1"
       :body="data.dia_08_p"
@@ -203,11 +205,14 @@ gsap.registerPlugin(ScrollTrigger);
 const container = ref(null)
 
 onMounted(() => {
+  animation();
+});
+
+const animation = () => {
   gsap.utils.toArray(".section").forEach((section, i) => {
     if (section.getAttribute("data-color") !== null) {
       var colorAttr = section.getAttribute("data-color");
-
-      gsap.to(container.value, {
+      const tween = gsap.to(container.value, {
         backgroundColor: colorAttr,
         immediateRender: false,
         scrollTrigger: {
@@ -217,9 +222,15 @@ onMounted(() => {
           end: "+=100%",
         },
       });
+      // tween.play();
     }
   });
-});
+}
+
+const changeColor = () => {
+  gsap.killTweensOf(container.value);
+  animation()
+}
 
 
 
