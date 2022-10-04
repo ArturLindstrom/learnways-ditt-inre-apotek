@@ -81,10 +81,10 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-
 .button-wrapper {
   display: flex;
   gap: 20px;
+  margin-bottom: 46px;
 }
 
 .text-wrapper {
@@ -106,9 +106,13 @@ h4 {
   margin-bottom: 46px;
 }
 
+.feedback-container {
+  width: 100%;
+  position: relative;
+}
+
 .feedback {
-  margin-top: 46px;
-  width: 70%;
+  position: absolute;
 }
 
 .selected {

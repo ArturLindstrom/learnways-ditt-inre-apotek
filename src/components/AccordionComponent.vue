@@ -132,8 +132,13 @@ const props = defineProps({
   justify-content: flex-start;
 }
 
+
+.begrepp {
+  margin-top: 20rem;
+}
+
 .page-title {
-  margin-top: 0;
+  margin-top: -6rem;
 }
 .button-wrapper {
   display: flex;
