@@ -49,8 +49,8 @@ export default createStore({
       state.currentAccordion2 = index;
       state.accordionOpened2 = true;
     },
-    setSection(state, id){
-      state.currentSection = id;
+    setSection(state, section){
+      state.currentSection = section;
     }
   },
   actions: {

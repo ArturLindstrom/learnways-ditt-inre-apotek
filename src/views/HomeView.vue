@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container" @scroll="(event) => checkScroll">
+  <div class="container" ref="container">
     <StartComponent id="Start" class="section" data-color="#F4E9D7" />
     <DialogComponent id="Historia" class="section" data-color="#CFE0DF" />
     <QuizComponent
@@ -196,7 +196,7 @@ import JuxtapositionComponent from "../components/JuxtapositionComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { useStore } from "vuex";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxComponent from "../components/ParallaxComponent.vue";
@@ -218,7 +218,7 @@ const animation = () => {
         immediateRender: false,
         scrollTrigger: {
           trigger: section,
-          onUpdate: () => {store.commit('setSection', section.id)},
+          onUpdate: () => sectionChecker(section),
           scrub: true,
           start: "top bottom",
           end: "+=100%",
@@ -226,6 +226,14 @@ const animation = () => {
       });
     }
   });
+}
+
+const sectionChecker = (section) => {
+  if(window.scrollY < 50){
+    store.commit("setSection", document.getElementById("Start"));
+  } else {
+    store.commit("setSection", section)
+  }
 }
 
 const changeColor = () => {
