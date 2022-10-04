@@ -15,7 +15,7 @@
               <div 
                 class="ball"
                 :class="currentId == route ? 'active' : ''"
-                :style="{backgroundColor: currentBackgroundColor && currentId == route}"
+                :style="currentId == route ? {backgroundColor: currentBackgroundColor} : ''"
               >
               </div>
             </a>

@@ -152,11 +152,13 @@ h4 {
   }
 
   .feedback {
+    position: static;
     margin: 0;
     width: 100%;
   }
 
   .feedback-container {
+    position: static;
     margin-top: 30px;
     padding: 10px;
     background: #f0ede9;
