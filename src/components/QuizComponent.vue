@@ -162,7 +162,7 @@ h4 {
     margin-top: 30px;
     padding: 10px;
     background: #f0ede9;
-    border: 1px black solid;
+    border: 2px black solid;
     border-radius: 5px;
   }
 }
