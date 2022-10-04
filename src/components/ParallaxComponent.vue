@@ -548,7 +548,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 800px;
-  animation: brain-bounce infinite 5s;
+  animation: brain-bounce infinite 5s !important;
 }
 .accordion6-2-2 {
   top: 0%;
@@ -627,24 +627,28 @@ img {
   left: 55%;
   height: 150px;
   rotate: -105deg;
+  animation: none !important;
 }
 .accordion6-3-7 {
   top: 57.5%;
   left: 13%;
   rotate: 45deg;
   height: 75px;
+  animation: none !important;
 }
 .accordion6-3-8 {
   top: 52.5%;
   left: 16%;
   rotate: 35deg;
   height: 75px;
+  animation: none !important;
 }
 .accordion6-3-9 {
   top: 75%;
   left: 45%;
   rotate: 25deg;
   height: 75px;
+  animation: none !important;
 }
 
 .image7-1 {

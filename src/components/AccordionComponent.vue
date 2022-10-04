@@ -127,12 +127,21 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
+
+.section {
+  justify-content: flex-start;
+}
+
+.page-title {
+  margin-top: 0;
+}
 .button-wrapper {
   display: flex;
   margin-top: 2rem;
 }
 .accordion-container {
   display: flex;
+  /* justify-content: flex-start; */
   gap: 20px;
 }
 
@@ -163,8 +172,8 @@ h5 {
   flex-direction: column;
   overflow: hidden;
   margin-top: 42px;
-  transition: max-height 0.7s ease-in;
-  transition: background-color 0.5s ease-in;
+  transition: max-height 0.5s ease-in;
+  transition: background-color 0.2s ease-in;
 }
 
 .selected {
@@ -174,8 +183,8 @@ h5 {
   pointer-events: initial;
   background-color: transparent;
   cursor: text;
-  transition: max-height 1s ease-in 0.5s;
-  /* transition: background-color 0.5s ease-in; */
+  transition: max-height ease-in 0.5s;
+  transition: background-color 0.2s ease-in;
 }
 
 .selected {

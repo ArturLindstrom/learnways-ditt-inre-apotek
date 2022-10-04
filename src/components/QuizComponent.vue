@@ -86,6 +86,7 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
+
 .button-wrapper {
   display: flex;
   gap: 20px;
@@ -133,6 +134,10 @@ h4 {
 }
 
 @media screen and (max-width: 768px) {
+
+  .section {
+    justify-content: flex-start;
+  }
   .text-wrapper {
     max-width: 100%;
   }

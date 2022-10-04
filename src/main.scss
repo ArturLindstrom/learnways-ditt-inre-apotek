@@ -27,7 +27,7 @@ section{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     z-index: 1;
 }
@@ -36,7 +36,7 @@ section{
     font-size: 18px;
     font-weight: 400;
     color: #362917;
-    margin: 0;
+    margin-top: 5%;
     line-height: 24px;
     text-transform: uppercase;
     position: absolute;
