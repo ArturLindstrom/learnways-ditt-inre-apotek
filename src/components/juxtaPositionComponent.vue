@@ -16,6 +16,7 @@
     </div>
     <ImgComparisonSlider
       class="slider"
+      :class="{ bottom: isBottom }"
       @slide="logAttr($event)"
       :style="{
         backgroundImage: props.images[1].src,
@@ -24,6 +25,7 @@
     >
       <div
         class="img"
+        :class="{ bottom: isBottom }"
         slot="first"
         :style="{
           backgroundImage: props.images[0].src,
@@ -96,6 +98,8 @@ const mq = useMq();
 
 const show = ref(true);
 
+const isBottom = computed(() => props.title == 'Påverkan' ? true : false)
+
 const props = defineProps({
   title: {
     type: String,
@@ -155,6 +159,10 @@ section {
   width: 100%;
 }
 
+.bottom {
+  background-position: bottom;
+}
+
 .text-container {
   height: 100%;
   width: 33%;
@@ -163,6 +171,7 @@ section {
   justify-content: center;
   margin-left: 100px;
 }
+
 
 .instruction {
   font-weight: bold;
