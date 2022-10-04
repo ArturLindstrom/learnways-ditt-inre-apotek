@@ -12,7 +12,12 @@
           <li v-for="route in routes" :key="route">
             <a :href="'#' + route" @click="navToggle = !navToggle">
               {{ route }}
-              <div class="ball" :class="store.state.currentSection == route ? 'active' : ''"></div>
+              <div 
+                class="ball"
+                :class="currentId == route ? 'active' : ''"
+                :style="{backgroundColor: currentBackgroundColor}"
+              >
+              </div>
             </a>
           </li>
         </ul>
@@ -46,6 +51,8 @@ const routes = [
 const showNav = computed(() => store.state.showNav);
 const navToggle = ref(false);
 
+const currentId = computed(() => store.state.currentSection.id);
+const currentBackgroundColor = computed(() => store.state.currentSection.dataset.color);
 
 </script>
 
@@ -116,6 +123,7 @@ a {
   font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
+  transition: all 0.2s ease;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -132,19 +140,26 @@ li {
   list-style: none;
 }
 
+a:has(.active){
+  text-decoration: underline;
+}
+
 .ball {
   width: 9px;
   height: 9px;
   background: #f5f5f5;
   border: 1px solid #707070;
   border-radius: 50%;
-  transition: all 0.5s;
+  scale: 1;
+  transition: all 1.5s ease;
 }
 
 .active {
-  background-color: #707070;
-  transition: all 0.5s;
+  scale: 1.4;
+  transition: all 0.2s ease;
 }
+
+
 
 .v-enter-active,
 .v-leave-active {
