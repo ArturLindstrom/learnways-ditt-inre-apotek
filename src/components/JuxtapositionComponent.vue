@@ -24,7 +24,7 @@
         backgroundColor: props.images[1].bgColor,
       }"
     >
-    <img src="/assets/img-min/icon-compare.svg" slot="handle">
+    <img src="/assets/img-min/icon-compare.svg" slot="handle" class="handle">
       <div
         class="img"
         :class="{ bottom: isBottom }"
@@ -71,21 +71,33 @@
     <div class="mobile-text-wrapper">
         <div
           class="mobile-text-container"
-          v-show="(sliderExposure < 50 && mq.current == 'xs') || mq.current == 'sm'"
           :style="{
             backgroundColor: props.images[1].bgColor,
           }"
         >
+        <!-- <div
+          class="mobile-text-container"
+          v-show="(sliderExposure < 50 && mq.current == 'xs') || mq.current == 'sm'"
+          :style="{
+            backgroundColor: props.images[1].bgColor,
+          }"
+        > -->
           <h3>{{ props.textBox[0].heading }}</h3>
           <p>{{ props.textBox[0].body }}</p>
         </div>
         <div
           class="mobile-text-container"
-          v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
           :style="{
             backgroundColor: props.images[0].bgColor,
           }"
         >
+        <!-- <div
+          class="mobile-text-container"
+          v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
+          :style="{
+            backgroundColor: props.images[0].bgColor,
+          }"
+        > -->
           <h3>{{ props.textBox[1].heading }}</h3>
           <p>{{ props.textBox[1].body }}</p>
         </div>
@@ -130,12 +142,11 @@ const props = defineProps({
 const sliderExposure = ref(50);
 
 const logAttr = (e) => {
-  console.log(e.target.exposure)
   if(sliderExposure.value <= 50 && e.target.exposure >= 50) {
-    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
+    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
   } else if(sliderExposure.value >= 50 && e.target.exposure <= 50) {
-    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
+    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
   }
   sliderExposure.value = e.target.exposure;
@@ -237,14 +248,17 @@ h3 {
     margin: 20px 50px;
   }
   .mobile-text-container {
+    position: absolute;
     margin: 20px 30px;
     padding: 12px;
     border-radius: 5px;
     border: solid 2px black;
   }
-  
   .bottom {
     background-size: 200%;
+  }
+  .handle {
+    scale: 0.75;
   }
 }
 </style>

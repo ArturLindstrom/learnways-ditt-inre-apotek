@@ -137,7 +137,6 @@ section {
     height: 100%;
   }
   .footer-button {
-    min-width: 200px;
     margin: 20px 0 0 0;
   }
 }
