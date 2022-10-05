@@ -149,10 +149,10 @@ onMounted(() => {
 
 const logAttr = (e) => {
   if(sliderExposure.value <= 50 && e.target.exposure >= 50) {
-    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
+    gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
   } else if(sliderExposure.value >= 50 && e.target.exposure <= 50) {
-    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
+    gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
   }
   sliderExposure.value = e.target.exposure;
