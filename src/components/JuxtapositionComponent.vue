@@ -71,7 +71,7 @@
     <div class="mobile-text-wrapper">
         <div
           class="mobile-text-container"
-          v-show="(sliderExposure < 49 && mq.current == 'xs') || mq.current == 'sm'"
+          v-show="(sliderExposure < 50 && mq.current == 'xs') || mq.current == 'sm'"
           :style="{
             backgroundColor: props.images[1].bgColor,
           }"
@@ -130,10 +130,11 @@ const props = defineProps({
 const sliderExposure = ref(50);
 
 const logAttr = (e) => {
-  if(sliderExposure.value < 50 && e.target.exposure > 50) {
+  console.log(e.target.exposure)
+  if(sliderExposure.value <= 50 && e.target.exposure >= 50) {
     gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
-  } else if(sliderExposure.value > 50 && e.target.exposure < 50) {
+  } else if(sliderExposure.value >= 50 && e.target.exposure <= 50) {
     gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
     gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
   }
