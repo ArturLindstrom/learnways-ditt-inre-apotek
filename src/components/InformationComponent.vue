@@ -21,8 +21,8 @@
           {{ data.info_dia_p_2 }}
         </p>
         <div class="img-container">
-          <img src="/assets/img/strama-logo-new.svg" alt="" width="187" />
-          <img src="/assets/img/lw-logo-new.svg" alt="" width="187" />
+          <img src="/assets/img-min/strama-logo-new.svg" alt="" width="187" />
+          <img src="/assets/img-min/lw-logo-new.svg" alt="" width="187" />
         </div>
       </div>
     </div>

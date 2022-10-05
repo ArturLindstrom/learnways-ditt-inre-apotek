@@ -3,7 +3,7 @@
     <transition-group name="list">
     <img
       v-for="(image, i) in sectionImages"
-      :src="`/assets/img/${image}`"
+      :src="`/assets/img-min/${image}`"
       :key="image + i"
       :data-speed="i  * 0.4"
       :class="[
@@ -184,11 +184,9 @@ const parallaxAnimation = () => {
 </script>
 
 <style scoped lang="scss">
-@use "sass:math" as math;
 
 div {
   overflow-x: hidden;
-  /* z-index: 0; */
 }
 
 img {
@@ -263,13 +261,11 @@ img {
 
 @keyframes brain-signal {
   0% {
-    height: 200px; 
   }
   50% {
-    height: 190px; 
+    scale: 1.1; 
   }
   100% {
-    height: 200px; 
   }
 }
 
@@ -548,7 +544,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 800px;
-  animation: brain-bounce infinite 5s !important;
+  animation: none;
 }
 .accordion6-2-2 {
   top: 0%;
@@ -872,7 +868,7 @@ img {
 
   .image6-3{
     height: 200px;
-    top: -20%;
+    top: -5%;
   }
 
   .image6-4 {

@@ -19,7 +19,7 @@
             selected: answer === 'correct',
           }"
         >
-          <img src="/assets/img/right.svg" alt="" v-if="answer == 'correct'" />
+          <img src="/assets/img-min/right.svg" alt="" v-if="answer == 'correct'" />
           {{ props.answers[1].answer }}
         </ButtonComponent>
         <ButtonComponent
@@ -30,7 +30,7 @@
           }"
         >
           <img
-            src="/assets/img/wrong.svg"
+            src="/assets/img-min/wrong.svg"
             alt=""
             v-if="answer == 'incorrect'"
           />

@@ -24,6 +24,7 @@
         backgroundColor: props.images[1].bgColor,
       }"
     >
+    <img src="/assets/img-min/icon-compare.svg" slot="handle">
       <div
         class="img"
         :class="{ bottom: isBottom }"
@@ -41,7 +42,7 @@
           <h2>
             {{ props.heading }}
           </h2>
-          <p>
+          <p class="body">
             {{ props.body }}
           </p>
           <p class="instruction">
@@ -49,7 +50,7 @@
           </p>
           <div
             class="text-box first"
-            :style="{ backgroundColor: props.images[1].bgColor }"
+            :style="{ backgroundColor: props.images[0].bgColor }"
           >
             <h3>{{ props.textBox[0].heading }}</h3>
             <p>{{ props.textBox[0].body }}</p>
@@ -59,7 +60,7 @@
       <div slot="second">
         <div
           class="text-box second"
-          :style="{ backgroundColor: props.images[0].bgColor }"
+          :style="{ backgroundColor: props.images[1].bgColor }"
           v-if="mq.current != 'sm' && mq.current != 'xs'"
         >
           <h3>{{ props.textBox[1].heading }}</h3>
@@ -133,7 +134,7 @@ const logAttr = (e) => {
 <style scoped lang="scss">
 section {
   padding: 0;
-  cursor: w-resize;
+  cursor: ew-resize;
 }
 
 .slider {
@@ -141,11 +142,9 @@ section {
   width: 100%;
   height: 100vh;
   background: center center no-repeat;
-  background-size: 100%;
+  background-size: 120%;
   --divider-color: #000;
   --divider-width: 3px;
-  --default-handle-color: #000;
-  --default-handle-width: 80px;
   &:focus {
     outline: none;
   }
@@ -153,9 +152,22 @@ section {
 
 .img {
   background: center center no-repeat;
-  background-size: 100%;
+  background-size: 120%;
   height: 100%;
   width: 100%;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.body {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .bottom {
@@ -173,13 +185,15 @@ section {
 
 
 .instruction {
+  font-size: .8rem;
   font-weight: bold;
   margin-top: 20px;
 }
 
 .text-box {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #000;
   width: 35%;
 }
 

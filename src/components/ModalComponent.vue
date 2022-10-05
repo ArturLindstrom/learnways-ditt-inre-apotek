@@ -7,7 +7,7 @@
             <p class="close-text" @click="closeModal">Stäng</p>
             <img
               class="close-icon"
-              src="/assets/img/icon-close.svg"
+              src="/assets/img-min/icon-close.svg"
               alt="Stäng"
               @click="closeModal"
               tabindex="3"

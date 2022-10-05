@@ -82,8 +82,8 @@
         { heading: data.dia_06_h3_02, body: data.juxta_01_2 },
       ]"
       :images="[
-        { src: 'url(assets/img/juxtaposition1-01-1.png)', bgColor: '#BBC19B' },
-        { src: 'url(assets/img/juxtaposition1-01-2.png)', bgColor: '#F4E9D7' },
+        { src: 'url(assets/img-min/juxtaposition1-01-1.png)', bgColor: '#F4E9D7' },
+        { src: 'url(assets/img-min/juxtaposition1-01-2.png)', bgColor: '#BBC19B' },
       ]"
     />
 
@@ -176,8 +176,8 @@
         { heading: data.dia_10_h3_02, body: data.dia_10_p_02 },
       ]"
       :images="[
-        { src: 'url(assets/img/juxtaposition2-01-1.png)', bgColor: '#F8D9D9' },
-        { src: 'url(assets/img/juxtaposition2-01-2.png)', bgColor: '#FCEBEA' },
+        { src: 'url(assets/img-min/juxtaposition2-01-1.png)', bgColor: '#F8D9D9' },
+        { src: 'url(assets/img-min/juxtaposition2-01-2.png)', bgColor: '#FCEBEA' },
       ]"
     />
     <ModalComponent> </ModalComponent>
