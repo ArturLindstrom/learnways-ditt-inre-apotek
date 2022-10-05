@@ -107,7 +107,7 @@
 
 <script setup>
 import { ImgComparisonSlider } from "@img-comparison-slider/vue";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useMq } from "vue3-mq";
 import gsap from "gsap";
 
@@ -140,6 +140,12 @@ const props = defineProps({
 });
 
 const sliderExposure = ref(50);
+
+onMounted(() => {
+  gsap.to(".mobile-text-container", {
+    opacity: 0,
+  });
+})
 
 const logAttr = (e) => {
   if(sliderExposure.value <= 50 && e.target.exposure >= 50) {
@@ -233,6 +239,10 @@ h3 {
   background-color: #bbc19b;
 }
 
+.mobile-text-wrapper {
+    display: none;
+  }
+
 @media screen and (max-width: 768px) {
   .slider {
     max-height: 50vh;
@@ -240,6 +250,7 @@ h3 {
 
   .mobile-text-wrapper {
     position: relative;
+    display: block;
     height: 40vh;
     width: 100%;
   }
