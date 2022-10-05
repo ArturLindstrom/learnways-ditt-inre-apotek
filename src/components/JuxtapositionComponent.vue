@@ -68,25 +68,27 @@
         </div>
       </div>
     </ImgComparisonSlider>
-    <div
-      class="mobile-text-container"
-      v-show="(sliderExposure < 49 && mq.current == 'xs') || mq.current == 'sm'"
-      :style="{
-        backgroundColor: props.images[0].bgColor,
-      }"
-    >
-      <h3>{{ props.textBox[0].heading }}</h3>
-      <p>{{ props.textBox[0].body }}</p>
-    </div>
-    <div
-      class="mobile-text-container"
-      v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
-      :style="{
-        backgroundColor: props.images[1].bgColor,
-      }"
-    >
-      <h3>{{ props.textBox[1].heading }}</h3>
-      <p>{{ props.textBox[1].body }}</p>
+    <div class="mobile-text-wrapper">
+        <div
+          class="mobile-text-container"
+          v-show="(sliderExposure < 49 && mq.current == 'xs') || mq.current == 'sm'"
+          :style="{
+            backgroundColor: props.images[1].bgColor,
+          }"
+        >
+          <h3>{{ props.textBox[0].heading }}</h3>
+          <p>{{ props.textBox[0].body }}</p>
+        </div>
+        <div
+          class="mobile-text-container"
+          v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
+          :style="{
+            backgroundColor: props.images[0].bgColor,
+          }"
+        >
+          <h3>{{ props.textBox[1].heading }}</h3>
+          <p>{{ props.textBox[1].body }}</p>
+        </div>
     </div>
   </section>
 </template>
@@ -95,6 +97,7 @@
 import { ImgComparisonSlider } from "@img-comparison-slider/vue";
 import { ref, computed } from "vue";
 import { useMq } from "vue3-mq";
+import gsap from "gsap";
 
 const mq = useMq();
 
@@ -127,6 +130,13 @@ const props = defineProps({
 const sliderExposure = ref(50);
 
 const logAttr = (e) => {
+  if(sliderExposure.value < 50 && e.target.exposure > 50) {
+    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
+    gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
+  } else if(sliderExposure.value > 50 && e.target.exposure < 50) {
+    gsap.to('.mobile-text-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out'})
+    gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
+  }
   sliderExposure.value = e.target.exposure;
 };
 </script>
@@ -212,11 +222,14 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
-  section {
-    padding-bottom: 150px;
-  }
   .slider {
-    max-height: 200px;
+    max-height: 50vh;
+  }
+
+  .mobile-text-wrapper {
+    position: relative;
+    height: 40vh;
+    width: 100%;
   }
 
   .mobile-heading-container {
@@ -227,6 +240,10 @@ h3 {
     padding: 12px;
     border-radius: 5px;
     border: solid 2px black;
+  }
+  
+  .bottom {
+    background-size: 200%;
   }
 }
 </style>
