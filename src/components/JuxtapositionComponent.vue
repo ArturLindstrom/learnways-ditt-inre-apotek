@@ -24,7 +24,11 @@
         backgroundColor: props.images[1].bgColor,
       }"
     >
-    <img src="/assets/img-min/icon-compare.svg" slot="handle" class="handle">
+      <img
+        src="/assets/img-min/icon-compare.svg"
+        slot="handle"
+        class="handle"
+      />
       <div
         class="img"
         :class="{ bottom: isBottom }"
@@ -69,38 +73,24 @@
       </div>
     </ImgComparisonSlider>
     <div class="mobile-text-wrapper">
-        <div
-          class="mobile-text-container"
-          :style="{
-            backgroundColor: props.images[1].bgColor,
-          }"
-        >
-        <!-- <div
-          class="mobile-text-container"
-          v-show="(sliderExposure < 50 && mq.current == 'xs') || mq.current == 'sm'"
-          :style="{
-            backgroundColor: props.images[1].bgColor,
-          }"
-        > -->
-          <h3>{{ props.textBox[0].heading }}</h3>
-          <p>{{ props.textBox[0].body }}</p>
-        </div>
-        <div
-          class="mobile-text-container"
-          :style="{
-            backgroundColor: props.images[0].bgColor,
-          }"
-        >
-        <!-- <div
-          class="mobile-text-container"
-          v-show="(sliderExposure > 50 && mq.current == 'xs') || mq.current == 'sm'"
-          :style="{
-            backgroundColor: props.images[0].bgColor,
-          }"
-        > -->
-          <h3>{{ props.textBox[1].heading }}</h3>
-          <p>{{ props.textBox[1].body }}</p>
-        </div>
+      <div
+        class="mobile-text-container"
+        :style="{
+          backgroundColor: props.images[1].bgColor,
+        }"
+      >
+        <h3>{{ props.textBox[0].heading }}</h3>
+        <p>{{ props.textBox[0].body }}</p>
+      </div>
+      <div
+        class="mobile-text-container"
+        :style="{
+          backgroundColor: props.images[0].bgColor,
+        }"
+      >
+        <h3>{{ props.textBox[1].heading }}</h3>
+        <p>{{ props.textBox[1].body }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -113,7 +103,7 @@ import gsap from "gsap";
 
 const mq = useMq();
 
-const isBottom = computed(() => props.title == 'Påverkan' ? true : false)
+const isBottom = computed(() => (props.title == "Påverkan" ? true : false));
 
 const props = defineProps({
   title: {
@@ -145,15 +135,35 @@ onMounted(() => {
   gsap.to(".mobile-text-container", {
     opacity: 0,
   });
-})
+});
 
 const logAttr = (e) => {
-  if(sliderExposure.value <= 50 && e.target.exposure >= 50) {
-    gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
-    gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
-  } else if(sliderExposure.value >= 50 && e.target.exposure <= 50) {
-    gsap.to('.mobile-text-container:nth-child(2)', {duration: 0.5, opacity: 0, y: 40, ease: 'power2.out'})
-    gsap.to('.mobile-text-container:nth-child(1)', {duration: 0.5, opacity: 1, y: 0, ease: 'power2.out'})
+  if (sliderExposure.value <= 50 && e.target.exposure >= 50) {
+    gsap.to(".mobile-text-container:nth-child(1)", {
+      duration: 0.5,
+      opacity: 0,
+      y: 40,
+      ease: "power2.out",
+    });
+    gsap.to(".mobile-text-container:nth-child(2)", {
+      duration: 0.5,
+      opacity: 1,
+      y: 0,
+      ease: "power2.out",
+    });
+  } else if (sliderExposure.value >= 50 && e.target.exposure <= 50) {
+    gsap.to(".mobile-text-container:nth-child(2)", {
+      duration: 0.5,
+      opacity: 0,
+      y: 40,
+      ease: "power2.out",
+    });
+    gsap.to(".mobile-text-container:nth-child(1)", {
+      duration: 0.5,
+      opacity: 1,
+      y: 0,
+      ease: "power2.out",
+    });
   }
   sliderExposure.value = e.target.exposure;
 };
@@ -211,9 +221,8 @@ h3 {
   margin-left: 100px;
 }
 
-
 .instruction {
-  font-size: .8rem;
+  font-size: 1.2rem;
   font-weight: 500;
   margin-top: 20px;
 }
@@ -240,8 +249,8 @@ h3 {
 }
 
 .mobile-text-wrapper {
-    display: none;
-  }
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   .slider {

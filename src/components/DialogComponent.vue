@@ -88,7 +88,6 @@ const toggleDialog = (i) => {
 }
 
 .woman {
-  /* margin-top: -200px; */
   z-index: -1;
   transform: scale(1.4);
   top: -30%;

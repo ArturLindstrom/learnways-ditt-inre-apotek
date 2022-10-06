@@ -27,11 +27,11 @@ const props = defineProps({
 const onAnswer = ref();
 
 const onClick = () => {
-  if (props.type == 'scroll') {
+  if (props.type == "scroll") {
     window.scrollTo({
       top: window.innerHeight + 100,
-      behavior: 'smooth'
-    })
+      behavior: "smooth",
+    });
   }
 
   if (props.type == "quiz") {
