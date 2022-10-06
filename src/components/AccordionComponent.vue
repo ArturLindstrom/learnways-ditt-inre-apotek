@@ -21,7 +21,11 @@
           'not-selected': isSelected && isSelected !== i + 1,
         }"
         @click.self="toggleAccordion(i)"
-        :style="{backgroundColor: color}"
+
+        :style="{
+          backgroundColor: color,
+        }"
+
       >
         <h5 @click.self="toggleAccordion(i)">
           {{ button.heading }}
@@ -158,7 +162,7 @@ h2 {
 /* make h5 uppercase */
 h5 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
@@ -172,14 +176,15 @@ h5 {
   border: 2px solid black;
   border-radius: 5px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   margin-top: 42px;
-  transition: max-height 0.5s ease-in;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.5s ease-in-out;
+  /* transition: background-color 0.2s ease-in;
+  transition: max-height 0.5s ease-in; */
 }
 
 .selected {
@@ -187,14 +192,15 @@ h5 {
   padding: 1rem;
   max-height: 900px;
   pointer-events: initial;
-  background-color: transparent;
+  /* background-color: transparent; */
   cursor: text;
-  transition: max-height ease-in 0.5s;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.5s ease-in;
+  /* transition: max-height ease-in 0.5s;
+  transition: background-color 0.2s ease-in; */
 }
 
 .selected {
-  background: rgba(255, 255, 255, 0.40);
+  /* background: rgba(255, 255, 255, 0.40); */
 }
 
 
@@ -202,7 +208,8 @@ h5 {
   /* height: 50px; */
   padding: 1rem;
   max-height: 30px;
-  transition: max-height 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  /* transition: max-height 0.5s ease-in; */
   overflow: hidden;
 }
 

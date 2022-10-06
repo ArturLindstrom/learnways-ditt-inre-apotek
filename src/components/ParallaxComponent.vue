@@ -211,9 +211,9 @@ img {
   opacity: 0;
 }
 
-.accordion__image {
+/* .accordion__image:nth-of-type(odd) {
   animation: bounce2 infinite 6s;
-}
+} */
 
 @keyframes bounce2 {
   0% {
@@ -224,14 +224,18 @@ img {
     transform: translateY(5px);
     rotate: -3deg;
   }
+  90% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
   100% {
     transform: translateY(0);
     rotate: 0deg;
   }
 }
-.accordion__image:nth-of-type(2n) {
+/* .accordion__image:nth-of-type(even) {
   animation: bounce infinite 5s;
-}
+} */
 
 @keyframes bounce {
   0% {
@@ -241,6 +245,10 @@ img {
   50% {
     transform: translateY(-5px);
     rotate: 2.5deg;
+  }
+  90% {
+    transform: translateY(0);
+    rotate: 0deg;
   }
   100% {
     transform: translateY(0);
@@ -451,7 +459,8 @@ img {
 }
 
 .image5-1 {
-  top: -60%;
+  height: 800px;
+  top: -75%;
   right: 5%;
   height: 800px;
   transform: rotate(-45deg)
@@ -507,35 +516,43 @@ img {
   left: 25%;
   bottom: -10%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 
 .accordion6-1-2 {
   right: 15%;
   bottom: 25%;
   height: 375px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion6-1-3 {
   top: -20%;
   right: 20%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 
 .accordion6-1-4 {
   right: -10%;
   bottom: 50%;
   height: 300px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-1-5 {
   right: -15%;
   bottom: -15%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 
 .accordion6-1-6 {
   right: 10%;
   top: 55%;
   height: 250px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion6-2-1 {
@@ -543,28 +560,27 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 800px;
-  animation: none;
 }
 .accordion6-2-2 {
   top: 0%;
   right: 17.5%;
   height: 200px;
   rotate: 95deg;
-  animation: brain-signal infinite 4.5s !important;
+  animation: brain-signal infinite 4.5s
 }
 .accordion6-2-3 {
   top: 17.5%;
   right: 12.5%;
   height: 200px;
   rotate: -45deg;
-  animation: brain-signal infinite 5s !important;
+  animation: brain-signal infinite 5s
 }
 .accordion6-2-4 {
   top: 37.5%;
   right: 7.5%;
   height: 200px;
   rotate: 160deg;
-  animation: brain-signal infinite 5.5s !important;
+  animation: brain-signal infinite 5.5s
 }
 
 .accordion6-2-5 {
@@ -596,54 +612,56 @@ img {
   top: 60%;
   left: 2.5%;
   height: 220px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-2 {
   top: 52.5%;
   left: 27.5%;
   height: 250px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-3 {
   top: 27.5%;
   left: 35%;
   height: 100px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-4 {
   top: 25%;
   left: 70%;
   height: 550px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-5 {
   top: 10%;
   left: 67.5%;
   height: 150px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-6 {
   top: -7.5%;
   left: 55%;
   height: 150px;
   rotate: -105deg;
-  animation: none !important;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-7 {
   top: 57.5%;
   left: 13%;
   rotate: 45deg;
   height: 75px;
-  animation: none !important;
 }
 .accordion6-3-8 {
   top: 52.5%;
   left: 16%;
   rotate: 35deg;
   height: 75px;
-  animation: none !important;
 }
 .accordion6-3-9 {
   top: 75%;
   left: 45%;
   rotate: 25deg;
   height: 75px;
-  animation: none !important;
 }
 
 .image7-1 {
@@ -679,33 +697,41 @@ img {
 
 .accordion7-1-1 {
   top: 40%;
-  left: 65%;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 .accordion7-1-2 {
-  top: 30%;
+  top: 10%;
   left: 20%;
   height: 700px;
+  animation: bounce 6s ease-in-out infinite alternate;
+  
 }
 .accordion7-1-3 {
   top: 12.5%;
   left: 80%;
+  animation: bounce2 5s ease-in-out infinite alternate;
+
 }
 .accordion7-1-4 {
   top: 35%;
   left: 75%;
   height: 200px;
+  animation: bounce2 5s ease-in-out infinite alternate;
+
 }
 
 .accordion7-2-1 {
   height: 200px;
   top: 60%;
   left: 25%;
+  animation: bounce2 5s ease-in-out infinite alternate;
+
 }
 .accordion7-2-2 {
   top: 55%;
   left: 60%;
   rotate: 100deg;
-  animation: none !important;
 }
 .accordion7-2-3 {
   top: 75%;
@@ -716,16 +742,22 @@ img {
   height: 500px;
   top: 40%;
   left: 70%;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 
 .accordion7-3-1 {
   top: 70%;
   left: 10%;
   height: 300px;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 .accordion7-3-2 {
   top: 50%;
   left: 10%;
+  animation: bounce2 5s ease-in-out infinite alternate;
+
 }
 .accordion7-3-3 {
   top: 10%;
@@ -736,12 +768,16 @@ img {
 .accordion7-3-4 {
   top: 55%;
   left: 65%;
+  animation: bounce2 5s ease-in-out infinite alternate;
+
 }
 
 .accordion7-3-5 {
   top: 20%;
   left: 90%;
   height: 100px;
+  animation: bounce 6s ease-in-out infinite alternate;
+
 }
 .accordion7-3-6 {
   top: 35%;
@@ -754,6 +790,8 @@ img {
 .accordion7-3-7 {
   top: 50%;
   left: 40%;
+  animation: bounce 6s ease-in-out infinite alternate;
+
   
 }
 .accordion7-3-8 {
@@ -857,7 +895,7 @@ img {
   }
 
   .image6-1 {
-    height: 300px;
+    /* height: 300px; */
     top: 20%;
     right: 0%;
   }

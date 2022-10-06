@@ -12,9 +12,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useMq } from "vue3-mq";
 
-const mq = useMq();
 const props = defineProps({
   type: {
     type: String,

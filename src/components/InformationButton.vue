@@ -39,7 +39,7 @@ const openInfo = () => {
 }
 .active {
   background: url(/assets/navButton/navButtonActive.svg) center no-repeat;
-  border-radius: 0%;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {
