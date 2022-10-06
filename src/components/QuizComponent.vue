@@ -155,15 +155,18 @@ h4 {
     position: static;
     margin: 0;
     width: 100%;
+  
+  
   }
 
   .feedback-container {
     position: static;
     margin-top: 30px;
-    padding: 10px;
     background: #f0ede9;
+    padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
+    width: 90%;
   }
 }
 </style>
