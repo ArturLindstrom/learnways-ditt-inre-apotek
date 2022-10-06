@@ -160,13 +160,13 @@ h4 {
   }
 
   .feedback-container {
-    position: static;
+    /* position: static; */
     margin-top: 30px;
     background: #f0ede9;
     padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
-    width: 90%;
+    width: 94%;
   }
 }
 </style>

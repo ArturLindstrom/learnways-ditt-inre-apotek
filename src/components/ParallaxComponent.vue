@@ -462,18 +462,20 @@ img {
   height: 800px;
   top: -75%;
   right: 5%;
+  height: 800px;
+  transform: rotate(-45deg)
 }
 
 .image5-2 {
   top: 10%;
   right: 5%;
-  transform: rotate(45deg);
+  transform: rotate(75deg);
   height: 500px;
 }
 
 .image5-3 {
-  top: 40%;
-  right: 40%;
+  top: -10%;
+  right: -10%;
   height: 600px;
 }
 
@@ -881,9 +883,11 @@ img {
 
   .image5-1 {
     top: -40%;
+    right: -60%;
   }
   .image5-2 {
     top: 20%;
+    right: -30%;
   }
   .image5-3 {
     top: 40%;
@@ -903,7 +907,7 @@ img {
 
   .image6-3{
     height: 200px;
-    top: -5%;
+    top: -18%;
   }
 
   .image6-4 {
@@ -911,6 +915,16 @@ img {
   }
 
   .image6-5 {
+    display: none;
+  }
+
+  .image7-1{
+    top: 10%;
+    left: 10%;
+    height: 200px
+  }
+
+  .image7-6{
     display: none;
   }
   .accordion6-1-1{

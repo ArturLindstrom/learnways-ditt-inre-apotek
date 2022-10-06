@@ -21,9 +21,11 @@
           'not-selected': isSelected && isSelected !== i + 1,
         }"
         @click.self="toggleAccordion(i)"
+
         :style="{
           backgroundColor: color,
         }"
+
       >
         <h5 @click.self="toggleAccordion(i)">
           {{ button.heading }}

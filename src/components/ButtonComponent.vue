@@ -27,12 +27,12 @@ const props = defineProps({
 const onAnswer = ref();
 
 const onClick = () => {
-  // if (props.type == 'scroll') {
-  //   window.scrollTo({
-  //     top: window.innerHeight + 100,
-  //     behavior: 'smooth'
-  //   })
-  // }
+  if (props.type == 'scroll') {
+    window.scrollTo({
+      top: window.innerHeight + 100,
+      behavior: 'smooth'
+    })
+  }
 
   if (props.type == "quiz") {
     if (props.correct) {

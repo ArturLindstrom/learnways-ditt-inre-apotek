@@ -7,7 +7,9 @@
       <h5>
         {{ data.dia_p1_ingress }}
       </h5>
+
       <ButtonComponent type="scroll" v-if="mq.current != 'xs' && mq.current != 'sm'">{{ data.scroll }}</ButtonComponent>
+
     </div>
     <transition>
       <InformationComponent v-if="showInfo" />
