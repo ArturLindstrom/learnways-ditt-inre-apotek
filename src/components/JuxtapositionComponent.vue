@@ -170,7 +170,7 @@ section {
   width: 100%;
   height: 100vh;
   background: center center no-repeat;
-  background-size: 120%;
+  background-size: 100%;
   --divider-color: #000;
   --divider-width: 3px;
   &:focus {
@@ -180,7 +180,7 @@ section {
 
 .img {
   background: center center no-repeat;
-  background-size: 120%;
+  background-size: 100%;
   height: 100%;
   width: 100%;
 }

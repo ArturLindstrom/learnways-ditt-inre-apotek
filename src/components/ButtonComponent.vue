@@ -12,6 +12,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useMq } from "vue3-mq";
+
+const mq = useMq();
 const props = defineProps({
   type: {
     type: String,
@@ -26,12 +29,12 @@ const props = defineProps({
 const onAnswer = ref();
 
 const onClick = () => {
-  // if (props.type == 'scroll') {
-  //   window.scrollTo({
-  //     top: window.innerHeight + 100,
-  //     behavior: 'smooth'
-  //   })
-  // }
+  if (props.type == 'scroll') {
+    window.scrollTo({
+      top: window.innerHeight + 100,
+      behavior: 'smooth'
+    })
+  }
 
   if (props.type == "quiz") {
     if (props.correct) {
