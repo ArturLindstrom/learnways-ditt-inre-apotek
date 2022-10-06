@@ -16,8 +16,11 @@
       </p>
     </div>
 
-    <div class="dialog-wrapper">
-      <img class="woman" src="/assets/img/apotek-kvinna.png" alt="" />
+    <div class="dialog-wrapper" ref="dialogWrapper">
+      <img class="woman" src="/assets/img-min/apotek-kvinna-fix.png" ref="woman" alt="" />
+      <img v-for="grain in 12" class="pollen pollen-left" src="/assets/img-min/pollen.png" alt="" />
+      <img v-for="grain in 12" class="pollen pollen-right" src="/assets/img-min/pollen.png" alt="" />
+      <img v-for="drop in 36" class="drop" src="/assets/img-min/drop.png" alt="" />
       <div
         class="button-container"
         v-for="(button, i) in 4"
@@ -44,10 +47,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const dialogShown = ref(0);
+const dialogWrapper = ref(null)
+const woman = ref(null)
 
 const store = useStore();
 
@@ -69,6 +77,45 @@ const toggleDialog = (i) => {
     dialogShown.value = i + 1;
   }
 };
+
+// rain lol
+
+const drop = () => {
+  gsap.set(".drop", 
+    {
+      x: "random(50, 400)",
+      y: "random(0, 900)",
+      scale: "random(0.5, 1.5)",
+    })
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      start: 0,
+      end: "200%",
+      scrub: 2
+    },
+  });
+  tl.to(".drop", {
+    y: "random(-1000, 500)",
+  });
+}
+
+const pollenSpread = () => {
+  gsap.to('.pollen', {
+    x: "random(-75, 75)",
+    y: "random(-100, 100)",
+    scale: "random(0.75, 1.25)",
+    duration: 10,
+    repeat: -1,
+    repeatRefresh: true,
+  })
+}
+
+onMounted(() => {
+  pollenSpread();
+  drop();
+})
+
+
 </script>
 
 <style scoped lang="scss">
@@ -95,6 +142,25 @@ const toggleDialog = (i) => {
   top: -30%;
   right: 0%;
 }
+
+.pollen {
+  position: absolute;
+}
+
+.pollen-left {
+  bottom: 10%;
+  left: 30%;
+}
+
+.pollen-right {
+  bottom: 10%;
+  right: 40%;
+}
+
+.drop {
+  position: absolute;
+}
+
 
 .button-container {
   position: relative;

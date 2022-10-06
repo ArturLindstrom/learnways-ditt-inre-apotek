@@ -53,7 +53,7 @@ const onClick = () => {
   padding: 10px 15px;
   background-color: white;
   font-family: "Apercu";
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
   text-transform: uppercase;
   display: flex;

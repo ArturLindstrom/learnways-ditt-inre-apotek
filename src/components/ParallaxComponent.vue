@@ -1,39 +1,22 @@
 <template>
   <div>
     <transition-group name="list">
-      <img
-        v-for="(image, i) in sectionImages"
-        :src="`/assets/img-min/${image}`"
-        :key="image + i"
-        :data-speed="i * 0.4"
-        :class="[
-          'image' + props.section + '-' + (i + 1),
-          currentAccordion && props.section == 6
-            ? 'accordion' +
-              props.section +
-              '-' +
-              currentAccordion +
-              '-' +
-              (i + 1)
-            : '',
-          accordionOpened && props.section == 6 ? 'accordion__image' : '',
-          !currentAccordion && accordionOpened && props.section == 6
-            ? 'hide'
-            : '',
-          currentAccordion2 && props.section == 7
-            ? 'accordion' +
-              props.section +
-              '-' +
-              currentAccordion2 +
-              '-' +
-              (i + 1)
-            : '',
-          accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
-          !currentAccordion2 && accordionOpened2 && props.section == 7
-            ? 'hide'
-            : '',
-        ]"
-      />
+    <img
+      v-for="(image, i) in sectionImages"
+      :src="`/assets/img-min/${image}`"
+      :key="image + i"
+      :data-speed="i  * 0.4"
+      class="parallax-image"
+      :class="[
+        'image' + props.section + '-' + (i + 1),
+        currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
+        accordionOpened && props.section == 6 ? 'accordion__image' : '',
+        !currentAccordion && accordionOpened && props.section == 6 ? 'hide' : '',
+        currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
+        accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
+        !currentAccordion2 && accordionOpened2 && props.section == 7 ? 'hide' : '',
+      ]"
+    >
     </transition-group>
   </div>
 </template>
@@ -195,7 +178,8 @@ onMounted(() => {
 });
 
 const parallaxAnimation = () => {
-  gsap.to("img", {
+  gsap.to(".parallax-image", {
+    // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
     ease: "none",
     rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 200,
