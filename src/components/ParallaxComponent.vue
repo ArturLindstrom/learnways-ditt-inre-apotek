@@ -699,7 +699,7 @@ img {
 }
 .image7-6 {
   left: 50%;
-  bottom: 10%;
+  bottom: 30%;
 }
 
 .accordion7-1-1 {

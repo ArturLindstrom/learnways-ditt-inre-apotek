@@ -188,27 +188,17 @@ h5 {
 }
 
 .selected {
-  /* height: auto; */
   padding: 1rem;
   max-height: 900px;
   pointer-events: initial;
-  /* background-color: transparent; */
   cursor: text;
   transition: all 0.5s ease-in;
-  /* transition: max-height ease-in 0.5s;
-  transition: background-color 0.2s ease-in; */
-}
-
-.selected {
-  /* background: rgba(255, 255, 255, 0.40); */
 }
 
 .not-selected {
-  /* height: 50px; */
   padding: 1rem;
   max-height: 30px;
   transition: all 0.5s ease-in;
-  /* transition: max-height 0.5s ease-in; */
   overflow: hidden;
 }
 

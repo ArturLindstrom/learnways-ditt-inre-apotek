@@ -82,8 +82,14 @@
         { heading: data.dia_06_h3_02, body: data.juxta_01_2 },
       ]"
       :images="[
-        { src: 'url(assets/img-min/juxtaposition1-01-1.png)', bgColor: '#F4E9D7' },
-        { src: 'url(assets/img-min/juxtaposition1-01-2.png)', bgColor: '#BBC19B' },
+        {
+          src: 'url(assets/img-min/juxtaposition1-01-1.png)',
+          bgColor: '#F4E9D7',
+        },
+        {
+          src: 'url(assets/img-min/juxtaposition1-01-2.png)',
+          bgColor: '#BBC19B',
+        },
       ]"
     />
 
@@ -176,14 +182,19 @@
         { heading: data.dia_10_h3_02, body: data.dia_10_p_02 },
       ]"
       :images="[
-        { src: 'url(assets/img-min/juxtaposition2-01-1.png)', bgColor: '#F8D9D9' },
-        { src: 'url(assets/img-min/juxtaposition2-01-2.png)', bgColor: '#FCEBEA' },
+        {
+          src: 'url(assets/img-min/juxtaposition2-01-1.png)',
+          bgColor: '#F8D9D9',
+        },
+        {
+          src: 'url(assets/img-min/juxtaposition2-01-2.png)',
+          bgColor: '#FCEBEA',
+        },
       ]"
     />
     <ModalComponent> </ModalComponent>
     <FooterComponent id="Avslutning" class="section" data-color="#5E5C7C" />
   </div>
-
 </template>
 
 <script setup>
@@ -202,8 +213,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxComponent from "../components/ParallaxComponent.vue";
 gsap.registerPlugin(ScrollTrigger);
 
-const container = ref(null)
-
+const container = ref(null);
 
 onMounted(() => {
   animation();
@@ -226,23 +236,21 @@ const animation = () => {
       });
     }
   });
-}
+};
 
 const sectionChecker = (section) => {
-  if(window.scrollY < 50){
+  if (window.scrollY < 50) {
     store.commit("setSection", document.getElementById("Start"));
   } else {
-    store.commit("setSection", section)
+    store.commit("setSection", section);
   }
-}
+};
 
 const changeColor = () => {
   gsap.killTweensOf(container.value);
-  animation()
-}
+  animation();
+};
 
 const store = useStore();
 const data = store.state.data;
-
 </script>
-

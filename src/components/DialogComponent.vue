@@ -50,7 +50,9 @@ import { useStore } from "vuex";
 const dialogShown = ref(0);
 
 const store = useStore();
+
 const data = store.state.data;
+
 const modalContent = {
   heading: data.dia_popup_h_p02,
   body: data.dia_popup_p_p02,

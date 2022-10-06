@@ -8,8 +8,11 @@
         {{ data.dia_p1_ingress }}
       </h5>
 
-      <ButtonComponent type="scroll" v-if="mq.current != 'xs' && mq.current != 'sm'">{{ data.scroll }}</ButtonComponent>
-
+      <ButtonComponent
+        type="scroll"
+        v-if="mq.current != 'xs' && mq.current != 'sm'"
+        >{{ data.scroll }}</ButtonComponent
+      >
     </div>
     <transition>
       <InformationComponent v-if="showInfo" />
@@ -29,13 +32,12 @@ import { useMq } from "vue3-mq";
 
 const mq = useMq();
 
-
 onMounted(() => {
   gsap.from(".text-container", {
     opacity: 0,
     duration: 1,
-  })
-})
+  });
+});
 
 const showInfo = ref(false);
 

@@ -44,9 +44,13 @@ import { useStore } from "vuex";
 import { ref } from "vue";
 import InformationButton from "./InformationButton.vue";
 import InformationComponent from "./InformationComponent.vue";
+
 const showInfo = ref(false);
+
 const store = useStore();
+
 const data = store.state.data;
+
 const linkClicked = ref(false);
 
 const copy = () => {
@@ -69,7 +73,6 @@ section {
 }
 
 .heading {
-  /* text-align: center;  */
   align-self: flex-start;
   width: 80%;
   margin-left: 100px;

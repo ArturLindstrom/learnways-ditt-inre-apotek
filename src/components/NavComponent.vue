@@ -49,9 +49,11 @@ const routes = [
 ];
 
 const showNav = computed(() => store.state.showNav);
+
 const navToggle = ref(false);
 
 const currentId = computed(() => store.state.currentSection.id);
+
 const currentBackgroundColor = computed(
   () => store.state.currentSection.dataset.color
 );

@@ -155,7 +155,6 @@ const closeModal = () => {
 }
 
 .modal-animation-inner-enter-from {
-  /* opacity: 0; */
   transform: translateY(100%);
 }
 
@@ -182,14 +181,4 @@ const closeModal = () => {
   }
 }
 
-/* @media screen and (max-width: 1200px) {
-    .modal {
-      padding: 0;
-    }
-    .close-container {
-      top: 2%;
-      right: 2%;
-      width: 38px;
-    }
-  } */
 </style>

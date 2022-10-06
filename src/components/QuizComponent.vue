@@ -58,6 +58,7 @@
 <script setup>
 import { ref } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
+
 const answer = ref("");
 
 const props = defineProps({

@@ -11,6 +11,7 @@ import { useStore } from "vuex";
 const store = useStore();
 
 const emit = defineEmits(["openInfo"]);
+
 const buttonToggle = ref(false);
 
 const openInfo = () => {
