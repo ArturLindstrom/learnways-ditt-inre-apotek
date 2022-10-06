@@ -19,7 +19,11 @@
             selected: answer === 'correct',
           }"
         >
-          <img src="/assets/img-min/right.svg" alt="" v-if="answer == 'correct'" />
+          <img
+            src="/assets/img-min/right.svg"
+            alt=""
+            v-if="answer == 'correct'"
+          />
           {{ props.answers[1].answer }}
         </ButtonComponent>
         <ButtonComponent
@@ -54,8 +58,8 @@
 <script setup>
 import { ref } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
-const answer = ref("");
 
+const answer = ref("");
 
 const props = defineProps({
   title: {
@@ -133,7 +137,6 @@ h4 {
 }
 
 @media screen and (max-width: 768px) {
-
   .section {
     justify-content: flex-start;
   }
@@ -155,18 +158,15 @@ h4 {
     position: static;
     margin: 0;
     width: 100%;
-  
-  
   }
 
   .feedback-container {
-    position: static;
     margin-top: 30px;
     background: #f0ede9;
     padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
-    width: 90%;
+    width: 94%;
   }
 }
 </style>

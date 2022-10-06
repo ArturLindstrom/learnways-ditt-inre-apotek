@@ -31,7 +31,9 @@
 
 <script setup>
 import { useStore } from "vuex";
+
 const store = useStore();
+
 const data = store.state.data;
 </script>
 
@@ -57,7 +59,6 @@ const data = store.state.data;
 }
 
 .text-container {
-  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -12,12 +12,15 @@
           <li v-for="route in routes" :key="route">
             <a :href="'#' + route" @click="navToggle = !navToggle">
               {{ route }}
-              <div 
+              <div
                 class="ball"
                 :class="currentId == route ? 'active' : ''"
-                :style="currentId == route ? {backgroundColor: currentBackgroundColor} : ''"
-              >
-              </div>
+                :style="
+                  currentId == route
+                    ? { backgroundColor: currentBackgroundColor }
+                    : ''
+                "
+              ></div>
             </a>
           </li>
         </ul>
@@ -29,7 +32,6 @@
 <script setup>
 import { useStore } from "vuex";
 import { ref, computed } from "vue";
-
 
 const store = useStore();
 
@@ -46,14 +48,15 @@ const routes = [
   "Avslutning",
 ];
 
-
-
 const showNav = computed(() => store.state.showNav);
+
 const navToggle = ref(false);
 
 const currentId = computed(() => store.state.currentSection.id);
-const currentBackgroundColor = computed(() => store.state.currentSection.dataset.color);
 
+const currentBackgroundColor = computed(
+  () => store.state.currentSection.dataset.color
+);
 </script>
 
 <style scoped lang="scss">
@@ -140,7 +143,7 @@ li {
   list-style: none;
 }
 
-a:has(.active){
+a:has(.active) {
   text-decoration: underline;
 }
 
@@ -158,8 +161,6 @@ a:has(.active){
   scale: 1.4;
   transition: all 0.2s ease;
 }
-
-
 
 .v-enter-active,
 .v-leave-active {

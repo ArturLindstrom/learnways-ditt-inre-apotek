@@ -35,7 +35,6 @@ const props = defineProps({
   },
 });
 
-
 const store = useStore();
 
 const currentAccordion = computed(() => store.state.currentAccordion);
@@ -45,126 +44,137 @@ const accordionOpened = computed(() => store.state.accordionOpened);
 const accordionOpened2 = computed(() => store.state.accordionOpened2);
 
 const sectionImages = computed(() => {
-  switch(props.section){
-    case 1: return [
-      '01-bacteria.png',
-      '02-bacteria.png',
-      '05-bacteria.png',
-      'apelsin-inre-apotek.png',
-      '05-antibiotika.png',
-      '09-antikropp.png',
-      '07-bacteria.png',
-      '10-antibiotika.png',
-    ]
-    case 2: return [
-      '01-bacteria.png',
-      '0-bacteria.png',
-      '02-bacteria.png',
-      '07-bacteria.png',
-      'parallax-image5.png',
-      'parallax-image5.png'
-    ]
-    case 3: return [
-      '01-bacteria.png',
-      '02-bacteria.png',
-      '07-bacteria.png',
-      '05-bacteria.png',
-      '0-bacteria.png',
-    ]
-    case 4: return [
-      '12-antibiotika.png',
-      '10-antibiotika.png',
-      '10-antibiotika.png',
-      '05-antibiotika.png',
-      '05-antibiotika.png',
-      '05-antibiotika.png',
-    ]
-    case 5: return [
-      'vit2-bacteria-learnways.png',
-      'vit2-bacteria-learnways.png',
-      'vit2-bacteria-learnways.png'
-      
-    ]
-    case 6: switch(store.state.currentAccordion){
-      case 1: return [
-        '01-gurka.png',
-        '01-ananas.png',
-        '01-ananas.png',
-        'apelsin-inre-apotek.png',
-        'apelsin-inre-apotek.png',
-        '01-gurka.png',
-      ]
-      case 2: return [
-        '01-brain.png',
-        '11-bacteria.png',
-        '11-bacteria.png',
-        '11-bacteria.png',
-        '01-signal.png',
-        '01-signal.png',
-        '01-signal.png',
-        '01-signal.png',
-      ]
-      case 3: return [
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '02-vita-blodkroppar.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-        '09-antikropp.png',
-      ]
-      case null: return [
-        'apelsin-inre-apotek.png',
-        '01-gurka.png',
-        '02-vita-blodkroppar.png',
-        '01-signal.png',
-        '11-bacteria.png',
-        '11-bacteria.png'
-      ]
-      default: return [];
-    }
-  case 7: switch(store.state.currentAccordion2){
-      case 1: return [
-        '01-food.png',
-        '01-bean.png',
-        '02-food.png',
-        '02-food.png',
-      ]
-      case 2: return [
-        '20-bacteria-learnways.png',
-        '20-bacteria-learnways.png',
-        '20-bacteria-learnways.png',
-        '03-food.png',
-      ]
-      case 3: return [
-        '12-antibiotika.png',
-        '13-anitbiotika.png',
-        '15-pill.png',
-        '16-pill.png',
-        '12-antibiotika.png',
-        '12-antibiotika.png',
-        '3-antibiotika-learnways.png',
-        '3-antibiotika-learnways.png',
-      ]
-      case null: return [
-        '02-apple.png',
-        '01-bean.png',
-        '4-antibiotika-learnways.png',
-        '20-bacteria-learnways.png',
-        '20-bacteria-learnways.png',
-        '4-antibiotika-learnways.png',
-      ]
-      default: return [];
-    }
-  default: return [];
-
+  switch (props.section) {
+    case 1:
+      return [
+        "01-bacteria.png",
+        "02-bacteria.png",
+        "05-bacteria.png",
+        "apelsin-inre-apotek.png",
+        "05-antibiotika.png",
+        "09-antikropp.png",
+        "07-bacteria.png",
+        "10-antibiotika.png",
+      ];
+    case 2:
+      return [
+        "01-bacteria.png",
+        "0-bacteria.png",
+        "02-bacteria.png",
+        "07-bacteria.png",
+        "parallax-image5.png",
+        "parallax-image5.png",
+      ];
+    case 3:
+      return [
+        "01-bacteria.png",
+        "02-bacteria.png",
+        "07-bacteria.png",
+        "05-bacteria.png",
+        "0-bacteria.png",
+      ];
+    case 4:
+      return [
+        "12-antibiotika.png",
+        "10-antibiotika.png",
+        "10-antibiotika.png",
+        "05-antibiotika.png",
+        "05-antibiotika.png",
+        "05-antibiotika.png",
+      ];
+    case 5:
+      return [
+        "vit2-bacteria-learnways.png",
+        "vit2-bacteria-learnways.png",
+        "vit2-bacteria-learnways.png",
+      ];
+    case 6:
+      switch (store.state.currentAccordion) {
+        case 1:
+          return [
+            "01-gurka.png",
+            "01-ananas.png",
+            "01-ananas.png",
+            "apelsin-inre-apotek.png",
+            "apelsin-inre-apotek.png",
+            "01-gurka.png",
+          ];
+        case 2:
+          return [
+            "01-brain.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+            "01-signal.png",
+            "01-signal.png",
+            "01-signal.png",
+            "01-signal.png",
+          ];
+        case 3:
+          return [
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "02-vita-blodkroppar.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+            "09-antikropp.png",
+          ];
+        case null:
+          return [
+            "apelsin-inre-apotek.png",
+            "01-gurka.png",
+            "02-vita-blodkroppar.png",
+            "01-signal.png",
+            "11-bacteria.png",
+            "11-bacteria.png",
+          ];
+        default:
+          return [];
+      }
+    case 7:
+      switch (store.state.currentAccordion2) {
+        case 1:
+          return ["01-food.png", "01-bean.png", "02-food.png", "02-food.png"];
+        case 2:
+          return [
+            "20-bacteria-learnways.png",
+            "20-bacteria-learnways.png",
+            "20-bacteria-learnways.png",
+            "03-food.png",
+          ];
+        case 3:
+          return [
+            "12-antibiotika.png",
+            "13-anitbiotika.png",
+            "15-pill.png",
+            "16-pill.png",
+            "12-antibiotika.png",
+            "12-antibiotika.png",
+            "3-antibiotika-learnways.png",
+            "3-antibiotika-learnways.png",
+          ];
+        case null:
+          return [
+            "02-apple.png",
+            "01-bean.png",
+            "4-antibiotika-learnways.png",
+            "20-bacteria-learnways.png",
+            "20-bacteria-learnways.png",
+            "4-antibiotika-learnways.png",
+          ];
+        default:
+          return [];
+      }
+    default:
+      return [];
   }
 });
 
 onMounted(() => {
-  parallaxAnimation()
+  parallaxAnimation();
 });
 
 const parallaxAnimation = () => {
@@ -176,17 +186,14 @@ const parallaxAnimation = () => {
     scrollTrigger: {
       start: 0,
       end: "200%",
-      // end: () => "+=" + document.body.offsetHeight,
       invalidateOnRefresh: true,
       scrub: 5,
     },
   });
 };
-
 </script>
 
 <style scoped lang="scss">
-
 div {
   overflow-x: hidden;
 }
@@ -194,8 +201,6 @@ div {
 img {
   position: absolute;
   z-index: -1;
-  /* top: 50%;
-  right: 10%; */
 }
 
 .hide {
@@ -204,16 +209,11 @@ img {
 
 .list-enter-active,
 .list-leave-active {
-  /* transform: translateX(30px); */
   transition: all 0.5s ease-in-out;
 }
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-}
-
-.accordion__image {
-  animation: bounce2 infinite 6s;
 }
 
 @keyframes bounce2 {
@@ -225,13 +225,14 @@ img {
     transform: translateY(5px);
     rotate: -3deg;
   }
+  90% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
   100% {
     transform: translateY(0);
     rotate: 0deg;
   }
-}
-.accordion__image:nth-of-type(2n) {
-  animation: bounce infinite 5s;
 }
 
 @keyframes bounce {
@@ -243,6 +244,10 @@ img {
     transform: translateY(-5px);
     rotate: 2.5deg;
   }
+  90% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
   100% {
     transform: translateY(0);
     rotate: 0deg;
@@ -251,7 +256,7 @@ img {
 
 @keyframes brain-bounce {
   0% {
-    height: 800px; 
+    height: 800px;
   }
   50% {
     height: 825px;
@@ -265,7 +270,7 @@ img {
   0% {
   }
   50% {
-    scale: 1.1; 
+    scale: 1.1;
   }
   100% {
   }
@@ -455,21 +460,22 @@ img {
   height: 800px;
   top: -75%;
   right: 5%;
+  height: 800px;
+  transform: rotate(-45deg);
 }
 
 .image5-2 {
   top: 10%;
   right: 5%;
-  transform: rotate(45deg);
+  transform: rotate(75deg);
   height: 500px;
 }
 
 .image5-3 {
-  top: 40%;
-  right: 40%;
+  top: -10%;
+  right: -10%;
   height: 600px;
 }
-
 
 .image6-1 {
   transform: scale(0.75);
@@ -498,44 +504,47 @@ img {
 }
 .image6-6 {
   display: none;
-  /* right: 40%;
-  top: 20%;
-  transform: rotate(90deg); */
 }
 
 .accordion6-1-1 {
   left: 25%;
   bottom: -10%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 
 .accordion6-1-2 {
   right: 15%;
   bottom: 25%;
   height: 375px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion6-1-3 {
   top: -20%;
   right: 20%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 
 .accordion6-1-4 {
   right: -10%;
   bottom: 50%;
   height: 300px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-1-5 {
   right: -15%;
   bottom: -15%;
   height: 500px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 
 .accordion6-1-6 {
   right: 10%;
   top: 55%;
   height: 250px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion6-2-1 {
@@ -543,28 +552,27 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 800px;
-  animation: none;
 }
 .accordion6-2-2 {
   top: 0%;
   right: 17.5%;
   height: 200px;
   rotate: 95deg;
-  animation: brain-signal infinite 4.5s !important;
+  animation: brain-signal infinite 4.5s;
 }
 .accordion6-2-3 {
   top: 17.5%;
   right: 12.5%;
   height: 200px;
   rotate: -45deg;
-  animation: brain-signal infinite 5s !important;
+  animation: brain-signal infinite 5s;
 }
 .accordion6-2-4 {
   top: 37.5%;
   right: 7.5%;
   height: 200px;
   rotate: 160deg;
-  animation: brain-signal infinite 5.5s !important;
+  animation: brain-signal infinite 5.5s;
 }
 
 .accordion6-2-5 {
@@ -572,7 +580,6 @@ img {
   right: 30%;
   height: 80px;
   rotate: -90deg;
-  
 }
 .accordion6-2-6 {
   top: 57.5%;
@@ -596,54 +603,56 @@ img {
   top: 60%;
   left: 2.5%;
   height: 220px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-2 {
   top: 52.5%;
   left: 27.5%;
   height: 250px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-3 {
   top: 27.5%;
   left: 35%;
   height: 100px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-4 {
   top: 25%;
   left: 70%;
   height: 550px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-5 {
   top: 10%;
   left: 67.5%;
   height: 150px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion6-3-6 {
   top: -7.5%;
   left: 55%;
   height: 150px;
   rotate: -105deg;
-  animation: none !important;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion6-3-7 {
   top: 57.5%;
   left: 13%;
   rotate: 45deg;
   height: 75px;
-  animation: none !important;
 }
 .accordion6-3-8 {
   top: 52.5%;
   left: 16%;
   rotate: 35deg;
   height: 75px;
-  animation: none !important;
 }
 .accordion6-3-9 {
   top: 75%;
   left: 45%;
   rotate: 25deg;
   height: 75px;
-  animation: none !important;
 }
 
 .image7-1 {
@@ -674,38 +683,41 @@ img {
 }
 .image7-6 {
   left: 50%;
-  bottom: 10%;
+  bottom: 30%;
 }
 
 .accordion7-1-1 {
   top: 40%;
-  left: 65%;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion7-1-2 {
-  top: 30%;
+  top: 10%;
   left: 20%;
   height: 700px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion7-1-3 {
   top: 12.5%;
   left: 80%;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion7-1-4 {
   top: 35%;
   left: 75%;
   height: 200px;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion7-2-1 {
   height: 200px;
   top: 60%;
   left: 25%;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion7-2-2 {
   top: 55%;
   left: 60%;
   rotate: 100deg;
-  animation: none !important;
 }
 .accordion7-2-3 {
   top: 75%;
@@ -716,56 +728,57 @@ img {
   height: 500px;
   top: 40%;
   left: 70%;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 
 .accordion7-3-1 {
   top: 70%;
   left: 10%;
   height: 300px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion7-3-2 {
   top: 50%;
   left: 10%;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 .accordion7-3-3 {
   top: 10%;
   left: 50%;
   rotate: 45deg;
-  animation: none !important;
 }
 .accordion7-3-4 {
   top: 55%;
   left: 65%;
+  animation: bounce2 5s ease-in-out infinite alternate;
 }
 
 .accordion7-3-5 {
   top: 20%;
   left: 90%;
   height: 100px;
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion7-3-6 {
   top: 35%;
   left: 95%;
   height: 100px;
   rotate: 60deg;
-  animation: none !important;
 }
 
 .accordion7-3-7 {
   top: 50%;
   left: 40%;
-  
+  animation: bounce 6s ease-in-out infinite alternate;
 }
 .accordion7-3-8 {
   top: 65%;
   left: 47.5%;
   rotate: -30deg;
-  animation: none !important;
-
 }
 
-@media screen and (max-width: 768px){
-  .image1-1{
+@media screen and (max-width: 768px) {
+  .image1-1 {
     display: none;
   }
   .image1-2 {
@@ -827,7 +840,6 @@ img {
   .image4-4 {
     top: 60%;
   }
-  //select all images with class image4-2 and image4-3 and image4-4 and image4-5 and image4-6
   .image4-2,
   .image4-3,
   .image4-4,
@@ -836,7 +848,6 @@ img {
     transform: scale(0.3);
   }
 
-  //select all images with class image5-1 and image5-2 and image5-3
   .image5-1,
   .image5-2,
   .image5-3 {
@@ -845,9 +856,11 @@ img {
 
   .image5-1 {
     top: -40%;
+    right: -60%;
   }
   .image5-2 {
     top: 20%;
+    right: -30%;
   }
   .image5-3 {
     top: 40%;
@@ -855,7 +868,6 @@ img {
   }
 
   .image6-1 {
-    height: 300px;
     top: 20%;
     right: 0%;
   }
@@ -865,9 +877,9 @@ img {
     right: 0%;
   }
 
-  .image6-3{
+  .image6-3 {
     height: 200px;
-    top: -5%;
+    top: -18%;
   }
 
   .image6-4 {
@@ -877,28 +889,36 @@ img {
   .image6-5 {
     display: none;
   }
-  .accordion6-1-1{
+
+  .image7-1 {
+    top: 10%;
+    left: 10%;
+    height: 200px;
+  }
+
+  .image7-6 {
+    display: none;
+  }
+  .accordion6-1-1 {
     height: 200px;
     top: 85%;
     left: 10%;
   }
-  .accordion6-1-2{
+  .accordion6-1-2 {
     height: 200px;
-    /* top: 85%; */
     left: 30%;
   }
-  .accordion6-1-3{
+  .accordion6-1-3 {
     height: 200px;
     left: 50%;
-    top: -10%
+    top: -10%;
   }
-  .accordion6-1-4{
+  .accordion6-1-4 {
     height: 200px;
     left: 70%;
-    /* top: -10% */
   }
 
-  .accordion6-1-5{
+  .accordion6-1-5 {
     height: 200px;
     top: 80%;
     right: -30%;

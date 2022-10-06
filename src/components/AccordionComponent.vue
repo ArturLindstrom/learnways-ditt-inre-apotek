@@ -1,5 +1,5 @@
 <template>
-    <section ref="background" :class="setClass">
+  <section ref="background" :class="setClass">
     <p class="page-title" v-if="props.title">
       {{ props.title }}
     </p>
@@ -21,6 +21,9 @@
           'not-selected': isSelected && isSelected !== i + 1,
         }"
         @click.self="toggleAccordion(i)"
+        :style="{
+          backgroundColor: color,
+        }"
       >
         <h5 @click.self="toggleAccordion(i)">
           {{ button.heading }}
@@ -47,12 +50,11 @@ import { useStore } from "vuex";
 
 const store = useStore();
 
-
 const isSelected = ref(null);
 
 const buttonClicked = ref(0);
 
-const background = ref(null)
+const background = ref(null);
 
 const openModal = (modalContent) => {
   store.commit("modalOpen", modalContent);
@@ -65,26 +67,37 @@ const setClass = computed(() => {
 const emit = defineEmits(["changeColor"]);
 
 const color = computed(() => {
-  switch(setClass.value) {
+  switch (setClass.value) {
     case "funktioner":
-      switch(isSelected.value) {
-        case null: return '#DEB881';
-        case 1: return '#BBC19B';
-        case 2: return '#AEA2B2'
-        case 3: return '#A7C6B7'
-        default: return '#DEB881';
+      switch (isSelected.value) {
+        case null:
+          return "#DEB881";
+        case 1:
+          return "#BBC19B";
+        case 2:
+          return "#AEA2B2";
+        case 3:
+          return "#A7C6B7";
+        default:
+          return "#DEB881";
       }
     case "begrepp":
-      switch(isSelected.value) {
-        case null: return '#AEA2B2';
-        case 1: return '#CFE0DF';
-        case 2: return '#DAD1DD'
-        case 3: return '#B2CCCC'
-        default: return '#AEA2B2';
+      switch (isSelected.value) {
+        case null:
+          return "#AEA2B2";
+        case 1:
+          return "#CFE0DF";
+        case 2:
+          return "#DAD1DD";
+        case 3:
+          return "#B2CCCC";
+        default:
+          return "#AEA2B2";
       }
-    default: return "purple";
+    default:
+      return "purple";
   }
-})
+});
 
 const toggleAccordion = (i) => {
   if (isSelected.value === i + 1) {
@@ -100,7 +113,7 @@ const toggleAccordion = (i) => {
   }
   background.value.dataset.color = color.value;
 
-  emit('changeColor')
+  emit("changeColor");
 };
 
 const props = defineProps({
@@ -127,11 +140,9 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-
 .section {
   justify-content: flex-start;
 }
-
 
 .begrepp {
   margin-top: 20rem;
@@ -146,7 +157,6 @@ const props = defineProps({
 }
 .accordion-container {
   display: flex;
-  /* justify-content: flex-start; */
   gap: 20px;
 }
 
@@ -154,7 +164,6 @@ h2 {
   width: 80%;
 }
 
-/* make h5 uppercase */
 h5 {
   text-transform: uppercase;
   font-weight: 500;
@@ -163,11 +172,9 @@ h5 {
 
 .accordion {
   max-width: 350px;
-  /* height: 50px; */
   max-height: 30px;
   padding: 1rem;
   background-color: transparent;
-  /* background-color: white; */
   border: 2px solid black;
   border-radius: 5px;
   font-size: 18px;
@@ -177,31 +184,21 @@ h5 {
   flex-direction: column;
   overflow: hidden;
   margin-top: 42px;
-  transition: max-height 0.5s ease-in;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.5s ease-in-out;
 }
 
 .selected {
-  /* height: auto; */
   padding: 1rem;
   max-height: 900px;
   pointer-events: initial;
-  background-color: transparent;
   cursor: text;
-  transition: max-height ease-in 0.5s;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.5s ease-in;
 }
-
-.selected {
-  background: rgba(255, 255, 255, 0.40);
-}
-
 
 .not-selected {
-  /* height: 50px; */
   padding: 1rem;
   max-height: 30px;
-  transition: max-height 0.5s ease-in;
+  transition: all 0.5s ease-in;
   overflow: hidden;
 }
 
@@ -212,7 +209,6 @@ h5 {
   .accordion-container {
     flex-direction: column;
   }
-
 
   h2 {
     width: 100%;

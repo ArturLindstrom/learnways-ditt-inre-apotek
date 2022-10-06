@@ -11,6 +11,7 @@ import { useStore } from "vuex";
 const store = useStore();
 
 const emit = defineEmits(["openInfo"]);
+
 const buttonToggle = ref(false);
 
 const openInfo = () => {
@@ -39,7 +40,7 @@ const openInfo = () => {
 }
 .active {
   background: url(/assets/navButton/navButtonActive.svg) center no-repeat;
-  border-radius: 0%;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {

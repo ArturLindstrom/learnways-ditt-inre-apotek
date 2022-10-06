@@ -58,7 +58,9 @@ const dialogWrapper = ref(null)
 const woman = ref(null)
 
 const store = useStore();
+
 const data = store.state.data;
+
 const modalContent = {
   heading: data.dia_popup_h_p02,
   body: data.dia_popup_p_p02,
@@ -135,7 +137,6 @@ onMounted(() => {
 }
 
 .woman {
-  /* margin-top: -200px; */
   z-index: -1;
   transform: scale(1.4);
   top: -30%;
@@ -269,7 +270,7 @@ span {
     position: static;
     width: 300%;
     margin-top: -120px;
-    margin-left: 50px;
+    margin-left: 70px;
   }
 
   .dotted-line {
@@ -281,7 +282,7 @@ span {
   }
 
   .dialog-button1 {
-    top: -62%;
+    top: -60%;
     left: -4%;
   }
 

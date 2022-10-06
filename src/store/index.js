@@ -1,5 +1,5 @@
-import { createStore } from 'vuex'
-import data from '../assets/txtr.json'
+import { createStore } from "vuex";
+import data from "../assets/txtr.json";
 
 export default createStore({
   state: {
@@ -14,27 +14,26 @@ export default createStore({
     accordionOpened2: false,
     currentSection: null,
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
     toggleNav(state) {
-      state.showNav = !state.showNav
+      state.showNav = !state.showNav;
     },
     modalClose(state) {
       state.modalShown = false;
       state.showNav = true;
-     
+
       // enables scrolling when modal is closed
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     },
     modalOpen(state, content) {
       state.modalShown = true;
       state.modalContent = content;
-      state.showNav = false; 
+      state.showNav = false;
       //removes scrollbar on background when modal is open
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     },
-    // modalContentShown is its own variable to enable smooth transitions 
+    // modalContentShown is its own variable to enable smooth transitions
     modalContentClose(state) {
       state.modalContentShown = false;
     },
@@ -49,12 +48,10 @@ export default createStore({
       state.currentAccordion2 = index;
       state.accordionOpened2 = true;
     },
-    setSection(state, section){
+    setSection(state, section) {
       state.currentSection = section;
-    }
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
