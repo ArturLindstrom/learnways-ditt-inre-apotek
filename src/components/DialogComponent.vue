@@ -203,7 +203,7 @@ span {
     position: static;
     width: 300%;
     margin-top: -120px;
-    margin-left: 50px;
+    margin-left: 70px;
   }
 
   .dotted-line {
@@ -215,7 +215,7 @@ span {
   }
 
   .dialog-button1 {
-    top: -62%;
+    top: -60%;
     left: -4%;
   }
 

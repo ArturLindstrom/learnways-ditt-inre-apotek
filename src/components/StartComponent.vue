@@ -7,7 +7,7 @@
       <h5>
         {{ data.dia_p1_ingress }}
       </h5>
-      <ButtonComponent type="scroll">{{ data.scroll }}</ButtonComponent>
+      <ButtonComponent type="scroll" v-if="mq.current != 'xs' && mq.current != 'sm'">{{ data.scroll }}</ButtonComponent>
     </div>
     <transition>
       <InformationComponent v-if="showInfo" />
@@ -23,6 +23,9 @@ import InformationComponent from "./InformationComponent.vue";
 import InformationButton from "./InformationButton.vue";
 import ParallaxComponent from "./ParallaxComponent.vue";
 import gsap from "gsap";
+import { useMq } from "vue3-mq";
+
+const mq = useMq();
 
 
 onMounted(() => {
