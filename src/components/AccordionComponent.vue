@@ -177,8 +177,8 @@ h5 {
   flex-direction: column;
   overflow: hidden;
   margin-top: 42px;
-  transition: max-height 0.5s ease-in;
   transition: background-color 0.2s ease-in;
+  transition: max-height 0.5s ease-in;
 }
 
 .selected {
@@ -188,8 +188,9 @@ h5 {
   pointer-events: initial;
   background-color: transparent;
   cursor: text;
-  transition: max-height ease-in 0.5s;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.5s ease-in;
+  /* transition: max-height ease-in 0.5s;
+  transition: background-color 0.2s ease-in; */
 }
 
 .selected {
