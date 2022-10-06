@@ -7,15 +7,7 @@
       :key="image + i"
       :data-speed="i  * 0.4"
       class="parallax-image"
-      :class="[
-        'image' + props.section + '-' + (i + 1),
-        currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
-        accordionOpened && props.section == 6 ? 'accordion__image' : '',
-        !currentAccordion && accordionOpened && props.section == 6 ? 'hide' : '',
-        currentAccordion2 && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2 + '-' + (i + 1) : '',
-        accordionOpened2 && props.section == 7 ? 'accordion__image' : '',
-        !currentAccordion2 && accordionOpened2 && props.section == 7 ? 'hide' : '',
-      ]"
+      :class="generateClasses(i)"
     >
     </transition-group>
   </div>
@@ -36,6 +28,16 @@ const props = defineProps({
 });
 
 const store = useStore();
+
+const generateClasses = (i) => [
+    'image' + props.section + '-' + (i + 1),
+    currentAccordion.value && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion.value + '-' + (i + 1) : '',
+    accordionOpened.value && props.section == 6 ? 'accordion__image' : '',
+    !currentAccordion.value && accordionOpened.value && props.section == 6 ? 'hide' : '',
+    currentAccordion2.value && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2.value + '-' + (i + 1) : '',
+    accordionOpened2.value && props.section == 7 ? 'accordion__image' : '',
+    !currentAccordion2.value && accordionOpened2.value && props.section == 7 ? 'hide' : '',
+  ]
 
 const currentAccordion = computed(() => store.state.currentAccordion);
 const currentAccordion2 = computed(() => store.state.currentAccordion2);
