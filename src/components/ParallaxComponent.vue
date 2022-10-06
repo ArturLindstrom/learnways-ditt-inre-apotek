@@ -451,7 +451,8 @@ img {
 }
 
 .image5-1 {
-  top: -60%;
+  height: 800px;
+  top: -75%;
   right: 5%;
 }
 

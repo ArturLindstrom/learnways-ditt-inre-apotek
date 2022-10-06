@@ -88,7 +88,9 @@ const toggleDialog = (i) => {
 }
 
 .woman {
-  margin-top: -200px;
+  /* margin-top: -200px; */
+  z-index: -1;
+  transform: scale(1.4);
   top: -30%;
   right: 0%;
 }
@@ -132,22 +134,22 @@ button {
 }
 
 .dialog-button1 {
-  top: -68%;
+  top: -60%;
   left: 2%;
 }
 
 .dialog-button2 {
-  top: -62%;
-  left: -8%;
+  top: -54%;
+  left: -10%;
 }
 
 .dialog-button3 {
-  top: -58%;
+  top: -47%;
   left: -4%;
 }
 
 .dialog-button4 {
-  top: -54%;
+  top: -42%;
   left: -5%;
 }
 

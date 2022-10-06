@@ -12,6 +12,7 @@
 
 <script setup>
 import { ref } from "vue";
+
 const props = defineProps({
   type: {
     type: String,
@@ -52,7 +53,7 @@ const onClick = () => {
   padding: 10px 15px;
   background-color: white;
   font-family: "Apercu";
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
   display: flex;
