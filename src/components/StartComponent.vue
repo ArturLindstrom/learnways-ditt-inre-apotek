@@ -55,7 +55,7 @@ h1 {
 
 h5 {
   margin-bottom: 40px;
-  font-weight: bold;
+  font-weight: 300;
   max-width: 80%;
 }
 

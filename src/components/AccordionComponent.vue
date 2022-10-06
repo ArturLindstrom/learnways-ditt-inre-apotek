@@ -157,7 +157,7 @@ h2 {
 /* make h5 uppercase */
 h5 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
@@ -171,7 +171,7 @@ h5 {
   border: 2px solid black;
   border-radius: 5px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   flex-direction: column;

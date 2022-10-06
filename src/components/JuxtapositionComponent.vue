@@ -195,7 +195,7 @@ h3 {
 
 .body {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .bottom {
@@ -214,7 +214,7 @@ h3 {
 
 .instruction {
   font-size: .8rem;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 20px;
 }
 
