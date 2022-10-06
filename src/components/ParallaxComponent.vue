@@ -79,9 +79,10 @@ const sectionImages = computed(() => {
       '05-antibiotika.png',
     ]
     case 5: return [
-      '0-bacteria.png',
-      '0-bacteria.png',
-      '0-bacteria.png',
+      'vit2-bacteria-learnways.png',
+      'vit2-bacteria-learnways.png',
+      'vit2-bacteria-learnways.png'
+      
     ]
     case 6: switch(store.state.currentAccordion){
       case 1: return [
@@ -452,25 +453,21 @@ img {
 .image5-1 {
   top: -60%;
   right: 5%;
-  height: 700px;
-  transform: rotate(270deg);
 }
 
 .image5-2 {
   top: 10%;
   right: 5%;
   transform: rotate(45deg);
-  height: 188px;
-  width: 188px;
+  height: 500px;
 }
 
 .image5-3 {
   top: 40%;
   right: 40%;
-  transform: rotate(70deg);
-  height: 336.07px;
-  width: 336.07px;
+  height: 600px;
 }
+
 
 .image6-1 {
   transform: scale(0.75);

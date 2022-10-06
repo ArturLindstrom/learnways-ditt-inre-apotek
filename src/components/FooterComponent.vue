@@ -102,7 +102,7 @@ section {
   font-size: 18px;
   font-weight: 700;
   padding: 15px;
-  min-width: 350px;
+  width: 100%;
   border-radius: 5px;
   margin-top: 27px;
   cursor: pointer;
