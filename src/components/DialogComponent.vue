@@ -123,7 +123,7 @@ button {
 }
 
 .open {
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 15px;
 }
 

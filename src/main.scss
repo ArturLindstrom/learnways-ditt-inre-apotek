@@ -43,7 +43,7 @@ section{
 }
 
 .read-more{
-    font-weight: bold;
+    font-weight: 400;
     text-decoration: underline;
     cursor: pointer;
     width: 50%;
@@ -77,7 +77,7 @@ h2{
 
 h3{
     font-size: 2vw;
-    font-weight: '500';
+    font-weight: 500;
     margin-bottom: 27px;
     line-height: 40px;
     color: #000;
@@ -85,7 +85,7 @@ h3{
 
 h4{
     font-size: 2vw;
-    font-weight: 'bold';
+    font-weight: 500;
     line-height: 40px;
     color: #000;
 }
@@ -111,26 +111,20 @@ button{
 
 @font-face{
     font-family: 'Apercu';
-    src: local('Apercu'), url(/assets/fonts/Apercu_Regular.otf);
-    font-weight: 'regular';
+    src: url(/assets/fonts/apercu/Apercu-Regular.woff2) format('woff2');
+    font-weight: 400;
 }
 
 @font-face{
     font-family: 'Apercu';
-    src: local('Apercu'), url(/assets/fonts/Apercu_medium.otf);
-    font-weight: 'medium';
+    src: url(/assets/fonts/apercu/Apercu-Medium.woff2) format('woff2');
+    font-weight: 500;
 }
 
 @font-face{
     font-family: 'Apercu';
-    src: local('Apercu'), url(/assets/fonts/Apercu_Bold.otf);
-    font-weight: 'bold';
-}
-
-@font-face{
-    font-family: 'Apercu';
-    src: local('Apercu'), url(/assets/fonts/Apercu_Light.otf);
-    font-weight: 'light';
+    src: local('Apercu'), url(/assets/fonts/apercu/Apercu-Light.woff2) format('woff2');
+    font-weight: 300;
 }
 
 @media screen and (max-width: 768px){

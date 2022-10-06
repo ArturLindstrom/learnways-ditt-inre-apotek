@@ -119,7 +119,7 @@ a {
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
