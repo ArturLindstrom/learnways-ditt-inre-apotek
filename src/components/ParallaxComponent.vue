@@ -6,6 +6,7 @@
       :src="`/assets/img-min/${image}`"
       :key="image + i"
       :data-speed="i  * 0.4"
+      class="parallax-image"
       :class="[
         'image' + props.section + '-' + (i + 1),
         currentAccordion && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion + '-' + (i + 1) : '',
@@ -167,7 +168,7 @@ onMounted(() => {
 });
 
 const parallaxAnimation = () => {
-  gsap.to("img", {
+  gsap.to(".parallax-image", {
     // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
     ease: "none",
