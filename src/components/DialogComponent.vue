@@ -8,7 +8,7 @@
       <p>
         {{ data.dia_02_p1 }}
       </p>
-      <p class="read-more" @click="openModal">
+      <p class="read-more" @click="openModal" @keyup.enter="openModal" tabindex="0">
         {{ data.dia_02_p2 }}
       </p>
       <p class="open">

@@ -11,7 +11,7 @@
       <p>
         {{ props.body }}
       </p>
-      <p class="read-more" @click="openModal">
+      <p class="read-more" @click="openModal" @keyup.enter="openModal" tabindex="0">
         {{ props.readMore }}
       </p>
     </div>
