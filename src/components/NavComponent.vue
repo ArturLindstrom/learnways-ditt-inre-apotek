@@ -61,6 +61,7 @@ const currentBackgroundColor = computed(
 
 <style scoped lang="scss">
 nav {
+  -webkit-tap-highlight-color: transparent;
   z-index: 3;
   position: fixed;
   top: 0;
@@ -88,6 +89,7 @@ ul {
   }
 }
 .nav-button {
+  -webkit-tap-highlight-color: transparent;
   all: unset;
   z-index: 999;
   margin-top: 54px;

@@ -45,6 +45,7 @@ const openInfo = () => {
 
 @media screen and (max-width: 768px) {
   .button {
+    -webkit-tap-highlight-color: transparent;
     margin-top: 12px;
     margin-left: 12px;
     width: 25px;

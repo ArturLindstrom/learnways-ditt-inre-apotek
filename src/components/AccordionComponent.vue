@@ -208,6 +208,7 @@ h5 {
 @media screen and (max-width: 768px) {
   .accordion-container {
     flex-direction: column;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h2 {
