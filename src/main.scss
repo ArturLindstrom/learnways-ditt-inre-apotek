@@ -1,9 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-   & :focus {
-    outline: 2px red solid;
-  }
 }
 
 html {
@@ -14,6 +11,7 @@ html {
   font-family: "Apercu";
   width: 100%;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 section {
