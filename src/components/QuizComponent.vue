@@ -139,6 +139,7 @@ h4 {
 @media screen and (max-width: 768px) {
   .section {
     justify-content: flex-start;
+    -webkit-tap-highlight-color: transparent;
   }
   .text-wrapper {
     max-width: 100%;

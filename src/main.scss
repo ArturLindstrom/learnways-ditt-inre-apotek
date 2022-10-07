@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  
 }
 
 html {
@@ -12,6 +11,7 @@ html {
   font-family: "Apercu";
   width: 100%;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 section {
@@ -103,7 +103,7 @@ button {
 }
 
 @font-face {
-  font-family: "Apercu";
+  font-family: "Apercu", sans-serif;
   src: url(/assets/fonts/apercu/Apercu-Regular.woff2) format("woff2");
   font-weight: 400;
 }

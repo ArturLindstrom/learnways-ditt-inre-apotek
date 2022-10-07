@@ -184,11 +184,11 @@
       :images="[
         {
           src: 'url(assets/img-min/juxtaposition2-01-1.png)',
-          bgColor: '#F8D9D9',
+          bgColor: '#FCEBEA',
         },
         {
           src: 'url(assets/img-min/juxtaposition2-01-2.png)',
-          bgColor: '#FCEBEA',
+          bgColor: '#F8D9D9',
         },
       ]"
     />

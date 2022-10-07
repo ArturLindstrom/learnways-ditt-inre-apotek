@@ -31,7 +31,7 @@ const store = useStore();
 
 const generateClasses = (i) => [
     'image' + props.section + '-' + (i + 1),
-    currentAccordion.value && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion.value + '-' + (i + 1) : '',
+    currentAccordion.value && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion.value + '-' + d(i + 1) : '',
     accordionOpened.value && props.section == 6 ? 'accordion__image' : '',
     !currentAccordion.value && accordionOpened.value && props.section == 6 ? 'hide' : '',
     currentAccordion2.value && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2.value + '-' + (i + 1) : '',
