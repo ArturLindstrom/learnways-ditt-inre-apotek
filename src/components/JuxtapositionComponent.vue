@@ -21,7 +21,7 @@
       @slide="logAttr($event)"
       :style="{
         backgroundImage: props.images[1].src,
-        backgroundColor: props.images[1].bgColor,
+        
       }"
     >
       <img
@@ -35,7 +35,7 @@
         slot="first"
         :style="{
           backgroundImage: props.images[0].src,
-          backgroundColor: props.images[0].bgColor,
+          backgroundColor: props.images[0].bgColor
         }"
       >
         <div
@@ -182,7 +182,7 @@ section {
   background: center center no-repeat;
   background-size: 100%;
   --divider-color: #000;
-  --divider-width: 3px;
+  --divider-width: 0px;
   &:focus {
     outline: none;
   }
@@ -238,14 +238,12 @@ h3 {
   position: absolute;
   margin-top: 3%;
   left: 5%;
-  background-color: #f4e9d7;
 }
 
 .first {
   position: absolute;
   margin-top: 25%;
   right: 10%;
-  background-color: #bbc19b;
 }
 
 .mobile-text-wrapper {
