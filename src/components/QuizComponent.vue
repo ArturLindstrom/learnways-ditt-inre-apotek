@@ -132,8 +132,8 @@ h4 {
 
 .v-enter-from,
 .v-leave-to {
-  transform: translateY(100%);
   opacity: 0;
+  transform: translateY(100%);
 }
 
 @media screen and (max-width: 768px) {
