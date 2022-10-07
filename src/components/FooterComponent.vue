@@ -110,6 +110,7 @@ section {
   margin-top: 27px;
   cursor: pointer;
   text-transform: uppercase;
+  min-width: 250px;
 }
 .v-enter-active,
 .v-leave-active {
@@ -121,7 +122,7 @@ section {
   transform: translateX(100%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .text-grid {
     grid-template-columns: 1fr;
     gap: 40px;

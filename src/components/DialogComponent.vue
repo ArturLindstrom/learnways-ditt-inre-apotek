@@ -250,10 +250,11 @@ span {
   transform: scale(0.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1050px) {
   .wrapper {
     grid-template-columns: 1fr;
     place-items: start;
+   
   }
 
   .dialog-container {
@@ -268,7 +269,7 @@ span {
   .woman {
     z-index: -1;
     position: static;
-    width: 300%;
+    width: 200%;
     margin-top: -120px;
     margin-left: 70px;
   }
@@ -282,7 +283,7 @@ span {
   }
 
   .dialog-button1 {
-    top: -60%;
+    top: -68%;
     left: -4%;
   }
 
