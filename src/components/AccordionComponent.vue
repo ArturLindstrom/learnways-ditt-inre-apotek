@@ -24,6 +24,8 @@
         :style="{
           backgroundColor: color,
         }"
+        tabindex="0"
+        @keyup.enter="toggleAccordion(i)"
       >
         <h5 @click.self="toggleAccordion(i)">
           {{ button.heading }}
@@ -33,7 +35,11 @@
             <p>
               {{ button.body }}
             </p>
-            <p class="read-more" @click="openModal(button.modal)">
+            <p class="read-more" 
+            @click="openModal(button.modal)"
+            @keyup.enter="openModal(button.modal)"
+            :tabindex="isSelected === i + 1 ? 0 : -1"
+            >
               {{ button.readMore }}
             </p>
           </div>
