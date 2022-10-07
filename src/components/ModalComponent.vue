@@ -2,17 +2,21 @@
   <Transition name="modal-animation" @enter="showContent">
     <div class="modal" @click.self="closeModal"  v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
-        <focus-trap v-model:active="showModalContent">
+        <focus-trap v-model:active="showModalContent" 
+        v-if="showModalContent"
+        :initial-focus="() => $refs.close">
           <div class="modal-content" v-if="showModalContent" tabindex="-1">
               <div class="close-container">
                 <p class="close-text" @click="closeModal">Stäng</p>
                 <img
+                  id="close"
                   class="close-icon"
                   src="/assets/img-min/icon-close.svg"
                   alt="Stäng"
                   @click="closeModal"
-                  tabindex="3"
+                  tabindex="0"
                   @keyup.enter="closeModal"
+                  ref="close"
                 />
               </div>
               <div class="modal-content-inner">
@@ -24,7 +28,7 @@
                   v-html="store.state.modalContent.body"
                 ></div>
               </div>
-            </div>
+          </div>
         </focus-trap>
         </Transition>
       </div>

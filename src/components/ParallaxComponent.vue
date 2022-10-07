@@ -436,7 +436,7 @@ img {
 }
 
 .image4-4 {
-  top: 40%;
+  top: 50%;
   right: 30%;
   transform: rotate(60deg);
   height: 151px;
@@ -459,10 +459,9 @@ img {
 }
 
 .image5-1 {
-  height: 800px;
-  top: -75%;
-  right: 5%;
-  height: 800px;
+  top: -60%;
+  right: 10%;
+  height: 700px;
   transform: rotate(-45deg);
 }
 
@@ -832,7 +831,7 @@ img {
     transform: scale(0.2);
   }
   .image3-5 {
-    top: 10%;
+    top: 5%;
     left: 0%;
   }
   .image4-1 {
