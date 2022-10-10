@@ -27,13 +27,23 @@ const props = defineProps({
   },
 });
 
+onMounted(() => {
+  parallaxAnimation();
+});
+
 const store = useStore();
 
+// a bunch of ternary operators to generate the classes for the images (needed for specific positioning css)
 const generateClasses = (i) => [
+  // applied for all images (example: image1-1)
     'image' + props.section + '-' + (i + 1),
-    currentAccordion.value && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion.value + '-' + d(i + 1) : '',
+  // only applied if the one of the accordions in section 6 is opened. also applies a number for which accordion is opened (example: image6-1-1)
+    currentAccordion.value && props.section == 6 ? 'accordion' + props.section + '-' + currentAccordion.value + '-' + (i + 1) : '',
+  // gives a class to all images in section 6 if an accordion is opened
     accordionOpened.value && props.section == 6 ? 'accordion__image' : '',
+  // hides all images in section 6 if an accordion has been opened, but is now closed
     !currentAccordion.value && accordionOpened.value && props.section == 6 ? 'hide' : '',
+
     currentAccordion2.value && props.section == 7 ? 'accordion' + props.section + '-' + currentAccordion2.value + '-' + (i + 1) : '',
     accordionOpened2.value && props.section == 7 ? 'accordion__image' : '',
     !currentAccordion2.value && accordionOpened2.value && props.section == 7 ? 'hide' : '',
@@ -45,6 +55,7 @@ const currentAccordion2 = computed(() => store.state.currentAccordion2);
 const accordionOpened = computed(() => store.state.accordionOpened);
 const accordionOpened2 = computed(() => store.state.accordionOpened2);
 
+//a switch statement that checks wich section is being rendered and returns the correct images
 const sectionImages = computed(() => {
   switch (props.section) {
     case 1:
@@ -91,6 +102,7 @@ const sectionImages = computed(() => {
         "vit2-bacteria-learnways.png",
       ];
     case 6:
+      // a switch statement that checks which accordion is opened and returns the correct images
       switch (store.state.currentAccordion) {
         case 1:
           return [
@@ -137,6 +149,7 @@ const sectionImages = computed(() => {
           return [];
       }
     case 7:
+    // a switch statement that checks which accordion is opened and returns the correct images
       switch (store.state.currentAccordion2) {
         case 1:
           return ["01-food.png", "01-bean.png", "02-food.png", "02-food.png"];
@@ -175,13 +188,10 @@ const sectionImages = computed(() => {
   }
 });
 
-onMounted(() => {
-  parallaxAnimation();
-});
 
+// the main parallax function that sets different scroll speed on every image depending on the data-speed attribute
 const parallaxAnimation = () => {
   gsap.to(".parallax-image", {
-    // y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
     y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 2000,
     ease: "none",
     rotate: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * 200,
@@ -277,7 +287,7 @@ img {
   100% {
   }
 }
-
+/* positioning for every image used in parallax */
 .image1-1 {
   top: 30%;
   right: 15%;
@@ -684,7 +694,7 @@ img {
 }
 .image7-6 {
   left: 50%;
-  bottom: 30%;
+  bottom: -50%;
 }
 
 .accordion7-1-1 {

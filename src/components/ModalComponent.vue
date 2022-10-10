@@ -2,6 +2,7 @@
   <Transition name="modal-animation" @enter="showContent">
     <div class="modal" @click.self="closeModal"  v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
+        <!-- npm package that traps tabindex to modal when modal is opened -->
         <focus-trap v-model:active="showModalContent" 
         v-if="showModalContent"
         :initial-focus="() => $refs.close">
@@ -43,6 +44,16 @@ import { FocusTrap } from 'focus-trap-vue'
 
 const store = useStore();
 
+//checks vuex if modal is open
+const modalComponentOpen = computed(() => store.state.modalShown);
+
+//checks if modal content is shown
+const showModalContent = computed(() => store.state.modalContentShown);
+
+const showContent = () => {
+  store.commit("modalContentOpen");
+};
+
 const showCloseContainer = () => {
   gsap.from(".close-container", {
     duration: 0.5,
@@ -51,16 +62,6 @@ const showCloseContainer = () => {
     ease: "power2.out",
     delay: 0.5,
   });
-};
-
-
-
-const modalComponentOpen = computed(() => store.state.modalShown);
-
-const showModalContent = computed(() => store.state.modalContentShown);
-
-const showContent = () => {
-  store.commit("modalContentOpen");
 };
 
 const closeModal = () => {

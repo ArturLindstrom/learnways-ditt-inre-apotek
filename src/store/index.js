@@ -15,6 +15,7 @@ export default createStore({
     currentSection: null,
   },
   getters: {},
+
   mutations: {
     toggleNav(state) {
       state.showNav = !state.showNav;
@@ -40,10 +41,13 @@ export default createStore({
     modalContentOpen(state) {
       state.modalContentShown = true;
     },
+    // when commited from first AccordionComponent, sets the current accordion to the one clicked
     setAccordion(state, index) {
       state.currentAccordion = index;
+      // saves that the accordion has been opened, so that when it closes, the background is hidden
       state.accordionOpened = true;
     },
+    // when commited from first AccordionComponent, sets the current accordion to the one clicked
     setAccordion2(state, index) {
       state.currentAccordion2 = index;
       state.accordionOpened2 = true;

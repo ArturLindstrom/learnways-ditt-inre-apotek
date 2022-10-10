@@ -14,6 +14,7 @@ const emit = defineEmits(["openInfo"]);
 
 const buttonToggle = ref(false);
 
+//toggles the information component and hides the nav button
 const openInfo = () => {
   store.commit("toggleNav");
   buttonToggle.value = !buttonToggle.value;
