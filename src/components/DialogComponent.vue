@@ -35,7 +35,7 @@
         ></button>
         <transition name="scale">
           <div class="dialog-content" v-if="dialogShown == i + 1">
-            <img src="/assets/img-mina/info-line.svg" alt="" class="dotted-line" />
+            <img src="/assets/img-min/info-line.svg" alt="" class="dotted-line" />
             <transition name="text">
               <span>
                 {{ data[`dia_hot_0${i + 1}`] }}
