@@ -44,7 +44,7 @@ export default createStore({
     // when commited from first AccordionComponent, sets the current accordion to the one clicked
     setAccordion(state, index) {
       state.currentAccordion = index;
-      // saves that the accordion has been opened, so that when it closes, the background is hidden
+      // saves that the accordion has been opened, so that when it closes, the background images are hidden
       state.accordionOpened = true;
     },
     // when commited from first AccordionComponent, sets the current accordion to the one clicked

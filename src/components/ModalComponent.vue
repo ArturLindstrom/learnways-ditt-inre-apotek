@@ -1,55 +1,65 @@
 <template>
   <Transition name="modal-animation" @enter="showContent">
-    <div class="modal" @click.self="closeModal"  v-if="modalComponentOpen">
-      <Transition name="modal-animation-inner" @enter="showCloseContainer">
-        <!-- npm package that traps tabindex to modal when modal is opened -->
-        <focus-trap v-model:active="showModalContent" 
-        v-if="showModalContent"
-        :initial-focus="() => $refs.close">
-          <div class="modal-content" v-if="showModalContent" tabindex="-1">
-              <div class="close-container">
-                <p class="close-text" @click="closeModal">Stäng</p>
-                <img
-                  id="close"
-                  class="close-icon"
-                  src="/assets/img-min/icon-close.svg"
-                  alt="Stäng"
-                  @click="closeModal"
-                  tabindex="0"
-                  @keyup.enter="closeModal"
-                  ref="close"
-                />
-              </div>
-              <div class="modal-content-inner">
-                <h4 class="modal-heading">
-                  {{ store.state.modalContent.heading }}
-                </h4>
-                <div
-                  class="modal-body"
-                  v-html="store.state.modalContent.body"
-                ></div>
-              </div>
+    <div class="modal" @click.self="closeModal" v-if="store.state.modalShown">
+      <!-- npm package that traps tabindex to modal when modal is opened -->
+      <focus-trap
+        v-model:active="store.state.modalContentShown"
+        v-if="store.state.modalShown"
+        :initial-focus="() => $refs.close"
+        :escape-deactivates="false"
+      >
+        <Transition name="modal-animation-inner" @enter="showCloseContainer">
+          <div
+            class="modal-content"
+            v-if="store.state.modalContentShown"
+            tabindex="0"
+            
+          >
+            <div class="close-container">
+              <p class="close-text" @click="closeModal">Stäng</p>
+              <img
+                id="close"
+                class="close-icon"
+                src="/assets/img-min/icon-close.svg"
+                alt="Stäng"
+                @click="closeModal"
+                tabindex="0"
+                @keyup.enter="closeModal"
+                ref="close"   
+              />
+            </div>
+            <div class="modal-content-inner">
+              <h4 class="modal-heading">
+                {{ store.state.modalContent.heading }}
+              </h4>
+              <div
+                class="modal-body"
+                v-html="store.state.modalContent.body"
+              ></div>
+            </div>
           </div>
-        </focus-trap>
         </Transition>
-      </div>
-    </Transition>
+      </focus-trap>
+    </div>
+  </Transition>
 </template>
 
 <script setup>
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { onMounted } from "vue";
 import gsap from "gsap";
-import { FocusTrap } from 'focus-trap-vue'
+import { FocusTrap } from "focus-trap-vue";
 
 const store = useStore();
 
-//checks vuex if modal is open
-const modalComponentOpen = computed(() => store.state.modalShown);
 
-//checks if modal content is shown
-const showModalContent = computed(() => store.state.modalContentShown);
-
+onMounted(() => {
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+});
 const showContent = () => {
   store.commit("modalContentOpen");
 };
@@ -190,5 +200,4 @@ const closeModal = () => {
     display: none;
   }
 }
-
 </style>

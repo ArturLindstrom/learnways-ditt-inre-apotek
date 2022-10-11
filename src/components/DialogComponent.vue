@@ -17,7 +17,7 @@
     </div>
 
     <div class="dialog-wrapper">
-      <img class="woman" src="/assets/img-min/apotek-kvinna-fix.png" alt="" />
+      <img class="woman" src="/assets/img-min/apotek-kvinna-fix.png" alt=""/>
 
       <!-- three loops that renders 12 + 12 yellow pollen particles and 36 drops, to be (kind of randomly) positioned and animated with gsap -->
       <img v-for="grain in 12" class="pollen pollen-left" src="/assets/img-min/pollen.png" alt="" />
@@ -177,7 +177,7 @@ button {
   height: 35px;
   border-radius: 50%;
   background-color: #eeeae6;
-  background: url("/assets/img/ICON-HOTSPOT.svg") no-repeat center;
+  background: url("/assets/img-min/ICON-HOTSPOT.svg") no-repeat center;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   transition: transform 0.2s;
