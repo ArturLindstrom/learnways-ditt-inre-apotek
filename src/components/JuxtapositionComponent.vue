@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
   <section>
+    <!-- MOBILE (conditionally mounted using emedia query package) -->
     <div
       class="mobile-heading-container"
       v-if="mq.current == 'xs' || mq.current == 'sm'"
@@ -15,27 +16,34 @@
         {{ props.instruction }}
       </p>
     </div>
+
+    <!-- DESKTOP AND MOBILE (external component 'wrapper') -->
     <ImgComparisonSlider
       class="slider"
       :class="{ bottom: isBottom }"
-      @slide="logAttr($event)"
+      @slide="toggleTextContainer($event)"
       :style="{
         backgroundImage: props.images[1].src,
         
       }"
     >
+    <!-- custom handle (requires slot="handle") -->
       <img
         src="/assets/img-min/icon-compare.svg"
         slot="handle"
         class="handle"
       />
+      <!-- 
+        image to the left, requires slot="first" 
+        :class="{ 'bottom': isBottom }" is used to position the image on the bottom of the slider if the section title is 'Påverkan'
+      -->
       <div
         class="img"
         :class="{ bottom: isBottom }"
         slot="first"
         :style="{
           backgroundImage: props.images[0].src,
-          backgroundColor: props.images[0].bgColor
+          backgroundColor: props.images[0].bgColor,
         }"
       >
         <div
@@ -72,6 +80,7 @@
         </div>
       </div>
     </ImgComparisonSlider>
+    <!-- MOBILE -->
     <div class="mobile-text-wrapper">
       <div
         class="mobile-text-container"
@@ -101,9 +110,6 @@ import { ref, computed, onMounted } from "vue";
 import { useMq } from "vue3-mq";
 import gsap from "gsap";
 
-const mq = useMq();
-
-const isBottom = computed(() => (props.title == "Påverkan" ? true : false));
 
 const props = defineProps({
   title: {
@@ -129,7 +135,10 @@ const props = defineProps({
   },
 });
 
-const sliderExposure = ref(50);
+//npm package for using media queries with js
+const mq = useMq();
+
+const isBottom = computed(() => (props.title == "Påverkan" ? true : false));
 
 onMounted(() => {
   gsap.to(".mobile-text-container", {
@@ -137,35 +146,41 @@ onMounted(() => {
   });
 });
 
-const logAttr = (e) => {
-  if (sliderExposure.value <= 50 && e.target.exposure >= 50) {
-    gsap.to(".mobile-text-container:nth-child(1)", {
-      duration: 0.5,
-      opacity: 0,
-      y: 40,
-      ease: "power2.out",
-    });
-    gsap.to(".mobile-text-container:nth-child(2)", {
-      duration: 0.5,
-      opacity: 1,
-      y: 0,
-      ease: "power2.out",
-    });
-  } else if (sliderExposure.value >= 50 && e.target.exposure <= 50) {
-    gsap.to(".mobile-text-container:nth-child(2)", {
-      duration: 0.5,
-      opacity: 0,
-      y: 40,
-      ease: "power2.out",
-    });
-    gsap.to(".mobile-text-container:nth-child(1)", {
-      duration: 0.5,
-      opacity: 1,
-      y: 0,
-      ease: "power2.out",
-    });
+// data point to keep track of the slider position
+let sliderExposure = 0;
+
+// every time slider is moved, the text container is toggled (on mobile)
+const toggleTextContainer = (e) => {
+  if(mq.current == 'xs' || mq.current == 'sm'){
+    if (sliderExposure <= 50 && e.target.exposure >= 50) {
+      gsap.to(".mobile-text-container:nth-child(1)", {
+        duration: 0.5,
+        opacity: 0,
+        y: 40,
+        ease: "power2.out",
+      });
+      gsap.to(".mobile-text-container:nth-child(2)", {
+        duration: 0.5,
+        opacity: 1,
+        y: 0,
+        ease: "power2.out",
+      });
+    } else if (sliderExposure >= 50 && e.target.exposure <= 50) {
+      gsap.to(".mobile-text-container:nth-child(2)", {
+        duration: 0.5,
+        opacity: 0,
+        y: 40,
+        ease: "power2.out",
+      });
+      gsap.to(".mobile-text-container:nth-child(1)", {
+        duration: 0.5,
+        opacity: 1,
+        y: 0,
+        ease: "power2.out",
+      });
+    }
   }
-  sliderExposure.value = e.target.exposure;
+  sliderExposure = e.target.exposure;
 };
 </script>
 

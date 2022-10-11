@@ -16,8 +16,10 @@
       </p>
     </div>
 
-    <div class="dialog-wrapper" ref="dialogWrapper">
-      <img class="woman" src="/assets/img-min/apotek-kvinna-fix.png" ref="woman" alt="" />
+    <div class="dialog-wrapper">
+      <img class="woman" src="/assets/img-min/apotek-kvinna-fix.png" alt=""/>
+
+      <!-- three loops that renders 12 + 12 yellow pollen particles and 36 drops, to be (kind of randomly) positioned and animated with gsap -->
       <img v-for="grain in 12" class="pollen pollen-left" src="/assets/img-min/pollen.png" alt="" />
       <img v-for="grain in 12" class="pollen pollen-right" src="/assets/img-min/pollen.png" alt="" />
       <img v-for="drop in 36" class="drop" src="/assets/img-min/drop.png" alt="" />
@@ -33,7 +35,7 @@
         ></button>
         <transition name="scale">
           <div class="dialog-content" v-if="dialogShown == i + 1">
-            <img src="/assets/img/info-line.svg" alt="" class="dotted-line" />
+            <img src="/assets/img-min/info-line.svg" alt="" class="dotted-line" />
             <transition name="text">
               <span>
                 {{ data[`dia_hot_0${i + 1}`] }}
@@ -53,14 +55,19 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const dialogShown = ref(0);
-const dialogWrapper = ref(null)
-const woman = ref(null)
-
 const store = useStore();
 
 const data = store.state.data;
 
+const dialogShown = ref(0);
+
+//starts animations when the component is mounted
+onMounted(() => {
+  pollenSpread();
+  drop();
+})
+
+//construct object to send to modal
 const modalContent = {
   heading: data.dia_popup_h_p02,
   body: data.dia_popup_p_p02,
@@ -70,6 +77,7 @@ const openModal = () => {
   store.commit("modalOpen", modalContent);
 };
 
+//controls which dialog is shown and closes the rest
 const toggleDialog = (i) => {
   if (dialogShown.value == i + 1) {
     dialogShown.value = 0;
@@ -78,8 +86,6 @@ const toggleDialog = (i) => {
   }
 };
 
-// rain lol
-
 const drop = () => {
   gsap.set(".drop", 
     {
@@ -87,17 +93,19 @@ const drop = () => {
       y: "random(0, 900)",
       scale: "random(0.5, 1.5)",
     })
-  const tl = gsap.timeline({
+  tl.to(".drop", {
+    y: "random(-1000, 500)",
+  });
+}
+
+const tl = gsap.timeline({
     scrollTrigger: {
       start: 0,
       end: "200%",
       scrub: 2
     },
   });
-  tl.to(".drop", {
-    y: "random(-1000, 500)",
-  });
-}
+
 
 const pollenSpread = () => {
   gsap.to('.pollen', {
@@ -109,13 +117,6 @@ const pollenSpread = () => {
     repeatRefresh: true,
   })
 }
-
-onMounted(() => {
-  pollenSpread();
-  drop();
-})
-
-
 </script>
 
 <style scoped lang="scss">
@@ -176,7 +177,7 @@ button {
   height: 35px;
   border-radius: 50%;
   background-color: #eeeae6;
-  background: url("/assets/img/ICON-HOTSPOT.svg") no-repeat center;
+  background: url("/assets/img-min/ICON-HOTSPOT.svg") no-repeat center;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   transition: transform 0.2s;

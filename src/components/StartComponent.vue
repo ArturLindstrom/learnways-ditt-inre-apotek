@@ -11,8 +11,9 @@
       <ButtonComponent
         type="scroll"
         v-if="mq.current != 'xs' && mq.current != 'sm'"
-        >{{ data.scroll }}</ButtonComponent
       >
+        {{ data.scroll }}
+      </ButtonComponent>
     </div>
     <transition>
       <InformationComponent v-if="showInfo" />
@@ -30,8 +31,14 @@ import ParallaxComponent from "./ParallaxComponent.vue";
 import gsap from "gsap";
 import { useMq } from "vue3-mq";
 
+const store = useStore();
+
+const data = store.state.data;
+//npm package for media queries
 const mq = useMq();
 
+
+// fades in the text on the start page
 onMounted(() => {
   gsap.from(".text-container", {
     opacity: 0,
@@ -39,11 +46,10 @@ onMounted(() => {
   });
 });
 
+//toggles the information component
 const showInfo = ref(false);
 
-const store = useStore();
 
-const data = store.state.data;
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <section ref="background" :class="setClass">
+  <section ref="section" :class="setClass">
     <p class="page-title" v-if="props.title">
       {{ props.title }}
     </p>
@@ -17,7 +17,7 @@
         v-for="(button, i) in props.buttons"
         :key="i"
         :class="{
-          selected: isSelected === i + 1,
+          'selected': isSelected === i + 1,
           'not-selected': isSelected && isSelected !== i + 1,
         }"
         @click.self="toggleAccordion(i)"
@@ -55,23 +55,65 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
+const emit = defineEmits(["changeColor"]);
 
+const props = defineProps({
+  title: {
+    type: String,
+  },
+  heading: {
+    type: String,
+    default: "",
+  },
+  body: {
+    type: String,
+    default: "",
+  },
+  buttons: {
+    type: Array,
+    default: () => [],
+  },
+  type: {
+    type: String,
+    default: "",
+  },
+});
+
+// variable containing which accordion is selected
 const isSelected = ref(null);
 
-const buttonClicked = ref(0);
-
-const background = ref(null);
+// template ref for section
+const section = ref(null);
 
 const openModal = (modalContent) => {
   store.commit("modalOpen", modalContent);
 };
 
+// takes the prop "type", which is the title of the section, and sets it as a class
 const setClass = computed(() => {
   return props.type.toLowerCase();
 });
 
-const emit = defineEmits(["changeColor"]);
+// logic for which accordions are opened and closed
+const toggleAccordion = (i) => {
+  if (isSelected.value === i + 1) {
+    isSelected.value = null;
+  } else {
+    isSelected.value = i + 1;
+  }
+  if (setClass.value == "funktioner") {
+    store.commit("setAccordion", isSelected.value);
+  } else {
+    store.commit("setAccordion2", isSelected.value);
+  }
+  // sets the data-color attribute to new color from the color computed property
+  section.value.dataset.color = color.value;
+  // emits a signal to the parent component to restart the gsap scrollTrigger for background color on HomeView
+  emit("changeColor");
+};
 
+
+// changes section background when a specific accordion is selected
 const color = computed(() => {
   switch (setClass.value) {
     case "funktioner":
@@ -105,44 +147,6 @@ const color = computed(() => {
   }
 });
 
-const toggleAccordion = (i) => {
-  if (isSelected.value === i + 1) {
-    isSelected.value = null;
-  } else {
-    isSelected.value = i + 1;
-    buttonClicked.value = i + 1;
-  }
-  if (setClass.value == "funktioner") {
-    store.commit("setAccordion", isSelected.value);
-  } else {
-    store.commit("setAccordion2", isSelected.value);
-  }
-  background.value.dataset.color = color.value;
-
-  emit("changeColor");
-};
-
-const props = defineProps({
-  title: {
-    type: String,
-  },
-  heading: {
-    type: String,
-    default: "",
-  },
-  body: {
-    type: String,
-    default: "",
-  },
-  buttons: {
-    type: Array,
-    default: () => [],
-  },
-  type: {
-    type: String,
-    default: "",
-  },
-});
 </script>
 
 <style scoped lang="scss">

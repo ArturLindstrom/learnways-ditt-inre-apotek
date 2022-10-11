@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- slot is used so that ParallaxComponent can be imported from parent (HomeView) -->
     <slot></slot>
     <p class="page-title" v-if="props.title">
       {{ props.title }}
@@ -21,6 +22,7 @@
 <script setup>
 import { useStore } from "vuex";
 import { computed } from "vue";
+
 const store = useStore();
 
 const props = defineProps({

@@ -34,6 +34,7 @@
       </div>
     </div>
     <transition>
+      <!-- InformationComponent is only mounted if showInfo is true -->
       <InformationComponent v-if="showInfo" />
     </transition>
   </section>
@@ -45,14 +46,17 @@ import { ref } from "vue";
 import InformationButton from "./InformationButton.vue";
 import InformationComponent from "./InformationComponent.vue";
 
-const showInfo = ref(false);
-
 const store = useStore();
 
 const data = store.state.data;
 
+//toggles the information component
+const showInfo = ref(false);
+
+//toggles the link clicked text
 const linkClicked = ref(false);
 
+//copies the link to the clipboard and toggles the link clicked text
 const copy = () => {
   linkClicked.value = true;
   navigator.clipboard.writeText("https://www.dittinreapotek.se");

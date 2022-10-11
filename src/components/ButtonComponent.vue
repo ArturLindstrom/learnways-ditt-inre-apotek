@@ -25,11 +25,10 @@ const props = defineProps({
 });
 
 const onAnswer = ref();
-
 const onClick = () => {
   if (props.type == "scroll") {
     window.scrollTo({
-      top: window.innerHeight + 100,
+      top: window.innerHeight + 200,
       behavior: "smooth",
     });
   }

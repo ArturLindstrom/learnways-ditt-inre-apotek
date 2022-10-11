@@ -15,12 +15,9 @@
               <div
                 class="ball"
                 :class="currentId == route ? 'active' : ''"
-                :style="
-                  currentId == route
-                    ? { backgroundColor: currentBackgroundColor }
-                    : ''
-                "
-              ></div>
+                :style="currentId == route ? { backgroundColor: currentBackgroundColor } : ''"
+              >
+            </div>
             </a>
           </li>
         </ul>
@@ -54,6 +51,7 @@ const navToggle = ref(false);
 
 const currentId = computed(() => store.state.currentSection.id);
 
+//checks the current section's background color and applies it to the active nav link
 const currentBackgroundColor = computed(
   () => store.state.currentSection.dataset.color
 );
