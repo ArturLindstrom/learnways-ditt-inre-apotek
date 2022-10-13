@@ -1,13 +1,12 @@
 <template>
   <section>
-    <ParallaxComponent :section="1" />
+    <slot></slot>
     <InformationButton @openInfo="showInfo = !showInfo" />
     <div class="text-container">
       <h1>{{ data.dia_p1_h1 }}</h1>
       <h5>
         {{ data.dia_p1_ingress }}
       </h5>
-
       <ButtonComponent
         type="scroll"
         v-if="mq.current != 'xs' && mq.current != 'sm'"

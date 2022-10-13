@@ -1,6 +1,8 @@
 <template>
   <div class="container" ref="container">
-    <StartComponent id="Start" class="section" data-color="#F4E9D7" />
+    <StartComponent id="Start" class="section" data-color="#F4E9D7" >
+      <ParallaxComponent :section="1"/>
+    </StartComponent>
     <DialogComponent id="Historia" class="section" data-color="#CFE0DF" />
     <QuizComponent
       id="Arter"
@@ -207,7 +209,7 @@ import JuxtapositionComponent from "../components/JuxtapositionComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { useStore } from "vuex";
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref} from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxComponent from "../components/ParallaxComponent.vue";
